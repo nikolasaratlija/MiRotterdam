@@ -1,0 +1,61 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+canvas {
+    display: block;
+    border: 5px solid black;
+}
+
+body {
+    background-color: #303030;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: white;
+    height: 750px;
+    width: 150px;
+    left: 5%;
+    position: absolute;
+}
+
+.canvas-obj {
+    position: absolute;
+}
+
+.obj1 {
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+}
+
+.obj2 {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+
+.obj3 {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+}
+
+.obj4 {
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+}
+
