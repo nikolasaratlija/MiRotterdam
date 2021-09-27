@@ -13,7 +13,7 @@ function preload() {
 function setup() {
     createCanvas(750, 750);
 
-    slider = createSlider(0, 100, 75);
+    slider = createSlider(0, 100, 100);
     slider.position(750, 250);
     slider.style('width', '120px');
 
