@@ -1,13 +1,15 @@
 let bg;
+
 let table;
 let tree;
+
 let slider;
 let objects = []
 
 function preload() {
     bg = loadImage('assets/bg.png')
 
-    table = loadImage('assets/elements/picknicktafel.png');
+    table = loadImage('assets/elements/Picknick.png');
     tree = loadImage('assets/elements/Boom.png');
 }
 
@@ -25,7 +27,7 @@ function setup() {
 
             if (el.src.includes('Boom'))
                 object = tree
-            else if (el.src.includes('picknicktafel'))
+            else if (el.src.includes('picknick'))
                 object = table
 
             object.resize(200, 0)
