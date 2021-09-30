@@ -4,13 +4,23 @@ let table;
 let tree;
 
 let slider;
-let objects = []
+
+let loadedImages = []
+let canvasImages = []
 
 function preload() {
     bg = loadImage('assets/bg.png')
 
-    table = loadImage('assets/elements/Picknick.png');
-    tree = loadImage('assets/elements/Boom.png');
+    files.forEach(file => {
+        const parts = file.split('\/')
+        loadedImages[parts[parts.length - 1]] = loadImage(file)
+
+        let image = document.createElement('img')
+        image.src = file
+        image.width = 100
+
+        document.querySelector('.menu').appendChild(image)
+    })
 }
 
 function setup() {
@@ -23,22 +33,19 @@ function setup() {
 
     document.querySelectorAll('.menu > img')
         .forEach(el => el.addEventListener('click', e => {
-            let object;
-
-            if (el.src.includes('Boom'))
-                object = tree
-            else if (el.src.includes('picknick'))
-                object = table
+            const parts = e.target.src.split('\/')
+            const search = parts[parts.length - 1]
+            let object = loadedImages[search]
 
             object.resize(200, 0)
-            objects.push(new Draggable(object, 300, 300, object.width, object.height))
+            canvasImages.push(new Draggable(object, 300, 300, object.width, object.height))
         }))
 }
 
 function draw() {
     background(bg)
 
-    objects.forEach(object => {
+    canvasImages.forEach(object => {
         const v = slider.value();
         object.w = object.w * (v / 100);
 
@@ -48,11 +55,11 @@ function draw() {
 }
 
 function mousePressed() {
-    objects.forEach(object => object.pressed())
+    canvasImages.forEach(object => object.pressed())
 }
 
 function mouseReleased() {
-    objects.forEach(object => object.released())
+    canvasImages.forEach(object => object.released())
 }
 
 function keyPressed() {

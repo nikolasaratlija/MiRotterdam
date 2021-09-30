@@ -17,16 +17,18 @@ body {
 }
 
 .menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: space-evenly;
-    flex-wrap: wrap;
+    overflow: scroll;
+    overflow-x: hidden;
+    padding: 20px;
     background-color: white;
     height: 750px;
-    width: 150px;
+    width: 500px;
     left: 5%;
     position: absolute;
+}
+
+.menu img {
+    margin: 10px;
 }
 
 .canvas-obj {
