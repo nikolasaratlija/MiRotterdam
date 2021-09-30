@@ -7,7 +7,7 @@ let canvasImages = []
 
 function preload() {
     // background for canvas
-    bg = loadImage('assets/bg.png')
+    bg = loadImage('assets/bg-m.png')
 
     // 1. iterate over all image filenames and load images into p5 canvas
     // 2. creates an <img> element for each image and inserts it into the menu
@@ -25,12 +25,12 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(750, 750);
+    createCanvas(displayWidth, displayHeight);
 
     // slider for adjusting the scale of an element
-    slider = createSlider(0, 100, 100);
-    slider.position(750, 250);
-    slider.style('width', '120px');
+    // slider = createSlider(0, 100, 100);
+    // slider.position(750, 250);
+    // slider.style('width', '120px');
 
     // click event listener on each <img> in the menu.
     document.querySelectorAll('.menu > img')
@@ -41,19 +41,20 @@ function setup() {
             const imageName = imageSource[imageSource.length - 1]
             let object = loadedImages[imageName]
 
-            object.resize(200, 0)
             // push image into canvas
-            canvasImages.push(new Draggable(object, 300, 300, object.width, object.height))
+            canvasImages.push(new Draggable(object, width/2 - 25, height/2 - 25, object.width, object.height))
         }))
 }
 
 function draw() {
-    background(bg)
+    imageMode(CENTER)
+    image(bg, width/2 , height/2, 500, displayHeight)
 
     canvasImages.forEach(object => {
-        const v = slider.value();
-        object.w = object.w * (v / 100);
+        // const v = slider.value();
+        // object.w = object.w * (v / 100);
 
+        imageMode(CORNER)
         object.update();
         object.show();
     })
