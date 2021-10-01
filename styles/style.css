@@ -16,7 +16,6 @@ body {
 }
 
 .menu {
-    /*display:none;*/
     z-index: 1;
     border: 5px solid black;
     overflow: scroll;
@@ -24,12 +23,22 @@ body {
     box-sizing: border-box;
     padding: 20px;
     background-color: rgba(144, 238, 144, 0.85);
-    height: 30%;
-    /*height: 95%;*/
+    height: 95%;
     width: 85%;
     position: absolute;
-    left: 0;
+    left: -100%;
 }
+
+.menu-button {
+    z-index: 2;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    background-color: rgb(144, 238, 144);
+    border: 1px solid black;
+    padding: 5px 10px;
+}
+
 
 .menu::-webkit-scrollbar {
     width: 1em;

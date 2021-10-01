@@ -14,6 +14,7 @@
 </head>
 <body>
 
+<button class="menu-button" id="menu-button">Show Menu</button>
 <div class="menu" id="menu"></div>
 
 <div id="container" class="container"></div>
