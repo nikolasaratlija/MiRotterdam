@@ -19,7 +19,7 @@ files.forEach(file => {
 
 // menu-button
 // animation
-let tween = gsap.to(".menu", {duration: 0.2, left: 0})
+let tween = gsap.to('.menu', {duration: 0.2, left: 0, display: 'block'})
 tween.pause()
 
 let isMenuShown = false
@@ -36,5 +36,5 @@ document.getElementById('menu-button').addEventListener('click', e => {
 document.addEventListener('keypress', (e) => {
     if (e.key === 'x')
         html2canvas(document.querySelector('#container'), {logging: false})
-            .then(canvas => Canvas2imageMin.saveAsPNG(canvas, undefined, undefined, "canvas"))
+            .then(canvas => Canvas2imageMin.saveAsPNG(canvas, undefined, undefined, 'canvas'))
 })

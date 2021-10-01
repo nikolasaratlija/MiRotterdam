@@ -16,6 +16,7 @@ body {
 }
 
 .menu {
+    display: none;
     z-index: 1;
     border: 5px solid black;
     overflow: scroll;
@@ -38,7 +39,6 @@ body {
     border: 1px solid black;
     padding: 5px 10px;
 }
-
 
 .menu::-webkit-scrollbar {
     width: 1em;
