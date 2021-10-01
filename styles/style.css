@@ -1,13 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-}
-
-canvas {
-    display: block;
-    border: 5px solid rgb(144, 238, 144);
-    box-sizing: border-box;
 }
 
 body {
@@ -18,13 +16,16 @@ body {
 }
 
 .menu {
+    /*display:none;*/
+    z-index: 1;
     border: 5px solid black;
     overflow: scroll;
     overflow-x: hidden;
     box-sizing: border-box;
     padding: 20px;
     background-color: rgba(144, 238, 144, 0.85);
-    height: 95%;
+    height: 30%;
+    /*height: 95%;*/
     width: 85%;
     position: absolute;
     left: 0;
@@ -41,6 +42,29 @@ body {
 .menu::-webkit-scrollbar-thumb {
     background-color: darkgrey;
     outline: 1px solid slategrey;
+}
+
+.container {
+    height: 90%;
+    width: 90%;
+    overflow: visible;
+    padding: 0;
+    position: relative;
+    border: 5px solid black;
+    background-image: url("../assets/bg-m.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.container img {
+    box-sizing: content-box;
+    padding: 4px;
+}
+
+.container img.highlighted {
+    border: 2px solid deepskyblue;
+    padding: 2px;
+    border-radius: 20%;
 }
 
 .menu img {

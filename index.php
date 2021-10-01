@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.2/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/Draggable.min.js"></script>
+    <script src="scripts/canvas2image.min.js"></script>
+    <script src="http://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -14,9 +16,10 @@
 
 <div class="menu" id="menu"></div>
 
-<script src="scripts/draggable.js"></script>
-<script src="scripts/get-images.php"></script>
-<script src="scripts/sketch.js"></script>
+<div id="container" class="container"></div>
 
 </body>
+<script src="scripts/get-images.php"></script>
+<script src="scripts/scripts.js"></script>
+
 </html>
