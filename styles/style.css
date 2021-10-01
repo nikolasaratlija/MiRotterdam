@@ -67,12 +67,12 @@ body {
 
 .container img {
     box-sizing: content-box;
-    padding: 4px;
+    padding: 10px;
 }
 
 .container img.highlighted {
-    border: 2px solid deepskyblue;
-    padding: 2px;
+    border: 5px solid rgba(135, 206, 250, 0.9);
+    padding: 5px;
     border-radius: 20%;
 }
 
