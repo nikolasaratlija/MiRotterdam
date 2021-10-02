@@ -26,15 +26,21 @@ files.forEach(file => {
                     slider.style.display = 'none'
                 } else {
                     el.classList.add('selected')
+
                     slider.style.display = 'block'
+                    slider.min = el.width - 50;
+                    slider.max = el.width + 50;
+                    slider.value = el.max / 2;
+
+                    const sliderEvent = (e) =>
+                        document.querySelector('#container img.selected').width = parseInt(e.target.value)
+
+                    slider.removeEventListener('click', sliderEvent)
+                    slider.addEventListener('input', sliderEvent)
                 }
             }
         });
     })
-})
-
-slider.addEventListener('input', e => {
-    document.querySelector('#container img.selected').width += parseInt(e.target.value)
 })
 
 // screenshot
