@@ -1,7 +1,10 @@
+const slider = document.getElementById('scale-slider')
+
 files.forEach(file => {
     let image = document.createElement('img')
     image.src = file
     image.width = 100
+    document.querySelector('.menu').appendChild(image)
 
     image.addEventListener('click', (e) => {
         const img = e.target.cloneNode(true)
@@ -11,24 +14,27 @@ files.forEach(file => {
 
         Draggable.create(`#container img#${randId}`, {
             type: 'x,y', bounds: '#container', onClick: function () {
+                const el = this.target
+
                 // remove 'selected' class if another element has it already
                 const selectedElement = document.querySelector('#container img.selected')
-                if (selectedElement)
+                if (selectedElement && el !== selectedElement)
                     selectedElement.classList.remove('selected')
 
-                const el = this.target
-                if (el.classList.contains('selected'))
+                if (el.classList.contains('selected')) {
                     el.classList.remove('selected')
-                else
+                    slider.style.display = 'none'
+                } else {
                     el.classList.add('selected')
+                    slider.style.display = 'block'
+                }
             }
         });
     })
-    document.querySelector('.menu').appendChild(image)
 })
 
-document.getElementById('scale-slider').addEventListener('input', e => {
-    document.querySelector('#container .selected').width += parseInt(e.target.value)
+slider.addEventListener('input', e => {
+    document.querySelector('#container img.selected').width += parseInt(e.target.value)
 })
 
 // screenshot

@@ -16,6 +16,7 @@ body {
 }
 
 .slider {
+    display: none;
     position: absolute;
     margin: 0 auto;
     bottom: 10%;
