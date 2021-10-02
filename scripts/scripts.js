@@ -1,15 +1,21 @@
 const slider = document.getElementById('scale-slider')
 
+const canvasImageWidth = 100
+const canvasImageWidthMargin = 50
+
+slider.min = canvasImageWidth - canvasImageWidthMargin
+slider.max = canvasImageWidth + canvasImageWidthMargin
+
 files.forEach(file => {
     let image = document.createElement('img')
     image.src = file
-    image.width = 100
     document.querySelector('.menu').appendChild(image)
 
     image.addEventListener('click', (e) => {
         const img = e.target.cloneNode(true)
         const randId = 'obj' + Math.floor(Math.random() * 99) // assign random id to object
         img.id = randId
+        img.width = canvasImageWidth;
         document.getElementById('container').appendChild(img)
 
         Draggable.create(`#container img#${randId}`, {
@@ -28,9 +34,7 @@ files.forEach(file => {
                     el.classList.add('selected')
 
                     slider.style.display = 'block'
-                    slider.min = el.width - 50;
-                    slider.max = el.width + 50;
-                    slider.value = el.max / 2;
+                    slider.value = el.width;
 
                     const sliderEvent = (e) =>
                         document.querySelector('#container img.selected').width = parseInt(e.target.value)
