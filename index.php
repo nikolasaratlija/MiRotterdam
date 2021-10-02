@@ -22,6 +22,7 @@
 
 </body>
 <script src="scripts/get-images.php"></script>
+<script src="scripts/menu-slider.js"></script>
 <script src="scripts/scripts.js"></script>
 
 </html>
