@@ -1,3 +1,4 @@
+const container = document.getElementById('container')
 const slider = document.getElementById('scale-slider')
 
 const canvasImageWidth = 100
@@ -22,25 +23,32 @@ function createCanvasElement(el) {
     img.width = canvasImageWidth;
     document.getElementById('container').appendChild(img)
 
-    Draggable.create(`#container img#${img.id}`, {
-        type: 'x,y', bounds: '#container', onClick: function () {
-            const el = this.target
-
-            // remove 'selected' class if another element has it already
-            const selectedElement = document.querySelector('#container img.selected')
-            if (selectedElement && el !== selectedElement)
-                selectedElement.classList.remove('selected')
-
-            if (el.classList.contains('selected')) {
-                el.classList.remove('selected')
-                setSliderAttributes(false)
-            } else {
-                el.classList.add('selected')
-                setSliderAttributes(true, el)
-            }
-        }
+    Draggable.create(`#container > img#${img.id}`, {
+        type: 'x,y', bounds: '#container', onClick: selectElementEvent
     });
 }
+
+let elementIsSelected = false
+
+const selectElementEvent = (e) => {
+    if (elementIsSelected) return
+    e.preventDefault()
+
+    const element = e.target
+    element.classList.add('selected')
+    elementIsSelected = true
+    setSliderAttributes(true, element)
+}
+
+const unselectElementEvent = () => {
+    if (!elementIsSelected) return
+
+    document.querySelector('#container img.selected').classList.remove('selected')
+    elementIsSelected = false
+    setSliderAttributes(false)
+}
+
+container.addEventListener('click', unselectElementEvent)
 
 function setSliderAttributes(show = true, el = null) {
     if (!show) {

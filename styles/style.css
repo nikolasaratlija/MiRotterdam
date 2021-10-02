@@ -25,7 +25,7 @@ body {
 
 .menu {
     display: none;
-    z-index: 1;
+    z-index: 9998; /* this z-index makes sure the menu always covers the draggable objects. GSAP draggables have a z-index starting from 1000 */
     border: 5px solid black;
     overflow: scroll;
     overflow-x: hidden;
@@ -39,7 +39,7 @@ body {
 }
 
 .menu-button {
-    z-index: 2;
+    z-index: 9999; /* this z-index makes sure the menu always covers the draggable objects. GSAP draggables have a z-index starting from 1000 */
     position: absolute;
     right: 5px;
     bottom: 5px;
