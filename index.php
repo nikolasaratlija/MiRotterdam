@@ -14,10 +14,11 @@
 </head>
 <body>
 
-<button class="menu-button" id="menu-button">Show Menu</button>
 <div class="menu" id="menu"></div>
 
 <div id="container" class="container"></div>
+<button class="menu-button" id="menu-button">Show Menu</button>
+<input type="range" min="1" max="100" value="50" class="slider" id="scale-slider">
 
 </body>
 <script src="scripts/get-images.php"></script>

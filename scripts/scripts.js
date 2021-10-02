@@ -22,6 +22,10 @@ files.forEach(file => {
     document.querySelector('.menu').appendChild(image)
 })
 
+document.getElementById('scale-slider').addEventListener('input', e => {
+    document.querySelector('#container .highlighted').width += parseInt(e.target.value)
+})
+
 // menu-button
 let tween = gsap.to('.menu', {duration: 0.2, left: 0, display: 'block'}) // GSAP animation
 tween.pause()

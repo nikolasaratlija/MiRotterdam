@@ -15,6 +15,13 @@ body {
     align-items: center;
 }
 
+.slider {
+    position: absolute;
+    margin: 0 auto;
+    bottom: 10%;
+    z-index: 1;
+}
+
 .menu {
     display: none;
     z-index: 1;
@@ -68,12 +75,13 @@ body {
 .container img {
     box-sizing: content-box;
     padding: 10px;
+    position: absolute;
 }
 
 .container img.highlighted {
     border: 5px solid rgba(135, 206, 250, 0.9);
     padding: 5px;
-    border-radius: 20%;
+    border-radius: 20px;
 }
 
 .menu img {
