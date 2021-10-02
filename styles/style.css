@@ -78,7 +78,7 @@ body {
     position: absolute;
 }
 
-.container img.highlighted {
+.container img.selected {
     border: 5px solid rgba(135, 206, 250, 0.9);
     padding: 5px;
     border-radius: 20px;

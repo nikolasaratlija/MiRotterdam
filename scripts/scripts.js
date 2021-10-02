@@ -11,11 +11,16 @@ files.forEach(file => {
 
         Draggable.create(`#container img#${randId}`, {
             type: 'x,y', bounds: '#container', onClick: function () {
+                // remove 'selected' class if another element has it already
+                const selectedElement = document.querySelector('#container img.selected')
+                if (selectedElement)
+                    selectedElement.classList.remove('selected')
+
                 const el = this.target
-                if (el.classList.contains('highlighted'))
-                    el.classList.remove('highlighted')
+                if (el.classList.contains('selected'))
+                    el.classList.remove('selected')
                 else
-                    el.classList.add('highlighted')
+                    el.classList.add('selected')
             }
         });
     })
@@ -23,7 +28,7 @@ files.forEach(file => {
 })
 
 document.getElementById('scale-slider').addEventListener('input', e => {
-    document.querySelector('#container .highlighted').width += parseInt(e.target.value)
+    document.querySelector('#container .selected').width += parseInt(e.target.value)
 })
 
 // screenshot
