@@ -49,7 +49,7 @@ canvas.addEventListener('click', () => {
 scaleButton.addEventListener('click', () => {
     if (!selectedElement) return
 
-    if (slider.style.display === 'none')
+    if (!slider.offsetParent) // check if element is not visible on screen
         setSlider(true, selectedElement)
     else
         setSlider(false)
