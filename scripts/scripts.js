@@ -1,4 +1,4 @@
-const container = document.getElementById('container')
+const canvas = document.getElementById('canvas')
 const slider = document.getElementById('scale-slider')
 
 const canvasImageWidth = 100
@@ -21,10 +21,10 @@ function createCanvasElement(el) {
     const img = el.cloneNode(true)
     img.id = 'obj' + Math.floor(Math.random() * 99) // assign random id to object
     img.width = canvasImageWidth;
-    document.getElementById('container').appendChild(img)
+    document.getElementById('canvas').appendChild(img)
 
-    Draggable.create(`#container > img#${img.id}`, {
-        type: 'x,y', bounds: '#container', onClick: selectElementEvent
+    Draggable.create(`#canvas > img#${img.id}`, {
+        type: 'x,y', bounds: '#canvas', onClick: selectElementEvent
     });
 }
 
@@ -43,12 +43,12 @@ const selectElementEvent = (e) => {
 const unselectElementEvent = () => {
     if (!elementIsSelected) return
 
-    document.querySelector('#container img.selected').classList.remove('selected')
+    document.querySelector('#canvas img.selected').classList.remove('selected')
     elementIsSelected = false
     setSliderAttributes(false)
 }
 
-container.addEventListener('click', unselectElementEvent)
+canvas.addEventListener('click', unselectElementEvent)
 
 function setSliderAttributes(show = true, el = null) {
     if (!show) {
@@ -60,7 +60,7 @@ function setSliderAttributes(show = true, el = null) {
     slider.value = el.width;
 
     const sliderEvent = (e) =>
-        document.querySelector('#container img.selected').width = parseInt(e.target.value)
+        document.querySelector('#canvas img.selected').width = parseInt(e.target.value)
 
     slider.removeEventListener('click', sliderEvent)
     slider.addEventListener('input', sliderEvent)

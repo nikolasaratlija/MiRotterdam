@@ -16,8 +16,12 @@
 
 <div class="menu" id="menu"></div>
 
-<div id="container" class="container"></div>
-<button class="menu-button" id="menu-button">Show Menu</button>
+<div class="container">
+    <div id="canvas" class="canvas"></div>
+    <div class="options" id="options"></div>
+</div>
+
+<button class="menu-button" id="menu-button">☰</button>
 <input type="range" class="slider" id="scale-slider">
 
 </body>

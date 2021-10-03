@@ -16,6 +16,8 @@ body {
 }
 
 .slider {
+    writing-mode: bt-lr;
+    -webkit-appearance: slider-vertical;
     display: none;
     position: absolute;
     margin: 0 auto;
@@ -41,11 +43,13 @@ body {
 .menu-button {
     z-index: 9999; /* this z-index makes sure the menu always covers the draggable objects. GSAP draggables have a z-index starting from 1000 */
     position: absolute;
-    right: 5px;
-    bottom: 5px;
-    background-color: rgb(144, 238, 144);
-    border: 1px solid black;
-    padding: 5px 10px;
+    border: none;
+    font-size: 44px;
+    line-height: 1;
+    bottom: 2px;
+    right: 2px;
+    color: #65a765;
+    border-radius: 2px;
 }
 
 .menu::-webkit-scrollbar {
@@ -64,13 +68,31 @@ body {
 .container {
     height: 90%;
     width: 90%;
+}
+
+.canvas {
+    height: 93%;
+    width: 100%;
     overflow: visible;
     padding: 0;
-    position: relative;
     border: 5px solid black;
+    border-bottom: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     background-image: url("../assets/bg-m.png");
     background-size: cover;
     background-position: center;
+}
+
+.options {
+    width: 90%;
+    height: 7%;
+    background-color: #65a765;
+    position: absolute;
+    border: 5px solid black;
+    border-top: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .container img {
