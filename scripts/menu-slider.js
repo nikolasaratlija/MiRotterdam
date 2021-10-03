@@ -1,13 +1,15 @@
 (() => {
-    let tween = gsap.to('.menu-container', {duration: 0.2, left: 0}) // GSAP animation
-    tween.pause()
+    let animation = gsap.timeline()
+    animation.to('.menu-container', {duration: 0.2, left: 0})
+    animation.to('.menu-button', {duration: 0.1, rotation: 180})
+    animation.pause()
 
     let isMenuShown = false
     document.getElementById('menu-button').addEventListener('click', e => {
         if (!isMenuShown)
-            tween.play()
+            animation.play()
         else
-            tween.reverse()
+            animation.reverse()
         isMenuShown = !isMenuShown
     })
 })()
