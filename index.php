@@ -14,9 +14,10 @@
 </head>
 <body>
 
-<div class="menu" id="menu"></div>
-
-<button class="menu-button" id="menu-button"></button>
+<div class="menu-container">
+    <div class="menu" id="menu"></div>
+    <button class="menu-button" id="menu-button"></button>
+</div>
 
 <div class="container">
     <div id="canvas" class="canvas"></div>

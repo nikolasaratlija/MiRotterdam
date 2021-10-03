@@ -1,5 +1,5 @@
 (() => {
-    let tween = gsap.to('.menu', {duration: 0.2, left: 0, display: 'block'}) // GSAP animation
+    let tween = gsap.to('.menu-container', {duration: 0.2, left: 0}) // GSAP animation
     tween.pause()
 
     let isMenuShown = false
