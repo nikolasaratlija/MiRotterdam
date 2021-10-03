@@ -46,7 +46,6 @@ body {
     border: none;
     font-size: 44px;
     line-height: 1;
-    bottom: 2px;
     right: 2px;
     color: #65a765;
     border-radius: 2px;
@@ -92,6 +91,18 @@ body {
     border: 2px solid black;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+
+.option-button {
+    height: 100%;
+    width: 15%;
+    margin: 0 3%;
+    border: none;
+}
+
+.option-button.ok {
+    width: 20%;
+    float: right; /* temporary */
 }
 
 .container img {
