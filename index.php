@@ -19,13 +19,13 @@
 <div class="container">
     <div id="canvas" class="canvas"></div>
     <div class="options" id="options">
-        <button class="option-button scale" id="scale-slider-button">Scale</button>
-        <button class="option-button ok" id="ok">Ok</button>
+        <button class="option-button scale" id="scale-slider-button"></button>
+        <label for="scale-slider"><input type="range" class="slider" id="scale-slider"></label>
+        <button class="option-button ok" id="ok"></button>
     </div>
 </div>
 
 <button class="menu-button" id="menu-button">☰</button>
-<input type="range" class="slider" id="scale-slider">
 
 </body>
 <script src="scripts/get-images.php"></script>
