@@ -42,12 +42,14 @@ body {
     z-index: 9999; /* this z-index makes sure the menu always covers the draggable objects. GSAP draggables have a z-index starting from 1000 */
     position: absolute;
     border: 1px solid black;
-    font-size: 44px;
-    line-height: 1;
-    right: 20px;
-    top: 20px;
-    border-radius: 2px;
-    background-color: #5f9c5f;
+    left: 20px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-image: url("../assets/chevron.png");
+    width: 50px;
+    height: 50px;
 }
 
 .menu::-webkit-scrollbar {
@@ -109,8 +111,7 @@ body {
     border-bottom: none;
     border-top: none;
     background-color: #5f9c5f;
-    background-image: url("../assets/placeholder.png");
-    background-size: contain;
+    background-size: 65%;
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -125,7 +126,12 @@ body {
     z-index: 1;
 }
 
+.option-button.scale {
+    background-image: url("../assets/scale.png");
+}
+
 .option-button.ok {
     width: 20%;
     float: right; /* temporary */
+    background-image: url("../assets/ok.png");
 }

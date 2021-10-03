@@ -16,6 +16,8 @@
 
 <div class="menu" id="menu"></div>
 
+<button class="menu-button" id="menu-button"></button>
+
 <div class="container">
     <div id="canvas" class="canvas"></div>
     <div class="options" id="options">
@@ -24,8 +26,6 @@
         <button class="option-button ok" id="ok"></button>
     </div>
 </div>
-
-<button class="menu-button" id="menu-button">☰</button>
 
 </body>
 <script src="scripts/get-images.php"></script>
