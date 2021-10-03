@@ -1,6 +1,6 @@
 const canvas = document.getElementById('canvas')
 const slider = document.getElementById('scale-slider')
-const scaleButton = document.getElementById('scale')
+const scaleButton = document.getElementById('scale-slider-button')
 
 const canvasImageWidth = 100
 const canvasImageWidthMargin = 50
@@ -18,7 +18,7 @@ files.forEach(file => {
     image.addEventListener('click', (e) => createCanvasElement(e.target))
 })
 
-let elementIsSelected = false
+let selectedElement
 
 function createCanvasElement(el) {
     const img = el.cloneNode(true)
@@ -28,27 +28,34 @@ function createCanvasElement(el) {
 
     Draggable.create(`#canvas > img#${img.id}`, {
         type: 'x,y', bounds: '#canvas', onClick: (e) => {
-            if (elementIsSelected) return
+            if (selectedElement) return // if an element has already been selected, do nothing
             e.preventDefault()
 
-            const element = e.target
-            element.classList.add('selected')
-            elementIsSelected = true
-            showSlider(true, element)
+            selectedElement = e.target
+            selectedElement.classList.add('selected')
         }
     });
 }
 
 // unselect object when pressing anywhere on canvas
 canvas.addEventListener('click', () => {
-    if (!elementIsSelected) return
+    if (!selectedElement) return // if an element has not been selected, do nothing
 
-    document.querySelector('#canvas img.selected').classList.remove('selected')
-    elementIsSelected = false
-    showSlider(false)
+    selectedElement.classList.remove('selected')
+    selectedElement = undefined
+    setSlider(false)
 })
 
-function showSlider(show = true, el = null) {
+scaleButton.addEventListener('click', () => {
+    if (!selectedElement) return
+
+    if (slider.style.display === 'none')
+        setSlider(true, selectedElement)
+    else
+        setSlider(false)
+})
+
+function setSlider(show = true, el = null) {
     if (!show) {
         slider.style.display = 'none'
         return
