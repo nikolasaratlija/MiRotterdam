@@ -87,8 +87,6 @@ body {
     width: 100%;
     overflow: visible;
     padding: 0;
-    border: 2px solid black;
-    border-bottom: 0;
     background-image: url("../assets/bg-m.png");
     background-size: cover;
     background-position: center;
@@ -99,7 +97,7 @@ body {
     width: 100%;
     height: 7%;
     background-color: #65a765;
-    border: 2px solid black;
+    border-top: 2px solid black;
 }
 
 .option-button {
