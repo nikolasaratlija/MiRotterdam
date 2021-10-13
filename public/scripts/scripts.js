@@ -8,6 +8,13 @@ const canvasImageWidthMargin = 50
 slider.min = canvasImageWidth - canvasImageWidthMargin
 slider.max = canvasImageWidth + canvasImageWidthMargin
 
+// temp
+const files = [
+    "assets/elements/Speeltoestel.png",
+    "assets/elements/Tribune.png",
+    "assets/elements/Voetbalgoal.png"
+]
+
 files.forEach(file => {
     // adds images to menu
     let image = document.createElement('img')

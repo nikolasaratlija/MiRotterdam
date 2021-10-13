@@ -1,0 +1,125 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #303030;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-container {
+  display: flex;
+  left: -85%;
+  z-index: 9998; /* this z-index makes sure the menu always covers the draggable objects. GSAP draggables have a z-index starting from 1000 */
+  position: absolute;
+  width: 100%;
+  height: 95%;
+  overflow: scroll;
+}
+
+.menu {
+  border: 5px solid black;
+  border-left: none;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  padding: 20px;
+  background-color: rgba(144, 238, 144, 0.85);
+  height: 100%;
+  width: 85%;
+
+  img {
+    margin: 10px;
+    width: 25%;
+    max-height: 100px;
+    object-fit: scale-down;
+  }
+}
+
+.menu-button {
+  z-index: 9999; /* this z-index makes sure the menu always covers the draggable objects. GSAP draggables have a z-index starting from 1000 */
+  border: 1px solid black;
+  border-radius: 50%;
+  background-position: center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-image: url("../assets/icons/chevron.png");
+  width: 50px;
+  height: 50px;
+  align-self: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-left: 5px;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+
+  img {
+    box-sizing: content-box;
+    padding: 10px;
+    position: absolute;
+
+    .selected {
+      border: 5px solid rgba(135, 206, 250, 0.9);
+      padding: 5px;
+      border-radius: 20px;
+    }
+  }
+}
+
+.canvas {
+  height: 93%;
+  width: 100%;
+  overflow: visible;
+  padding: 0;
+  //background-image: url("../assets/icons/bg-m.png");
+  background-size: cover;
+  background-position: center;
+}
+
+
+.options {
+  width: 100%;
+  height: 7%;
+  background-color: #65a765;
+  border-top: 2px solid black;
+}
+
+.option-button {
+  height: 100%;
+  width: 15%;
+  margin: 0 3%;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: none;
+  border-top: none;
+  background-color: #5f9c5f;
+  background-size: 65%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slider {
+  writing-mode: bt-lr;
+  -webkit-appearance: slider-vertical;
+  display: none;
+  position: absolute;
+  margin: 0 auto;
+  bottom: 10%;
+  z-index: 1;
+}
+
+.option-button.scale {
+  background-image: url("../assets/icons/scale.png");
+}
+
+.option-button.ok {
+  width: 20%;
+  float: right; /* temporary */
+  background-image: url("../assets/icons/ok.png");
+}
