@@ -4,6 +4,10 @@
     const slider = document.getElementById('scale-slider')
     const scaleButton = document.getElementById('scale-slider-button')
 
+    // set background of canvas
+    canvas.style.backgroundImage
+        = `url('${window.location.protocol}//${window.location.host}/api/locations/5/image')`
+
     const canvasImageWidth = 100
     const canvasImageWidthMargin = 50
 
