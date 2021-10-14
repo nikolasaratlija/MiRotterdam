@@ -26,12 +26,12 @@ Team:
 `GET /api/locations/`
 
 
-Get location by ID:
+### Get location by ID:
 
 `GET /api/locations/:id`
 
 
-Get image of location by ID
+### Get image of location by ID
 
 `GET /api/locations/:id/image`
 
