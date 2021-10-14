@@ -2,7 +2,6 @@
 
     const canvas = document.getElementById('canvas')
     const slider = document.getElementById('scale-slider')
-    const scaleButton = document.getElementById('scale-slider-button')
 
     // set background of canvas
     canvas.style.backgroundImage
@@ -21,7 +20,7 @@
         // adds images to menu
         let image = document.createElement('img')
         image.src = 'assets/elements/' + file
-        document.querySelector('.menu').appendChild(image)
+        document.getElementById('elements-menu').appendChild(image)
 
         // add image to canvas onclick
         image.addEventListener('click', (e) => createCanvasElement(e.target))
@@ -55,14 +54,14 @@
         setSlider(false)
     })
 
-    scaleButton.addEventListener('click', () => {
-        if (!selectedElement) return // if no element has been selected, do nothing
-
-        if (!slider.offsetParent) // check if element is not visible on screen
-            setSlider(true, selectedElement)
-        else
-            setSlider(false)
-    })
+    // scaleButton.addEventListener('click', () => {
+    //     if (!selectedElement) return // if no element has been selected, do nothing
+    //
+    //     if (!slider.offsetParent) // check if element is not visible on screen
+    //         setSlider(true, selectedElement)
+    //     else
+    //         setSlider(false)
+    // })
 
     function setSlider(show = true, el = null) {
         if (!show) {

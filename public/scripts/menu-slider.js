@@ -1,11 +1,10 @@
 (() => {
     let animation = gsap.timeline()
-    animation.to('.menu-container', {duration: 0.2, left: 0})
-    animation.to('.menu-button', {duration: 0.2, rotation: 180})
+    animation.to('.elements-menu', {duration: 0.2, left: 0})
     animation.pause()
 
     let isMenuShown = false
-    document.getElementById('menu-button').addEventListener('click', e => {
+    document.getElementById('elements-menu-button').addEventListener('click', e => {
         if (!isMenuShown)
             animation.play()
         else

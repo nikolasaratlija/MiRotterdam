@@ -1,18 +1,18 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
-    <div class="menu-container">
-        <div class="menu" id="menu"></div>
-        <button class="menu-button" id="menu-button"></button>
-    </div>
+    <div class="elements-menu" id="elements-menu"></div>
 
-    <div class="container">
-        <div id="canvas" class="canvas"></div>
-        <div class="options" id="options">
-            <button class="option-button scale" id="scale-slider-button"></button>
-            <label for="scale-slider"><input type="range" class="slider" id="scale-slider"></label>
-            <button class="option-button ok" id="ok"></button>
-        </div>
+    <div id="canvas" class="canvas"></div>
+
+    <label for="scale-slider">
+        <input type="range" class="slider" id="scale-slider">
+    </label>
+
+    <div class="options" id="options">
+        <button class="option-button elements-menu-button" id="elements-menu-button"></button>
+        <button class="option-button menu-button" id="menu-button"></button>
+        <button class="option-button ok-button" id="ok-button"></button>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
