@@ -3,9 +3,15 @@ const router = express.Router()
 
 const fs = require('fs')
 const conn = require('../scripts/connection')
+const path = require("path");
 
 router.get('/', (req, res) => {
-    res.send('images')
+    let filesArr = []
+
+    fs.readdir(path.join(__dirname, '../public/assets/elements'), (err, files) => {
+        filesArr = files
+        res.send(filesArr)
+    })
 })
 
 module.exports = router

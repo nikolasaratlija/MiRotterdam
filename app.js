@@ -9,7 +9,7 @@ const fileUpload = require('express-fileupload')
 
 const indexRouter = require('./routes/index')
 const locationsRouter = require('./routes/locations')
-const imagesRouter = require('./routes/images')
+const elementsRouter = require('./routes/elements')
 
 const app = express()
 
@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
 app.use('/api/locations', locationsRouter)
-app.use('/api/images', imagesRouter)
+app.use('/api/elements', elementsRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
