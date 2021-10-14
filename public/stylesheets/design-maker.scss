@@ -1,24 +1,19 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
-
 body.design-maker {
   background-color: #303030;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+}
 
 .menu-container {
   display: flex;
   left: -85%;
-  z-index: 9998;
-  /* this z-index makes sure the menu always covers the draggable objects. GSAP draggables have a z-index starting from 1000 */
+  z-index: 9998; /* this z-index makes sure the menu always covers the draggable objects. GSAP draggables have a z-index starting from 1000 */
   position: absolute;
   width: 100%;
   height: 95%;
-  overflow: scroll; }
+  overflow: scroll;
+}
 
 .menu {
   border: 5px solid black;
@@ -28,16 +23,18 @@ body.design-maker {
   padding: 20px;
   background-color: rgba(144, 238, 144, 0.85);
   height: 100%;
-  width: 85%; }
-  .menu img {
+  width: 85%;
+
+  img {
     margin: 10px;
     width: 25%;
     max-height: 100px;
-    object-fit: scale-down; }
+    object-fit: scale-down;
+  }
+}
 
 .menu-button {
-  z-index: 9999;
-  /* this z-index makes sure the menu always covers the draggable objects. GSAP draggables have a z-index starting from 1000 */
+  z-index: 9999; /* this z-index makes sure the menu always covers the draggable objects. GSAP draggables have a z-index starting from 1000 */
   border: 1px solid black;
   border-radius: 50%;
   background-position: center;
@@ -48,34 +45,42 @@ body.design-maker {
   height: 50px;
   align-self: center;
   background-color: rgba(255, 255, 255, 0.8);
-  margin-left: 5px; }
+  margin-left: 5px;
+}
 
 .container {
   height: 100%;
-  width: 100%; }
-  .container img {
+  width: 100%;
+
+  img {
     box-sizing: content-box;
     padding: 10px;
-    position: absolute; }
-    .container img .selected {
+    position: absolute;
+
+    .selected {
       border: 5px solid rgba(135, 206, 250, 0.9);
       padding: 5px;
-      border-radius: 20px; }
+      border-radius: 20px;
+    }
+  }
+}
 
 .canvas {
   height: 93%;
   width: 100%;
   overflow: visible;
   padding: 0;
-  background-image: url("http://127.0.0.1:3000/api/locations/5/image");
+  background-image: url('http://127.0.0.1:3000/api/locations/5/image'); // make this dynamic
   background-size: cover;
-  background-position: center; }
+  background-position: center;
+}
 
 .options {
   width: 100%;
   height: 7%;
   background-color: #65a765;
-  border-top: 2px solid black; }
+  border-top: 2px solid black;
+}
 
 .option-button {
   height: 100%;
@@ -88,14 +93,18 @@ body.design-maker {
   background-color: #5f9c5f;
   background-size: 65%;
   background-position: center;
-  background-repeat: no-repeat; }
-  .option-button.scale {
-    background-image: url("../assets/icons/scale.png"); }
-  .option-button.ok {
+  background-repeat: no-repeat;
+
+  &.scale {
+    background-image: url("../assets/icons/scale.png");
+  }
+
+  &.ok {
     width: 20%;
-    float: right;
-    /* temporary */
-    background-image: url("../assets/icons/ok.png"); }
+    float: right; /* temporary */
+    background-image: url("../assets/icons/ok.png");
+  }
+}
 
 .slider {
   writing-mode: bt-lr;
@@ -104,6 +113,5 @@ body.design-maker {
   position: absolute;
   margin: 0 auto;
   bottom: 10%;
-  z-index: 1; }
-
-/*# sourceMappingURL=style.css.map */
+  z-index: 1;
+}

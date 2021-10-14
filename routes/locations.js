@@ -1,33 +1,52 @@
 const express = require('express')
 const router = express.Router();
 const conn = require('../scripts/connection')
+const path = require('path')
 
 // GET all locations
 router.get('/', (req, res) => {
-    conn.query('SELECT * FROM locations', (err, rows) => res.send(rows))
+    conn.query('SELECT * FROM locations', (err, rows) => {
+        if (err)
+            res.send(err)
+        else
+            res.send(rows)
+    })
 })
 
 // GET location
 router.get('/:id', (req, res) => {
     conn.query('SELECT * FROM locations WHERE id=?', [parseInt(req.params.id)], (err, row) => {
-        if (row.length === 0)
+        if (err)
+            res.send(err)
+        else if (row.length === 0)
             res.status(404).send('Error 404, not found')
         else
             res.send(row)
     })
 })
 
+// GET image of location
+router.get('/:id/image', (req, res) => {
+    res.sendFile(path.join(__dirname, `../private/location_images/L-${req.params.id}.png`))
+})
+
 // POST location
 router.post('/', (req, res) => {
-    conn.query(`INSERT INTO locations VALUE (?, ?, ?)`, [null, req.body.street, req.body.image || null], (err, data) => {
-        res.send(data)
+    conn.query(`INSERT INTO locations VALUE (?, ?, ?)`, [null, req.body.location, req.body.image || null], (err, data) => {
+        if (err)
+            res.send(err)
+        else
+            res.send(data)
     })
 })
 
 // DELETE location
 router.delete('/:id', (req, res) => {
     conn.query('DELETE FROM locations WHERE id=?', [parseInt(req.params.id)], (err, data) => {
-        res.send(data)
+        if (err)
+            res.send(err)
+        else
+            res.send(data)
     })
 })
 
@@ -35,8 +54,8 @@ router.delete('/:id', (req, res) => {
 router.put('/:id', (req, res) => {
     let setClause = ''
 
-    if (req.body.street)
-        setClause += 'street=? '
+    if (req.body.location)
+        setClause += 'location=? '
 
     if (req.body.image)
         setClause += 'image=? '
@@ -44,8 +63,13 @@ router.put('/:id', (req, res) => {
     // creates an array containing the values of the req.body, ignoring empty values, and appends param.id
     const values = Object.values(req.body).filter(el => el !== '').concat(req.params.id)
 
-    conn.query(`UPDATE locations SET ${setClause} WHERE id=?`, values, (err, data) => {
-        res.send(data)
+    conn.query(`UPDATE locations
+                SET ${setClause}
+                WHERE id = ?`, values, (err, data) => {
+        if (err)
+            res.send(err)
+        else
+            res.send(data)
     })
 })
 
