@@ -10,6 +10,32 @@ body.design-maker {
   justify-content: center;
   align-items: center;
   flex-direction: column; }
+  body.design-maker h2 {
+    font-size: 1.7em;
+    padding-left: 30px;
+    font-family: Lato, sans-serif;
+    margin-bottom: 0.5em; }
+
+.element-editor {
+  position: absolute;
+  background-color: rgba(144, 238, 144, 0.85);
+  width: 100%;
+  height: 25%;
+  top: -25%;
+  box-sizing: border-box;
+  border-bottom: 5px solid rgba(0, 0, 0, 0.3); }
+  .element-editor .editor-attribute-choices {
+    border-top: 5px solid rgba(0, 0, 0, 0.3);
+    display: flex; }
+    .element-editor .editor-attribute-choices span {
+      border: 2px solid rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      padding: 5px;
+      margin-top: 5px;
+      margin-left: 5%; }
+      .element-editor .editor-attribute-choices span.highlighted {
+        color: white;
+        background-color: rgba(0, 0, 0, 0.3); }
 
 .elements-menu-container {
   position: absolute;
@@ -22,11 +48,6 @@ body.design-maker {
   overflow-x: hidden;
   box-sizing: border-box;
   background-color: rgba(144, 238, 144, 0.95); }
-  .elements-menu-container h2 {
-    font-size: 1.7em;
-    padding-left: 30px;
-    font-family: Lato, sans-serif;
-    margin-bottom: 0.5em; }
   .elements-menu-container .elements-menu {
     border-top: 5px solid rgba(0, 0, 0, 0.3);
     padding: 20px;
