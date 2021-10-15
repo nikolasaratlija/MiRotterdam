@@ -7,7 +7,11 @@ body.design-maker {
 }
 
 .elements-menu-container {
+  //display: grid;
+  //grid-template-columns: 1fr 1fr;
+
   position: absolute;
+  left: -125%;
   height: 100%;
   width: 85%;
   border-right: 2px solid black;
@@ -16,7 +20,8 @@ body.design-maker {
   overflow-x: hidden;
   box-sizing: border-box;
   background-color: rgba(144, 238, 144, 0.95);
-  left: 0;
+  //-webkit-box-shadow: 50px 5px 15px 5px rgba(0,0,0,0.5);
+  //box-shadow: 50px 5px 15px 5px rgba(0,0,0,0.5);
 
   h2 {
     font-size: 1.7em;
@@ -25,7 +30,24 @@ body.design-maker {
     margin-bottom: 0.5em;
   }
 
+  // style for button
+  //.close-elements-menu {
+  //  width: 50px;
+  //  height: 45px;
+  //  justify-self: right;
+  //  align-self: center;
+  //  margin-right: 10%;
+  //  background-color: whitesmoke;
+  //  border: 2px solid rgba(0, 0, 0, 0.7);
+  //  border-radius: 5px;
+  //  background-image: url("../assets/icons/close.png");
+  //  background-position: center;
+  //  background-size: 67%;
+  //  background-repeat: no-repeat;
+  //}
+
   .elements-menu {
+    //grid-column: 1/3;
     border-top: 5px solid rgba(0, 0, 0, 0.3);
     padding: 20px;
     box-sizing: border-box;

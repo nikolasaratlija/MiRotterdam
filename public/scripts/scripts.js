@@ -3,9 +3,13 @@
     const canvas = document.getElementById('canvas')
     const slider = document.getElementById('scale-slider')
 
+    // get query string parameter
+    const defaultLocationId = 5
+    const locationId = getLocationId() || defaultLocationId // default location id of 5 for testing
+
     // set background of canvas
     canvas.style.backgroundImage
-        = `url('${window.location.protocol}//${window.location.host}/api/locations/5/image')`
+        = `url('${window.location.protocol}//${window.location.host}/api/locations/${locationId}/image')`
 
     const canvasImageWidth = 100
     const canvasImageWidthMargin = 50
@@ -79,4 +83,9 @@
         slider.addEventListener('input', sliderEvent)
     }
 
+    function getLocationId() {
+        const urlSearchParams = new URLSearchParams(window.location.search);
+        const params = Object.fromEntries(urlSearchParams.entries());
+        return params.location
+    }
 })()
