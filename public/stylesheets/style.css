@@ -70,7 +70,7 @@ body.design-maker {
   background-size: cover;
   background-position: center; }
   .canvas img {
-    box-sizing: content-box;
+    box-sizing: border-box;
     padding: 10px;
     position: absolute; }
     .canvas img.selected {
