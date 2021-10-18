@@ -22,7 +22,7 @@
     })
 
     // attribute editor
-    const elementEditorButton = document.getElementById('menu-button')
+    const elementEditorButton = document.getElementById('attribute-menu-button')
     let isElementEditorShown = false
     const elementEditorAnimation = gsap.timeline()
     elementEditorAnimation.to('.element-editor', {duration: 0.2, top: 0})

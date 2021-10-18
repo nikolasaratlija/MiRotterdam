@@ -2,6 +2,7 @@
 
     const canvas = document.getElementById('canvas')
     const slider = document.getElementById('scale-slider')
+    const attributeMenuButton = document.getElementById('attribute-menu-button')
 
     // get query string parameter
     const defaultLocationId = 5
@@ -32,6 +33,23 @@
 
     let selectedElement
 
+    const selectElement = e => {
+        if (selectedElement) return // if an element has already been selected, do nothing
+        e.preventDefault()
+
+        selectedElement = e.target
+        selectedElement.classList.add('selected')
+        attributeMenuButton.disabled = false
+    }
+
+    const unselectElement = e => {
+        if (!selectedElement) return // if an element has not been selected, do nothing
+
+        selectedElement.classList.remove('selected')
+        selectedElement = undefined
+        attributeMenuButton.disabled = true
+    }
+
     function createCanvasElement(el) {
         const img = el.cloneNode(true)
         img.id = 'obj' + Math.floor(Math.random() * 99) // assign random id to object
@@ -39,49 +57,14 @@
         document.getElementById('canvas').appendChild(img)
 
         Draggable.create(`#canvas > img#${img.id}`, {
-            type: 'x,y', bounds: '#canvas', onClick: (e) => {
-                if (selectedElement) return // if an element has already been selected, do nothing
-                e.preventDefault()
-
-                selectedElement = e.target
-                selectedElement.classList.add('selected')
-            }
+            type: 'x,y',
+            bounds: '#canvas',
+            onClick: selectElement
         });
     }
 
     // unselect object when pressing anywhere on canvas
-    canvas.addEventListener('click', () => {
-        if (!selectedElement) return // if an element has not been selected, do nothing
-
-        selectedElement.classList.remove('selected')
-        selectedElement = undefined
-        setSlider(false)
-    })
-
-    // scaleButton.addEventListener('click', () => {
-    //     if (!selectedElement) return // if no element has been selected, do nothing
-    //
-    //     if (!slider.offsetParent) // check if element is not visible on screen
-    //         setSlider(true, selectedElement)
-    //     else
-    //         setSlider(false)
-    // })
-
-    function setSlider(show = true, el = null) {
-        if (!show) {
-            slider.style.display = 'none'
-            return
-        }
-
-        slider.style.display = 'block'
-        slider.value = el.width;
-
-        const sliderEvent = (e) =>
-            document.querySelector('#canvas img.selected').width = parseInt(e.target.value)
-
-        slider.removeEventListener('click', sliderEvent)
-        slider.addEventListener('input', sliderEvent)
-    }
+    canvas.addEventListener('click', unselectElement)
 
     function getLocationId() {
         const urlSearchParams = new URLSearchParams(window.location.search);

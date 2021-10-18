@@ -47,6 +47,7 @@ body.design-maker {
   overflow: scroll;
   overflow-x: hidden;
   box-sizing: border-box;
+  z-index: 9999;
   background-color: rgba(144, 238, 144, 0.95); }
   .elements-menu-container .elements-menu {
     border-top: 5px solid rgba(0, 0, 0, 0.3);
@@ -102,10 +103,12 @@ body.design-maker {
   background-repeat: no-repeat; }
   .option-button.elements-menu-button {
     background-image: url("../assets/icons/add.png"); }
-  .option-button.menu-button {
+  .option-button.attribute-menu-button {
     background-image: url("../assets/icons/menu.png"); }
   .option-button.ok-button {
     background-image: url("../assets/icons/ok.png"); }
+  .option-button:disabled {
+    background-color: #75816b; }
 
 .slider {
   -webkit-transform: rotate(270deg);

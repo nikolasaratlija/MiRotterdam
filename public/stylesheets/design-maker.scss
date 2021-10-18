@@ -55,6 +55,7 @@ body.design-maker {
   overflow: scroll;
   overflow-x: hidden;
   box-sizing: border-box;
+  z-index: 9999;
   background-color: rgba(144, 238, 144, 0.95);
   //-webkit-box-shadow: 50px 5px 15px 5px rgba(0,0,0,0.5);
   //box-shadow: 50px 5px 15px 5px rgba(0,0,0,0.5);
@@ -144,12 +145,16 @@ body.design-maker {
     background-image: url("../assets/icons/add.png");
   }
 
-  &.menu-button {
+  &.attribute-menu-button {
     background-image: url("../assets/icons/menu.png");
   }
 
   &.ok-button {
     background-image: url("../assets/icons/ok.png");
+  }
+
+  &:disabled {
+    background-color: #75816b
   }
 }
 
