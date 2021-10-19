@@ -36,6 +36,10 @@ body.design-maker {
       .element-editor .editor-attribute-choices span.highlighted {
         color: white;
         background-color: rgba(0, 0, 0, 0.3); }
+  .element-editor .attribute-editor {
+    width: 100%;
+    display: flex;
+    justify-content: center; }
 
 .elements-menu-container {
   position: absolute;
@@ -70,7 +74,6 @@ body.design-maker {
   background-size: cover;
   background-position: center; }
   .canvas img {
-    box-sizing: border-box;
     padding: 10px;
     position: absolute; }
     .canvas img.selected {
@@ -110,15 +113,32 @@ body.design-maker {
   .option-button:disabled {
     background-color: #75816b; }
 
-.slider {
-  -webkit-transform: rotate(270deg);
-  -moz-transform: rotate(270deg);
-  transform: rotate(270deg);
-  display: none;
-  position: absolute;
-  right: -10%;
-  margin: 0 auto;
-  bottom: 50%;
-  z-index: 1; }
+.scale-slider-label {
+  width: 90%; }
+
+.scale-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 5% 0 auto;
+  height: 15px;
+  border-radius: 5px;
+  background: whitesmoke;
+  outline: none;
+  -webkit-transition: .2s;
+  transition: opacity .2s; }
+  .scale-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #04AA6D;
+    cursor: pointer; }
+  .scale-slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #04AA6D;
+    cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */

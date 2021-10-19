@@ -1,7 +1,20 @@
 const slider = document.getElementById('scale-slider')
 
-const canvasImageWidth = 100
-const canvasImageWidthMargin = 50
+export function Slider(imageWidth, imageMargin) {
 
-slider.min = canvasImageWidth - canvasImageWidthMargin
-slider.max = canvasImageWidth + canvasImageWidthMargin
+    slider.min = imageWidth - imageMargin
+    slider.max = imageWidth + imageMargin
+
+    slider.addEventListener('input', e => {
+        const currentSelectedElement = getSelectedElement()
+        currentSelectedElement.style.width = parseInt(slider.value) + 'px'
+    })
+}
+
+export function updateSlider() {
+    slider.value = getSelectedElement().width
+}
+
+function getSelectedElement() {
+    return document.querySelector('.selected')
+}
