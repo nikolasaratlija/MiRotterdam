@@ -5,15 +5,27 @@
         <h2>Aanpassen</h2>
 
         <div class="editor-attribute-choices">
-            <span class="highlighted">Grootte</span>
-            <span>Kleur</span>
-            <span>Spiegelen</span>
+            <span id="choice-size" class="highlighted">Grootte</span>
+            <span id="choice-color">Kleur</span>
+            <span id="choice-mirror">Spiegelen</span>
         </div>
 
         <div class="attribute-editor">
-            <label for="scale-slider" class="scale-slider-label">
-                <input type="range" class="scale-slider" id="scale-slider">
-            </label>
+            <div class="scale-slider-container shown" id="scale-slider-container">
+                <label for="scale-slider" class="scale-slider-label">
+                    <input type="range" class="scale-slider" id="scale-slider">
+                </label>
+            </div>
+
+            <div class="color-choices-container" id="color-choices-container">
+                <div class="color-button blue" id="color-choice-green"><span></span></div>
+                <div class="color-button red" id="color-choice-blue"><span></span></div>
+                <div class="color-button orange" id="color-choice-yellow"><span></span></div>
+                <div class="color-button lavender" id="color-choice-green"><span></span></div>
+                <div class="color-button purple" id="color-choice-blue"><span></span></div>
+                <div class="color-button yellow" id="color-choice-yellow"><span></span></div>
+                <div class="color-button green" id="color-choice-yellow"><span></span></div>
+            </div>
         </div>
     </div>
 

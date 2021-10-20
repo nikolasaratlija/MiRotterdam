@@ -23,7 +23,9 @@ body.design-maker {
   height: 25%;
   top: -25%;
   box-sizing: border-box;
-  border-bottom: 5px solid rgba(0, 0, 0, 0.3); }
+  border-bottom: 5px solid rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column; }
   .element-editor .editor-attribute-choices {
     border-top: 5px solid rgba(0, 0, 0, 0.3);
     display: flex; }
@@ -36,10 +38,44 @@ body.design-maker {
       .element-editor .editor-attribute-choices span.highlighted {
         color: white;
         background-color: rgba(0, 0, 0, 0.3); }
-  .element-editor .attribute-editor {
-    width: 100%;
-    display: flex;
-    justify-content: center; }
+
+.attribute-editor {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .attribute-editor .scale-slider-container {
+    width: 75%;
+    display: none; }
+    .attribute-editor .scale-slider-container.shown {
+      display: block; }
+  .attribute-editor .color-choices-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    grid-gap: 10px;
+    display: none; }
+    .attribute-editor .color-choices-container.shown {
+      display: grid; }
+  .attribute-editor .color-button {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; }
+    .attribute-editor .color-button.blue {
+      background-color: #003049; }
+    .attribute-editor .color-button.red {
+      background-color: #D62828; }
+    .attribute-editor .color-button.orange {
+      background-color: #F77F00; }
+    .attribute-editor .color-button.lavender {
+      background-color: #CFBFF7; }
+    .attribute-editor .color-button.purple {
+      background-color: #8B80F9; }
+    .attribute-editor .color-button.green {
+      background-color: #4D8B31; }
+    .attribute-editor .color-button.yellow {
+      background-color: #FFC800; }
 
 .elements-menu-container {
   position: absolute;
