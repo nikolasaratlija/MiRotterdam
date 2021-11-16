@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router();
-const conn = require('../scripts/connection')
+const conn = require('../database/connection')
 const path = require('path')
 
 // GET all locations
