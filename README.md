@@ -11,13 +11,25 @@ Team:
 * Yassine Yaagoubi (0962390)
 * Salar Ali (1005210)
 
-## Run the app 
+## Environment currently hosted on:
+`https://mi-rotterdam.herokuapp.com/`
+
+## Install all dependencies
     npm start
 
-## Run DEV 
+## Run dev environment @ 127.0.0.1:8000/
     npm run dev
 
+# Routes
+
+## Index
+`'/'`
+
+## Design Maker
+`'/ontwerpomgeving'`
+
 # REST API
+An API for communicating with the MySQL database
 
 ## Locations
 
