@@ -1,6 +1,6 @@
 import {setCanvasImage} from "./setCanvasImage.js";
 import {loadElements} from "./loadElements.js";
-import {CanvasElement} from "./canvasElement.js";
+import {CanvasElement} from "./CanvasElement.js";
 import {Slider} from "./ElementSizeSlider.js";
 import {AttributeEditor} from "./AttributeEditor.js";
 
