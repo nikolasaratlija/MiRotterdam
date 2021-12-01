@@ -1,5 +1,3 @@
-const files = ['Bloem1.png', 'Bloem2.png', 'Bloem3.png', 'Picknick.png', 'Basketbal.png']
-
 export const ElementsMenu = {
     loadElements: loadElements
 }
@@ -16,5 +14,4 @@ function loadElements(elementOnClick) {
             // add image to canvas onclick
             image.addEventListener('click', (e) => elementOnClick(e.target))
         }))
-
 }
