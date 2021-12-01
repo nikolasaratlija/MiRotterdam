@@ -1,19 +1,23 @@
-import {setCanvasImage} from "./setCanvasImage.js";
-import {loadElements} from "./loadElements.js";
-import {CanvasElement} from "./CanvasElement.js";
-import {Slider} from "./ElementSizeSlider.js";
-import {AttributeEditor} from "./AttributeEditor.js";
+import {ElementsMenu} from "./elements-library/ElementsMenu.js";
+import {hideElementsMenu} from "./elements-library/animation.js";
 
-(() => {
-    const canvas = document.getElementById('canvas')
-    const canvasImageWidth = 100
+import * as canvas from "./canvas/Canvas.js"
+import {setImage as setCanvasImage} from "./canvas/setImage.js";
 
-    setCanvasImage(canvas)
+import {AttributeEditor} from "./attribute-editor/AttributeEditor.js"
+import {SizeSlider} from "./attribute-editor/ElementSizeSlider.js"
 
-    loadElements(
-        (element) => CanvasElement(canvas, element, canvasImageWidth))
+import {BottomMenu} from "./buttons/BottomMenu.js";
 
-    AttributeEditor()
+// Loads element-library with elements, and sets click events on each element to show them on canvas
+ElementsMenu.loadElements(element => {
+    canvas.addElement(element)
+    hideElementsMenu()  // hide menu when an user adds element
+})
 
-    Slider(canvasImageWidth, 50)
-})();
+setCanvasImage() // Sets the canvas image
+
+AttributeEditor() // Initializes the attribute-editor menu
+SizeSlider(canvas.imageWidth, 50) // Initializes size-slider
+
+BottomMenu() // Initializes buttons of bottom menu

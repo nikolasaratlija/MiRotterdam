@@ -1,0 +1,1 @@
+export const elementsMenuButton = document.getElementById('elements-menu-button')

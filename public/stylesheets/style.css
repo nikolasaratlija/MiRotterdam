@@ -44,7 +44,8 @@ body.design-maker {
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  overflow: scroll;
+  margin-top: 5px; }
   .attribute-editor .scale-slider-container {
     width: 75%;
     display: none; }
@@ -55,8 +56,17 @@ body.design-maker {
     justify-items: center;
     grid-gap: 10px;
     display: none; }
-    .attribute-editor .color-choices-container.shown {
-      display: grid; }
+  .attribute-editor .color-choices-container.shown {
+    display: grid; }
+  .attribute-editor .color-choices-container > button {
+    width: 75px;
+    height: 75px;
+    border: #202020 solid 1px;
+    border-radius: 10px;
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent; }
   .attribute-editor .color-button {
     border: 1px solid rgba(0, 0, 0, 0.3);
     width: 30px;
@@ -142,8 +152,8 @@ body.design-maker {
   background-repeat: no-repeat; }
   .option-button.elements-menu-button {
     background-image: url("../assets/icons/add.png"); }
-  .option-button.attribute-menu-button {
-    background-image: url("../assets/icons/menu.png"); }
+  .option-button.delete-button {
+    background-image: url("../assets/icons/trash.png"); }
   .option-button.ok-button {
     background-image: url("../assets/icons/ok.png"); }
   .option-button:disabled {

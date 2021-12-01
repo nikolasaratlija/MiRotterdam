@@ -18,32 +18,56 @@
             </div>
 
             <div class="color-choices-container" id="color-choices-container">
-                <div class="color-button blue" id="color-choice-green"><span></span></div>
-                <div class="color-button red" id="color-choice-blue"><span></span></div>
-                <div class="color-button orange" id="color-choice-yellow"><span></span></div>
-                <div class="color-button lavender" id="color-choice-green"><span></span></div>
-                <div class="color-button purple" id="color-choice-blue"><span></span></div>
-                <div class="color-button yellow" id="color-choice-yellow"><span></span></div>
-                <div class="color-button green" id="color-choice-yellow"><span></span></div>
+                <!--        This inline styling is used for a javascript function -->
+                <!--        This way, the CSS 'filter' property can be extracted from these button via the JS 'style' property,
+                            which would not be possible when using CSS classes -->
+                <button style="filter: hue-rotate(40deg)"></button>
+                <button style="filter: hue-rotate(90deg)"></button>
+                <button style="filter: hue-rotate(150deg)"></button>
+                <button style="filter: hue-rotate(270deg)"></button>
+                <button style="filter: hue-rotate(240deg)"></button>
+                <button style="filter: hue-rotate(180deg)"></button>
             </div>
         </div>
     </div>
 
     <div class="elements-menu-container">
         <h2>Bibliotheek</h2>
+
         <div class="elements-menu" id="elements-menu"></div>
+
+        <div style="display: none" class="theme-picker" id="theme-picker">
+            <div class="theme groen">
+                <img src="assets/elements/Boom.png" alt="">
+                <div class="theme-name">Groen</div>
+            </div>
+
+            <div class="theme spel-sport">
+                <img src="assets/elements/Basketbal.png" alt="">
+                <div class="theme-name">Spel & Sport</div>
+            </div>
+
+            <div class="theme ontspanning">
+                <img src="assets/elements/Picknick.png" alt="">
+                <div class="theme-name">Ontspanning</div>
+            </div>
+
+            <div class="theme veilig">
+                <img src="assets/elements/Boom.png" alt="">
+                <div class="theme-name">Veilig</div>
+            </div>
+        </div>
     </div>
 
     <div id="canvas" class="canvas"></div>
 
     <div class="options" id="options">
         <button class="option-button elements-menu-button" id="elements-menu-button"></button>
-        <button class="option-button attribute-menu-button" id="attribute-menu-button" disabled></button>
+        <button class="option-button delete-button" id="delete-button" disabled></button>
         <button class="option-button ok-button" id="ok-button"></button>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/Draggable.min.js"></script>
-    <script src="/scripts/design-maker/menu-slider.js"></script>
     <script type="module" src="/scripts/design-maker/scripts.js"></script>
 {% endblock %}
