@@ -16,4 +16,5 @@ function loadElements(elementOnClick) {
             // add image to canvas onclick
             image.addEventListener('click', (e) => elementOnClick(e.target))
         }))
+
 }
