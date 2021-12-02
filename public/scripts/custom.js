@@ -1,32 +1,21 @@
-function loadDesign() {
-    let url = window.location.href;
-    if (screen.width >= 730) {
-        document.location = "index.html";
-    } else if (screen.width < 730 && url.includes('locatie')) {
-        let urlParams = new URLSearchParams(window.location.search);
-        console.log(urlParams.get('location'))
-        document.getElementById('cityname').innerHTML = "Locatie: " + urlParams.get('locatie');
-        console.log("verified")
-    } else {
-        document.location = "index.html";
-    }
-}
-
+//verhaallijn
 function showAbout() {
     document.getElementById('about').style.display = "block";
+    document.getElementById('herobox').style.display = "none";
 }
 
-function showServices() {
-    document.getElementById('services').style.display = "block";
-    document.getElementById('aboutGradient').style.display = "block";
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function servicesButton() {
-    document.getElementById('servicesbutton').style.display = "block";
+async function kijkenBtn() {
+    await sleep(160);
+    document.getElementById('kijkendiv').style.display = "none";
+    document.getElementById('luisterdiv').style.display = "block";
 }
 
-function showDesign() {
-    document.getElementById('design').style.display = "block";
-    document.getElementById('serviceGradient').style.display = "block";
+async function luisterBtn() {
+    await sleep(160);
+    document.getElementById('luisterdiv').style.display = "none";
+    document.getElementById('inspireerdiv').style.display = "block";
 }
- 
