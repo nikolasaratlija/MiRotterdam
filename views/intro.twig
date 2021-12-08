@@ -1,139 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>MiRotterdam Ontwerpomgeving</title>
-    <meta name="description" content="MiRotterdam Intro Pagina">
-    <meta name="keywords" content="MiRotterdam, Rotterdam, Ontwerpen">
+{% extends 'layout.twig' %}
 
-    <!-- Favicon -->
-    <link href="assets/img/favicon.png" rel="icon">
+{% block body %}
+    <header id="header" class="fixed-top "></header>
 
-    <!-- bootstrap -->
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-          rel="stylesheet">
-    <!-- Vendor CSS Files -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <!-- end bootstrap -->
+    <div id="herobox">
+        <section id="hero" class="d-flex flex-column justify-content-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <h1>MiRotterdam</h1>
+                    <h2><i id="plaatsnaam"></i></h2>
+                    <h2>Begin met ontwerpen via de knop hieronder!</h2>
+                    <button id="playbtn" onclick="showAbout()" class="play-btn mb-4"></button>
+                </div>
+            </div>
+        </section>
+    </div>
 
-    <!-- CSS File declaration -->
-    <link href="stylesheets/index.css" rel="stylesheet">
-</head>
-<body>
-
-
-<header id="header" class="fixed-top "></header>
-
-
-<div id="herobox">
-    <section id="hero" class="d-flex flex-column justify-content-center">
+    <section id="about" class="about" style="display: none">
         <div class="container">
-            <div class="row justify-content-center">
-                <h1>MiRotterdam</h1>
-                <h2><i id="plaatsnaam"></i></h2>
-                <h2>Begin met ontwerpen via de knop hieronder!</h2>
-                <button id="playbtn" onclick="showAbout()" class="play-btn mb-4"></button>
+            <div class="section-title"><h2>Inspireer jezelf!</h2></div>
+            <div class="row content">
+
+                <div id="kijkendiv" class="verhaallijn">
+                    <h2>Kijk om je heen </h2>
+                    <div id="verhaalimg" class="kijken"></div>
+                    <button onclick="kijkenBtn()" class="btn-learn-more">Volgende</button>
+                </div>
+
+                <div id="luisterdiv" class="verhaallijn" style="display: none">
+                    <h2>Luister naar de omgeving</h2>
+                    <div id="verhaalimg" class="luisteren"></div>
+                    <button onclick="luisterBtn()" class="btn-learn-more">Volgende</button>
+                </div>
+
+                <div id="inspireerdiv" class="verhaallijn" style="display: none">
+                    <h2>Geinspireerd?</h2>
+                    <div id="verhaalimg" class="inspiratie"></div>
+                    <!-- <h3>Weet je al wat je aan deze omgeving zou willen toevoegen? </h3> -->
+                    <button id="themabutton" onclick="showDesign()" href="#design" class="btn-thema-next">Begin nu met
+                        ontwerpen!
+                    </button>
+                </div>
+
             </div>
         </div>
     </section>
-</div>
 
-
-<section id="about" class="about" style="display: none">
-    <div class="container">
-        <div class="section-title"><h2>Inspireer jezelf!</h2></div>
-        <div class="row content">
-
-            <div id="kijkendiv" class="verhaallijn">
-                <h2>Kijk om je heen </h2>
-                <div id="verhaalimg" class="kijken"></div>
-                <button onclick="kijkenBtn()" class="btn-learn-more">Volgende</button>
+    <section id="contact" class="contact" style="display:none;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact</h2>
+                <h4>Bij het versturen zal de gemeente Rotterdam je ontwerp ontvangen.</h4>
             </div>
-
-            <div id="luisterdiv" class="verhaallijn" style="display: none">
-                <h2>Luister naar de omgeving</h2>
-                <div id="verhaalimg" class="luisteren"></div>
-                <button onclick="luisterBtn()" class="btn-learn-more">Volgende</button>
+            <div class="gradient"></div>
+            <div class="formlabels">
+                <form method="post" id="form" role="form" class="php-email-form" action="assets/php/mail.php">
+                    <div class="row">
+                        <div class="contactlabel form-group">
+                            <label for="age"><h5> De gemeente Rotterdam zou graag de leeftijdsgroepen van ontwerpen
+                                    zichtbaar hebben (optioneel)</h5></label>
+                            <select id="age">
+                                <option value="0">Selecteer</option>
+                                <option value="1">Onder 12</option>
+                                <option value="2">12-16</option>
+                                <option value="3">17-21</option>
+                                <option value="4">21-49</option>
+                                <option value="5">50+</option>
+                            </select>
+                        </div>
+                        <div class="contactlabel">
+                            <label for="email"><h5> Als je wilt weten of jou ontwerp gerealiseerd wordt kan je een email
+                                    invullen die dan gecontacteerd zal worden (optioneel)</h5></label>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                        </div>
+                        <div class="contactlabel">
+                            <h2> je ontwerp </h2>
+                            <div id="storedScreenshot"></div>
+                            <input type="hidden" id="ontwerpid" name="ontwerp" value="0">
+                        </div>
+                    </div>
+                    <div class="text-center"><input id="endbutton" type="submit" class="btn-thema-next"
+                                                    value="verstuur ontwerp" style="margin-top:20px;"></div>
+                </form>
             </div>
-
-            <div id="inspireerdiv" class="verhaallijn" style="display: none">
-                <h2>Geinspireerd?</h2>
-                <div id="verhaalimg" class="inspiratie"></div>
-                <!-- <h3>Weet je al wat je aan deze omgeving zou willen toevoegen? </h3> -->
-                <button id="themabutton" onclick="showDesign()" href="#design" class="btn-thema-next">Begin nu met
-                    ontwerpen!
-                </button>
-            </div>
-
         </div>
-    </div>
-</section>
+    </section>
 
+    <section id="endscreen" class="endscreen" style="display:none;" style="width:100px; height:100px;">
+        <h2> Bericht wordt nu verzonden.. </h2>
+        <h3> Na het versturen wordt de pagina doorgeleid </h3>
+        <h3> Zie de ontwerpen van de mensen voor je: </h3>
+        <p> afbeeldingen </p>
+    </section>
 
-<section id="contact" class="contact" style="display:none;">
-    <div class="container">
-        <div class="section-title">
-            <h2>Contact</h2>
-            <h4>Bij het versturen zal de gemeente Rotterdam je ontwerp ontvangen.</h4>
-        </div>
-        <div class="gradient"></div>
-        <div class="formlabels">
-            <form method="post" id="form" role="form" class="php-email-form" action="assets/php/mail.php">
-                <div class="row">
-                    <div class="contactlabel form-group">
-                        <label for="age"><h5> De gemeente Rotterdam zou graag de leeftijdsgroepen van ontwerpen
-                                zichtbaar hebben (optioneel)</h5></label>
-                        <select id="age">
-                            <option value="0">Selecteer</option>
-                            <option value="1">Onder 12</option>
-                            <option value="2">12-16</option>
-                            <option value="3">17-21</option>
-                            <option value="4">21-49</option>
-                            <option value="5">50+</option>
-                        </select>
-                    </div>
-                    <div class="contactlabel">
-                        <label for="email"><h5> Als je wilt weten of jou ontwerp gerealiseerd wordt kan je een email
-                                invullen die dan gecontacteerd zal worden (optioneel)</h5></label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Email">
-                    </div>
-                    <div class="contactlabel">
-                        <h2> je ontwerp </h2>
-                        <div id="storedScreenshot"></div>
-                        <input type="hidden" id="ontwerpid" name="ontwerp" value="0">
-                    </div>
-                </div>
-                <div class="text-center"><input id="endbutton" type="submit" class="btn-thema-next"
-                                                value="verstuur ontwerp" style="margin-top:20px;"></div>
-            </form>
-        </div>
-    </div>
-</section>
-
-
-<section id="endscreen" class="endscreen" style="display:none;" style="width:100px; height:100px;">
-    <h2> Bericht wordt nu verzonden.. </h2>
-    <h3> Na het versturen wordt de pagina doorgeleid </h3>
-    <h3> Zie de ontwerpen van de mensen voor je: </h3>
-    <p> afbeeldingen </p>
-</section>
-
-
-</body>
-
-{# <div id="preloader"></div> #}
-
-<!-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> -->
-
-<!-- Vendor JS Files -->
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- JS Files-->
-<script src="scripts/custom.js"></script>
-{# <script src="scripts/main.js"></script> TODO: file necessary? Preloader? #}
-
-</html>
+    {# scripts #}
+    <script src="scripts/intro-storyline.js"></script>
+{% endblock %}

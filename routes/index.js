@@ -6,7 +6,10 @@ router.get('/', (req, res) => {
 })
 
 router.get('/intro', (req, res) => {
-    res.render('intro')
+    res.render('intro', {
+        title: 'MiRotterdam Introductie',
+        bodyClass: 'index'
+    })
 })
 
 router.get('/ontwerpomgeving', (req, res) => {
