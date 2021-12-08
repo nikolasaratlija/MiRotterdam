@@ -1,5 +1,5 @@
-import {canvas} from "./Canvas.js";
-
+// import {canvas} from "./Canvas.js";
+const canvas = document.getElementById('canvas')
 export function setImage() {
     const defaultLocationId = 5
     const locationId = getLocationId() || defaultLocationId // default location id of 5 for testing
