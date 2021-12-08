@@ -1,20 +1,20 @@
-const mysql = require("mysql");
+const mysql = require('mysql')
+require('dotenv').config()
 
-// Database for developing, uncomment this, and comment the other connection for development
+// Database connection
 module.exports = mysql.createPool({
     connectionLimit: 2,
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'mirotterdam'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE
 })
 
-// Database used for when deployed on Heroku
-// Heroku ClearDB Plugin DATABASE_URL
+// Test/Development database
 // module.exports = mysql.createPool({
 //     connectionLimit: 2,
-//     host: 'us-cdbr-east-04.cleardb.com',
-//     user: 'bc6afcdde0bff7',
-//     password: '2fad44a7',
-//     database: 'heroku_3da252567c7c64c'
+//     host: 'localhost',
+//     user: 'root',
+//     password: '',
+//     database: 'mirotterdam'
 // })
