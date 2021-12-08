@@ -22,5 +22,3 @@ AttributeEditor() // Initializes the attribute-editor menu
 SizeSlider(canvas.imageWidth) // Initializes size-slider
 
 BottomMenu() // Initializes buttons of bottom menu
-
-alert('test')
