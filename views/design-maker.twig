@@ -34,27 +34,39 @@
     <div class="elements-menu-container">
         <h2>Bibliotheek</h2>
 
-        <div class="elements-menu" id="elements-menu"></div>
+        <div class="theme-picker" id="theme-picker">
+            <h3>Wat wil jij toevoegen aan jouw omgeving?</h3>
 
-        <div style="display: none" class="theme-picker" id="theme-picker">
-            <div class="theme groen">
-                <img src="assets/elements/Boom.png" alt="">
-                <div class="theme-name">Groen</div>
+            <div class="theme-container spel-sport">
+                <div class="theme-menu-dropdown collapse" id="menu-spelsport"></div>
+                <button class="btn btn-light dropdown-toggle" data-toggle="collapse" data-target="#menu-spelsport"
+                        aria-expanded="false">
+                    Spel & Sport
+                </button>
             </div>
 
-            <div class="theme spel-sport">
-                <img src="assets/elements/Basketbal.png" alt="">
-                <div class="theme-name">Spel & Sport</div>
+            <div class="theme-container groen">
+                <div class="theme-menu-dropdown collapse" id="menu-groen"></div>
+                <button class="btn btn-light dropdown-toggle" data-toggle="collapse" data-target="#menu-groen"
+                        aria-expanded="false">
+                    Groen
+                </button>
             </div>
 
-            <div class="theme ontspanning">
-                <img src="assets/elements/Picknick.png" alt="">
-                <div class="theme-name">Ontspanning</div>
+            <div class="theme-container ontspanning">
+                <div class="theme-menu-dropdown collapse" id="menu-ontspanning"></div>
+                <button class="btn btn-light dropdown-toggle" data-toggle="collapse" data-target="#menu-ontspanning"
+                        aria-expanded="false">
+                    Ontspanning
+                </button>
             </div>
 
-            <div class="theme veilig">
-                <img src="assets/elements/Boom.png" alt="">
-                <div class="theme-name">Veilig</div>
+            <div class="theme-container veilig">
+                <div class="theme-menu-dropdown collapse" id="menu-veilig"></div>
+                <button class="btn btn-light dropdown-toggle" data-toggle="collapse" data-target="#menu-veilig"
+                        aria-expanded="false">
+                    Veilig
+                </button>
             </div>
         </div>
     </div>
@@ -62,9 +74,30 @@
     <div id="canvas" class="canvas"></div>
 
     <div class="options" id="options">
-        <button class="option-button elements-menu-button" id="elements-menu-button"></button>
-        <button class="option-button delete-button" id="delete-button" disabled></button>
-        <button class="option-button ok-button" id="ok-button"></button>
+
+        <button class="option-button elements-menu-button" id="elements-menu-button">
+            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-plus-circle"
+                 viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+            </svg>
+        </button>
+
+        <button class="option-button delete-button" id="delete-button" disabled>
+            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-trash"
+                 viewBox="0 0 16 16">
+                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                <path fill-rule="evenodd"
+                      d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+            </svg>
+        </button>
+
+        <button class="option-button ok-button" id="ok-button">
+            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-send"
+                 viewBox="0 0 16 16">
+                <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
+            </svg>
+        </button>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>

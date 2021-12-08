@@ -11,9 +11,9 @@ body.design-maker {
   flex-direction: column; }
   body.design-maker h2 {
     font-size: 1.7em;
-    padding-left: 30px;
     font-family: Lato, sans-serif;
-    margin-bottom: 0.5em; }
+    margin: 0.5em 0 0.5em 20px;
+    color: black; }
 
 .element-editor {
   position: absolute;
@@ -97,19 +97,44 @@ body.design-maker {
   overflow-x: hidden;
   box-sizing: border-box;
   z-index: 9999;
-  background-color: rgba(144, 238, 144, 0.95); }
-  .elements-menu-container .elements-menu {
+  background-color: rgba(144, 238, 144, 0.95);
+  display: flex;
+  flex-direction: column; }
+  .elements-menu-container .theme-picker {
     border-top: 5px solid rgba(0, 0, 0, 0.3);
     padding: 20px;
     box-sizing: border-box;
+    width: 100%; }
+    .elements-menu-container .theme-picker h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10%;
+      color: #191970; }
+  .elements-menu-container .theme-container {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-row-gap: 30px; }
-    .elements-menu-container .elements-menu img {
-      width: 100%;
-      max-height: 125px;
-      object-fit: scale-down; }
+    grid-template-rows: 1fr auto;
+    margin-bottom: 15%; }
+    .elements-menu-container .theme-container button {
+      text-align: center;
+      font-family: Lato, sans-serif;
+      font-size: 1.25em;
+      align-self: end;
+      width: 80%;
+      justify-self: center;
+      margin-top: 2.5%;
+      position: sticky;
+      bottom: 5%; }
+    .elements-menu-container .theme-container .theme-menu-dropdown {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-row-gap: 30px;
+      align-items: center;
+      background-color: #f8f9fa;
+      border-radius: 0.25em; }
+  .elements-menu-container img {
+    width: 100%;
+    max-height: 125px;
+    object-fit: scale-down; }
 
 .canvas {
   height: 93%;
@@ -132,31 +157,25 @@ body.design-maker {
   width: 100%;
   height: 7%;
   background-color: #65a765;
-  border-top: 1px solid black;
   -webkit-box-shadow: 5px 5px 15px 5px #000000;
   box-shadow: 5px 5px 15px 5px #000000;
   box-sizing: border-box; }
-
-.option-button {
-  height: 100%;
-  width: 20%;
-  margin: 0 3%;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
-  border-bottom: none;
-  border-top: none;
-  background-color: #5f9c5f;
-  background-size: 65%;
-  background-position: center;
-  background-repeat: no-repeat; }
-  .option-button.elements-menu-button {
-    background-image: url("../assets/icons/add.png"); }
-  .option-button.delete-button {
-    background-image: url("../assets/icons/trash.png"); }
-  .option-button.ok-button {
-    background-image: url("../assets/icons/ok.png"); }
-  .option-button:disabled {
-    background-color: #75816b; }
+  .options button {
+    height: 100%;
+    width: 25%;
+    margin: 0 3%;
+    border: none;
+    background-color: #5f9c5f;
+    background-size: 65%;
+    border-radius: 50px;
+    background-position: center;
+    background-repeat: no-repeat; }
+    .options button:disabled svg {
+      fill: #6c757d; }
+    .options button svg {
+      width: 35px;
+      height: auto;
+      fill: black; }
 
 .scale-slider-label {
   width: 90%; }
