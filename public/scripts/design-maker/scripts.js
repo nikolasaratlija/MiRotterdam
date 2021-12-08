@@ -11,18 +11,14 @@ import {BottomMenu} from "./buttons/BottomMenu.js";
 
 
 // Loads element-library with elements, and sets click events on each element to show them on canvas
-// ElementsMenu.loadElements(element => {
-//     canvas.addElement(element)
-//     hideElementsMenu()  // hide menu when an user adds element
-// })
-//
-// setCanvasImage() // Sets the canvas image
-//
-// AttributeEditor() // Initializes the attribute-editor menu
-// SizeSlider(canvas.imageWidth) // Initializes size-slider
+ElementsMenu.loadElements(element => {
+    canvas.addElement(element)
+    hideElementsMenu()  // hide menu when an user adds element
+})
 
-// BottomMenu() // Initializes buttons of bottom menu
+setCanvasImage() // Sets the canvas image
 
-import {test} from "./test.js";
+AttributeEditor() // Initializes the attribute-editor menu
+SizeSlider(canvas.imageWidth) // Initializes size-slider
 
-document.getElementById('elements-menu-button').addEventListener('click', test)
+BottomMenu() // Initializes buttons of bottom menu
