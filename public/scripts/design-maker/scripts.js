@@ -23,4 +23,6 @@
 
 // BottomMenu() // Initializes buttons of bottom menu
 
-document.getElementById('elements-menu-button').addEventListener('click', () => alert('test'))
+import {test} from "./test.js";
+
+document.getElementById('elements-menu-button').addEventListener('click', test)
