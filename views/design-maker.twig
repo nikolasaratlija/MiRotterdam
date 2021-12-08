@@ -1,4 +1,4 @@
-{% extends 'layout.twig' %}
+{% extends 'base/layout.twig' %}
 
 {% block body %}
     <div class="element-editor" id="element-editor">
@@ -18,8 +18,8 @@
             </div>
 
             <div class="color-choices-container" id="color-choices-container">
-                <!--        This inline styling is used for a javascript function -->
-                <!--        This way, the CSS 'filter' property can be extracted from these button via the JS 'style' property,
+                <!-- This inline styling is used for a javascript function -->
+                <!-- This way, the CSS 'filter' property can be extracted from these button via the JS 'style' property,
                             which would not be possible when using CSS classes -->
                 <button style="filter: hue-rotate(40deg)"></button>
                 <button style="filter: hue-rotate(90deg)"></button>

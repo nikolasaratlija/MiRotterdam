@@ -7,9 +7,11 @@ const sassMiddleware = require('node-sass-middleware')
 const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload')
 
+// Routers
 const indexRouter = require('./routes/index')
 const locationsRouter = require('./routes/locations')
 const elementsRouter = require('./routes/elements')
+const adminRouter = require('./routes/admin')
 
 const app = express()
 
@@ -37,9 +39,11 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static(path.join(__dirname, 'public')))
 
+// Routers
 app.use('/', indexRouter)
 app.use('/api/locations', locationsRouter)
 app.use('/api/elements', elementsRouter)
+app.use('/admin', adminRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -54,7 +58,7 @@ app.use(function (err, req, res, next) {
 
     // render the error page
     res.status(err.status || 500)
-    res.render('error')
+    res.render('base/error')
 })
 
 module.exports = app
