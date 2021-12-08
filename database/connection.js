@@ -9,12 +9,3 @@ module.exports = mysql.createPool({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE
 })
-
-// Test/Development database
-// module.exports = mysql.createPool({
-//     connectionLimit: 2,
-//     host: 'localhost',
-//     user: 'root',
-//     password: '',
-//     database: 'mirotterdam'
-// })
