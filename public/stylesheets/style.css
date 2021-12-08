@@ -48,6 +48,8 @@ body.design-maker {
   .attribute-editor .scale-slider-container {
     width: 75%;
     display: none; }
+    .attribute-editor .scale-slider-container label {
+      width: 100%; }
     .attribute-editor .scale-slider-container.shown {
       display: block; }
   .attribute-editor .color-choices-container {
@@ -85,6 +87,71 @@ body.design-maker {
       background-color: #4D8B31; }
     .attribute-editor .color-button.yellow {
       background-color: #FFC800; }
+  .attribute-editor .scale-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    margin: 5% 0 auto;
+    height: 15px;
+    border-radius: 5px;
+    background: whitesmoke;
+    outline: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s; }
+    .attribute-editor .scale-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #04AA6D;
+      cursor: pointer; }
+    .attribute-editor .scale-slider::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #04AA6D;
+      cursor: pointer; }
+
+.options {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 7%;
+  background-color: #65a765;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 5px 5px 15px 5px #000000;
+  box-sizing: border-box; }
+  .options button {
+    height: 100%;
+    width: 25%;
+    margin: 0 3%;
+    border: none;
+    background-color: #5f9c5f;
+    background-size: 65%;
+    border-radius: 50px;
+    background-position: center;
+    background-repeat: no-repeat; }
+    .options button:disabled svg {
+      fill: #6c757d; }
+    .options button svg {
+      width: 35px;
+      height: auto;
+      fill: black; }
+
+.canvas {
+  height: 93%;
+  width: 100%;
+  overflow: visible;
+  padding: 0;
+  background-size: cover;
+  background-position: center; }
+  .canvas img {
+    padding: 10px;
+    position: absolute; }
+    .canvas img.selected {
+      border: 5px solid rgba(135, 206, 250, 0.9);
+      padding: 5px;
+      border-radius: 20px; }
 
 .elements-menu-container {
   position: absolute;
@@ -124,85 +191,17 @@ body.design-maker {
       margin-top: 2.5%;
       position: sticky;
       bottom: 5%; }
-    .elements-menu-container .theme-container .theme-menu-dropdown {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-row-gap: 30px;
-      align-items: center;
-      background-color: #f8f9fa;
-      border-radius: 0.25em; }
   .elements-menu-container img {
     width: 100%;
     max-height: 125px;
     object-fit: scale-down; }
 
-.canvas {
-  height: 93%;
-  width: 100%;
-  overflow: visible;
-  padding: 0;
-  background-size: cover;
-  background-position: center; }
-  .canvas img {
-    padding: 10px;
-    position: absolute; }
-    .canvas img.selected {
-      border: 5px solid rgba(135, 206, 250, 0.9);
-      padding: 5px;
-      border-radius: 20px; }
-
-.options {
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-  height: 7%;
-  background-color: #65a765;
-  -webkit-box-shadow: 5px 5px 15px 5px #000000;
-  box-shadow: 5px 5px 15px 5px #000000;
-  box-sizing: border-box; }
-  .options button {
-    height: 100%;
-    width: 25%;
-    margin: 0 3%;
-    border: none;
-    background-color: #5f9c5f;
-    background-size: 65%;
-    border-radius: 50px;
-    background-position: center;
-    background-repeat: no-repeat; }
-    .options button:disabled svg {
-      fill: #6c757d; }
-    .options button svg {
-      width: 35px;
-      height: auto;
-      fill: black; }
-
-.scale-slider-label {
-  width: 90%; }
-
-.scale-slider {
-  -webkit-appearance: none;
-  width: 100%;
-  margin: 5% 0 auto;
-  height: 15px;
-  border-radius: 5px;
-  background: whitesmoke;
-  outline: none;
-  -webkit-transition: .2s;
-  transition: opacity .2s; }
-  .scale-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #04AA6D;
-    cursor: pointer; }
-  .scale-slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #04AA6D;
-    cursor: pointer; }
+.theme-menu-dropdown {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 30px;
+  align-items: center;
+  background-color: #f8f9fa;
+  border-radius: 0.25em; }
 
 /*# sourceMappingURL=style.css.map */

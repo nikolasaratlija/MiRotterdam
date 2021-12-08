@@ -1,0 +1,34 @@
+.options {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 7%;
+  background-color: #65a765;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 5px 5px 15px 5px #000000;
+  box-sizing: border-box;
+
+  button {
+    height: 100%;
+    width: 25%;
+    margin: 0 3%;
+    border: none;
+    background-color: #5f9c5f;
+    background-size: 65%;
+    border-radius: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &:disabled {
+      svg {
+        fill: #6c757d;
+      }
+    }
+
+    svg {
+      width: 35px;
+      height: auto;
+      fill: black;
+    }
+  }
+}

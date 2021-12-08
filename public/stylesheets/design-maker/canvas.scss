@@ -1,0 +1,19 @@
+.canvas {
+  height: 93%;
+  width: 100%;
+  overflow: visible;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+
+  img {
+    padding: 10px;
+    position: absolute;
+
+    &.selected {
+      border: 5px solid rgba(135, 206, 250, 0.9);
+      padding: 5px;
+      border-radius: 20px;
+    }
+  }
+}

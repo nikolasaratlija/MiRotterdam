@@ -1,0 +1,139 @@
+.element-editor {
+  position: absolute;
+  background-color: rgba(144, 238, 144, 0.85);
+  width: 100%;
+  height: 25%;
+  top: -25%;
+  box-sizing: border-box;
+  border-bottom: 5px solid rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+
+  .editor-attribute-choices {
+    border-top: 5px solid rgba(0, 0, 0, 0.3);
+    display: flex;
+
+    span {
+      border: 2px solid rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      padding: 5px;
+      margin-top: 5px;
+      margin-left: 5%;
+
+      &.highlighted {
+        color: white;
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+}
+
+.attribute-editor {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: scroll;
+  margin-top: 5px;
+
+  .scale-slider-container {
+    width: 75%;
+    display: none;
+
+    label {
+      width: 100%
+    }
+
+    &.shown {
+      display: block;
+    }
+  }
+
+  .color-choices-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    grid-gap: 10px;
+    display: none;
+  }
+
+  .color-choices-container.shown {
+    display: grid;
+  }
+
+  .color-choices-container > button {
+    width: 75px;
+    height: 75px;
+    border: #202020 solid 1px;
+    border-radius: 10px;
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+  }
+
+  .color-button {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+    &.blue {
+      background-color: #003049;
+    }
+
+    &.red {
+      background-color: #D62828;
+    }
+
+    &.orange {
+      background-color: #F77F00
+    }
+
+    &.lavender {
+      background-color: #CFBFF7;
+    }
+
+    &.purple {
+      background-color: #8B80F9;
+    }
+
+    &.green {
+      background-color: #4D8B31
+    }
+
+    &.yellow {
+      background-color: #FFC800
+    }
+  }
+
+  .scale-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    margin: 5% 0 auto;
+    height: 15px;
+    border-radius: 5px;
+    background: whitesmoke;
+    outline: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #04AA6D;
+      cursor: pointer;
+    }
+
+    &::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #04AA6D;
+      cursor: pointer;
+    }
+  }
+}
+
