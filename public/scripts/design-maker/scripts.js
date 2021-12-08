@@ -1,13 +1,13 @@
-// import {ElementsMenu} from "./elements-library/ElementsMenu.js";
-// import {hideElementsMenu} from "./elements-library/animation.js";
-//
-// import * as canvas from "./canvas/Canvas.js"
-// import {setImage as setCanvasImage} from "./canvas/setImage.js";
-//
-// import {AttributeEditor} from "./attribute-editor/AttributeEditor.js"
-// import {SizeSlider} from "./attribute-editor/ElementSizeSlider.js"
-//
-// import {BottomMenu} from "./buttons/BottomMenu.js";
+import {ElementsMenu} from "./elements-library/ElementsMenu.js";
+import {hideElementsMenu} from "./elements-library/animation.js";
+
+import * as canvas from "./canvas/Canvas.js"
+import {setImage as setCanvasImage} from "./canvas/setImage.js";
+
+import {AttributeEditor} from "./attribute-editor/AttributeEditor.js"
+import {SizeSlider} from "./attribute-editor/ElementSizeSlider.js"
+
+import {BottomMenu} from "./buttons/BottomMenu.js";
 
 
 // Loads element-library with elements, and sets click events on each element to show them on canvas
