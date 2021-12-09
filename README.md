@@ -10,16 +10,16 @@ Team:
 * Yassine Yaagoubi (0962390)
 * Salar Ali (1005210)
 
-## Environment currently hosted on:
+## Project is currently being hosted on:
 `https://mi-rotterdam.herokuapp.com/`
 
-# Install Instructions
+# Installation Instructions
 
 ## 1. Install all dependencies
     npm install
 
 ## 2. Database Setup
-1. Open phpmyadmin and create a new blank database called mirotterdam
+1. Open phpmyadmin and create a new blank database called 'mirotterdam'
 2. Find the .sql file in the folder `/database`, called `mirotterdam.sql` and import it in the new database
 3. Create a new file called `.env` in root directory of this project
 4. Copy the contents from `.env.example` to `.env` and enter your own database credentials, if needed. 
@@ -29,8 +29,10 @@ Team:
 
 # Routes
 
-## Index
+## Home
 `'/'`
+
+`'/intro'`
 
 ## Design Maker
 `'/ontwerpomgeving'`
