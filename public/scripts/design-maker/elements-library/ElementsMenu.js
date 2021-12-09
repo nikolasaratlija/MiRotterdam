@@ -1,5 +1,8 @@
+import {toggleShow} from "./animation.js";
+
 export const ElementsMenu = {
-    loadElements: loadElements
+    loadElements: loadElements,
+    toggleShow: toggleShow,
 }
 
 function loadElements(elementOnClick) {
@@ -38,7 +41,6 @@ function loadElements(elementOnClick) {
             image.addEventListener('click', (e) => elementOnClick(e.target))
         }))
 }
-
 
 document.querySelectorAll('.theme-container button').forEach(button => {
     button.addEventListener('click', e => {

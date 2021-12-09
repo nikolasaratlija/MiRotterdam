@@ -1,4 +1,4 @@
-import {toggleEnabled as toggleDeleteButton} from "../buttons/Delete.js";
+import {toggleEnabled as toggleDeleteButton} from "../buttons/DeleteElementButton.js";
 import {hideElementEditor, showElementEditor} from "../attribute-editor/AttributeEditor.js";
 
 export const canvas = document.getElementById('canvas')

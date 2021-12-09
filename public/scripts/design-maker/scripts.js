@@ -1,5 +1,5 @@
 import {ElementsMenu} from "./elements-library/ElementsMenu.js";
-import {hideElementsMenu} from "./elements-library/animation.js";
+import {toggleShow as toggleShowElementsMenu} from "./elements-library/animation.js";
 
 import * as canvas from "./canvas/Canvas.js"
 import {setImage as setCanvasImage} from "./canvas/setImage.js";
@@ -13,7 +13,7 @@ import {BottomMenu} from "./buttons/BottomMenu.js";
 // Loads element-library with elements, and sets click events on each element to show them on canvas
 ElementsMenu.loadElements(element => {
     canvas.addElement(element)
-    hideElementsMenu()  // hide menu when an user adds element
+    toggleShowElementsMenu()  // hide menu when an user adds element
 })
 
 setCanvasImage() // Sets the canvas image

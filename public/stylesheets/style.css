@@ -639,9 +639,9 @@ body.design-maker {
   align-items: center;
   flex-direction: column; }
   body.design-maker h2 {
-    font-size: 1.7em;
+    font-size: 1.5rem;
     font-family: Lato, sans-serif;
-    margin: 0.5em 0 0.5em 20px;
+    margin: 0.5em 0 0.5em 5%;
     color: black; }
 
 .element-editor {
@@ -784,24 +784,41 @@ body.design-maker {
 
 .elements-menu-container {
   position: absolute;
-  left: -125%;
+  left: 0;
   height: 100%;
-  width: 85%;
-  border-right: 2px solid black;
+  width: 100%;
   border-left: none;
   overflow: scroll;
   overflow-x: hidden;
   box-sizing: border-box;
   z-index: 9999;
-  background-color: rgba(144, 238, 144, 0.95);
   display: flex;
-  flex-direction: column; }
+  transition: left .25s; }
+  .elements-menu-container.hidden {
+    left: -100%; }
+  .elements-menu-container .blur-out {
+    width: 15%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: end;
+    justify-content: center; }
+    .elements-menu-container .blur-out button {
+      margin-bottom: 50px;
+      border: none;
+      background: none; }
+    .elements-menu-container .blur-out svg {
+      width: 100%;
+      fill: white; }
   .elements-menu-container .theme-picker {
+    width: 85%;
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
     border-top: 5px solid rgba(0, 0, 0, 0.3);
+    background-color: rgba(144, 238, 144, 0.95);
+    height: 100%;
     padding: 20px;
-    box-sizing: border-box;
-    width: 100%; }
-    .elements-menu-container .theme-picker h3 {
+    box-sizing: border-box; }
+    .elements-menu-container .theme-picker span {
       font-size: 1.5rem;
       margin-bottom: 10%;
       color: #191970; }
@@ -809,7 +826,7 @@ body.design-maker {
     width: 100%;
     display: grid;
     grid-template-rows: 1fr auto;
-    margin-bottom: 15%; }
+    margin: 10% 0; }
     .elements-menu-container .theme-container button {
       text-align: center;
       font-family: Lato, sans-serif;
