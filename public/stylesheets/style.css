@@ -788,8 +788,6 @@ body.design-maker {
   height: 100%;
   width: 100%;
   border-left: none;
-  overflow: scroll;
-  overflow-x: hidden;
   box-sizing: border-box;
   z-index: 9999;
   display: flex;
@@ -817,7 +815,9 @@ body.design-maker {
     background-color: rgba(144, 238, 144, 0.95);
     height: 100%;
     padding: 20px;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    overflow: scroll;
+    overflow-x: hidden; }
     .elements-menu-container .theme-picker span {
       font-size: 1.5rem;
       margin-bottom: 10%;

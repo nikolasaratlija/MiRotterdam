@@ -4,8 +4,6 @@
   height: 100%;
   width: 100%;
   border-left: none;
-  overflow: scroll;
-  overflow-x: hidden;
   box-sizing: border-box;
   z-index: 9999;
   display: flex;
@@ -43,6 +41,8 @@
     height: 100%;
     padding: 20px;
     box-sizing: border-box;
+    overflow: scroll;
+    overflow-x: hidden;
 
     span {
       font-size: 1.5rem;
