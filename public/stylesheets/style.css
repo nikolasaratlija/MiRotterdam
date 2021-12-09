@@ -797,12 +797,9 @@ body.design-maker {
   .elements-menu-container .blur-out {
     width: 15%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: end;
-    justify-content: center; }
+    background-color: rgba(0, 0, 0, 0.5); }
     .elements-menu-container .blur-out button {
-      margin-bottom: 50px;
+      margin-top: 5vh;
       border: none;
       background: none; }
     .elements-menu-container .blur-out svg {
