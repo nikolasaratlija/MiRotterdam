@@ -19,3 +19,7 @@ async function luisterBtn() {
     document.getElementById('luisterdiv').style.display = "none";
     document.getElementById('inspireerdiv').style.display = "block";
 }
+
+document.getElementById('design-maker-button').addEventListener('click', () => {
+    window.location.href = '/ontwerpomgeving'
+})
