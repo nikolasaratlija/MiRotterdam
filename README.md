@@ -15,7 +15,7 @@ Team:
 `https://mi-rotterdam.herokuapp.com/`
 
 ## Install all dependencies
-    npm start
+    npm install
 
 ## Run dev environment @ 127.0.0.1:8000/
     npm run dev
