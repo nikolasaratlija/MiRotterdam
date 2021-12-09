@@ -17,7 +17,7 @@ Team:
 ## Install all dependencies
     npm install
 
-## Run dev environment @ 127.0.0.1:8000/
+## Run dev environment @ 127.0.0.1:3000/
     npm run dev
 
 # Routes
