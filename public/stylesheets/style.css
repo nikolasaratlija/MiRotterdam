@@ -847,4 +847,7 @@ body.design-maker {
   background-color: #f8f9fa;
   border-radius: 0.25em; }
 
+body.admin {
+  display: flex; }
+
 /*# sourceMappingURL=style.css.map */
