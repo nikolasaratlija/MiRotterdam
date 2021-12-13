@@ -1,4 +1,3 @@
-//verhaallijn
 function showAbout() {
     document.getElementById('about').style.display = "block";
     document.getElementById('herobox').style.display = "none";

@@ -760,12 +760,11 @@ body.design-maker {
     border-radius: 50px;
     background-position: center;
     background-repeat: no-repeat; }
-    .options button:disabled svg {
-      fill: #6c757d; }
-    .options button svg {
-      width: 35px;
-      height: auto;
-      fill: black; }
+    .options button:disabled i {
+      color: #6c757d; }
+    .options button i {
+      font-size: 2em;
+      color: black; }
 
 .canvas {
   height: 93%;
@@ -797,14 +796,17 @@ body.design-maker {
   .elements-menu-container .blur-out {
     width: 15%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); }
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: start; }
     .elements-menu-container .blur-out button {
       margin-top: 5vh;
       border: none;
       background: none; }
-    .elements-menu-container .blur-out svg {
-      width: 100%;
-      fill: white; }
+    .elements-menu-container .blur-out i {
+      font-size: 2.75em;
+      color: white; }
   .elements-menu-container .theme-picker {
     width: 85%;
     border-right: 1px solid rgba(0, 0, 0, 0.3);

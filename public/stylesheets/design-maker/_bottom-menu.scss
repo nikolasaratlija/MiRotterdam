@@ -20,15 +20,14 @@
     background-repeat: no-repeat;
 
     &:disabled {
-      svg {
-        fill: #6c757d;
+      i {
+        color: #6c757d;
       }
     }
 
-    svg {
-      width: 35px;
-      height: auto;
-      fill: black;
+    i {
+      font-size: 2em;
+      color: black;
     }
   }
 }
