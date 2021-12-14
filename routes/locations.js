@@ -29,7 +29,7 @@ router.get('/:id', (req, res) => {
 
 // GET image of location
 router.get('/:id/image', (req, res) => {
-    res.sendFile(path.join(__dirname, `../data/designmaker_images/location_images/L-${req.params.id}.webp`))
+    res.sendFile(path.join(__dirname, `../data/location_images/L-${req.params.id}.webp`))
 })
 
 // POST location

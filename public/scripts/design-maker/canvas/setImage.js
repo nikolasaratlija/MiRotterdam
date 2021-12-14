@@ -6,7 +6,7 @@ export function setImage() {
 
     // set background of canvas
     canvas.style.backgroundImage
-        = `url('${window.location.protocol}//${window.location.host}/api/locations/${locationId}/image')`
+        = `url('/api/locations/${locationId}/image')`
 }
 
 function getLocationId() {

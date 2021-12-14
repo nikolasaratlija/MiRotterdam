@@ -12,6 +12,7 @@ const indexRouter = require('./routes/index')
 const locationsRouter = require('./routes/locations')
 const elementsRouter = require('./routes/elements')
 const adminRouter = require('./routes/admin')
+const designsRouter = require('./routes/designs')
 
 const app = express()
 
@@ -43,6 +44,8 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', indexRouter)
 app.use('/api/locations', locationsRouter)
 app.use('/api/elements', elementsRouter)
+app.use('/api/designs', designsRouter)
+
 app.use('/admin', adminRouter)
 
 // catch 404 and forward to error handler
