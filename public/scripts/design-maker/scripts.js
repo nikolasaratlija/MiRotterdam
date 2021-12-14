@@ -22,24 +22,3 @@ AttributeEditor() // Initializes the attribute-editor menu
 SizeSlider(canvas.imageWidth) // Initializes size-slider
 
 BottomMenu() // Initializes buttons of bottom menu
-
-window.c = canvas.canvas
-
-window.createJSON = () => {
-    let designObject = {
-        image: "test.png",
-        elements: []
-    }
-
-    c.childNodes.forEach(el => {
-        const element = {
-            image: el.src.split('/')[5],
-            width: el.style.width,
-            position: el.style.transform
-        }
-
-        designObject.elements.push(element)
-    })
-
-    console.log(JSON.stringify(designObject))
-}

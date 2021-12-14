@@ -2,13 +2,14 @@ const express = require('express')
 const router = express.Router()
 
 router.get('/', (req, res) => {
-    res.render('index')
+    res.render('index', {
+        title: 'Welkom bij MiRotterdam'
+    })
 })
 
 router.get('/intro', (req, res) => {
     res.render('intro', {
-        title: 'MiRotterdam',
-        bodyClass: 'index'
+        title: 'MiRotterdam Intro'
     })
 })
 
@@ -21,8 +22,7 @@ router.get('/ontwerpomgeving', (req, res) => {
 
 router.get('/verzenden', (req, res) => {
     res.render('submit', {
-        title: 'MiRotterdam Versturen',
-        bodyClass: 'submit'
+        title: 'MiRotterdam Versturen'
     })
 })
 

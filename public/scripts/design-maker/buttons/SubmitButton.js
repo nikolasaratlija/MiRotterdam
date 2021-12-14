@@ -1,7 +1,8 @@
-import screenshot from "../canvas/screenshot.js";
+import {saveDesignAsJson} from "../utils/saveDesignAsJson.js";
 
 export const submitButton = document.getElementById('ok-button')
 
 export function submitImage() {
-    screenshot()
+    saveDesignAsJson()
+    window.location.href = '/verzenden'
 }
