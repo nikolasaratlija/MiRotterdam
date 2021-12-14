@@ -1,0 +1,54 @@
+{% extends 'base/layout.twig' %}
+
+{% block body %}
+    <section id="contact" class="contact">
+
+        <div class="container">
+            <div class="section-title">
+                <h1>Vesturen</h1>
+                <p>Tevreden met je creatie? Verstuur jouw ontwerp naar gemeente Rotterdam</p>
+            </div>
+
+            <div class="gradient"></div>
+
+            <form method="post" id="form" role="form" action="assets/php/mail.php">
+
+                <div class="form-group contactlabel">
+                    <label for="age">Jouw leeftijd (optioneel)</label>
+                    <select class="form-select" id="age">
+                        <option value="0">Selecteer</option>
+                        <option value="1">Onder 12</option>
+                        <option value="2">12-16</option>
+                        <option value="3">17-21</option>
+                        <option value="4">21-49</option>
+                        <option value="5">50+</option>
+                    </select>
+                </div>
+
+                <div class="form-group contactlabel">
+                    <label for="email">Benieuwd naar veranderingen in jouw omgeving? Vul je email in!</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                </div>
+
+                <div class="contactlabel">
+                    <h2>Jouw Ontwerp</h2>
+                    <div id="storedScreenshot"></div>
+                    <input type="hidden" id="ontwerpid" name="ontwerp" value="0">
+                </div>
+
+                <div class="text-center">
+                    <input id="endbutton" type="submit" class="btn-thema-next" value="Versturen"
+                           style="margin-top:20px;"></div>
+            </form>
+        </div>
+
+    </section>
+
+    <section id="endscreen" class="endscreen" style="display:none;" style="width:100px; height:100px;">
+        <h2> Bericht wordt nu verzonden.. </h2>
+        <h3> Na het versturen wordt de pagina doorgeleid </h3>
+        <h3> Zie de ontwerpen van de mensen voor je: </h3>
+        <p> afbeeldingen </p>
+    </section>
+
+{% endblock %}

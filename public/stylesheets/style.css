@@ -360,13 +360,13 @@ section {
 
 .section-title {
   padding-bottom: 30px; }
-  .section-title h2 {
+  .section-title h1 {
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 20px;
     padding-bottom: 20px;
     position: relative; }
-    .section-title h2::after {
+    .section-title h1::after {
       content: "";
       position: absolute;
       display: block;
@@ -546,13 +546,6 @@ section {
     -webkit-animation: animate-loading 1s linear infinite;
     animation: animate-loading 1s linear infinite; }
 
-.contact #age {
-  width: 60%;
-  padding: 8px 22px;
-  border-radius: 5px;
-  color: black;
-  background-color: white; }
-
 @-webkit-keyframes animate-loading {
   0% {
     transform: rotate(0deg); }
@@ -575,6 +568,8 @@ section {
 
 .contactlabel {
   padding-top: 20px; }
+  .contactlabel label {
+    margin-bottom: .5rem; }
 
 /*--------------------------------------------------------------
 # Responsive

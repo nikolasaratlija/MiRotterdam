@@ -7,15 +7,22 @@ router.get('/', (req, res) => {
 
 router.get('/intro', (req, res) => {
     res.render('intro', {
-        title: 'MiRotterdam Introductie',
+        title: 'MiRotterdam',
         bodyClass: 'index'
     })
 })
 
 router.get('/ontwerpomgeving', (req, res) => {
     res.render('design-maker', {
-        title: 'Ontwerpomgeving',
+        title: 'MiRotterdam Ontwerpomgeving',
         bodyClass: 'design-maker'
+    })
+})
+
+router.get('/verzenden', (req, res) => {
+    res.render('submit', {
+        title: 'MiRotterdam Versturen',
+        bodyClass: 'submit'
     })
 })
 

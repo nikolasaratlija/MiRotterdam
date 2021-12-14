@@ -480,7 +480,7 @@ section {
 .section-title {
   padding-bottom: 30px;
 
-  h2 {
+  h1 {
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -708,14 +708,6 @@ section {
       animation: animate-loading 1s linear infinite;
     }
   }
-
-  #age {
-    width: 60%;
-    padding: 8px 22px;
-    border-radius: 5px;
-    color: black;
-    background-color: white;
-  }
 }
 
 @-webkit-keyframes animate-loading {
@@ -750,6 +742,10 @@ section {
 
 .contactlabel {
   padding-top: 20px;
+
+  label {
+    margin-bottom: .5rem;
+  }
 }
 
 /*--------------------------------------------------------------
