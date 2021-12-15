@@ -1,6 +1,5 @@
 import {makeDesignFromJson} from "./utils/makeDesignFromJson.js";
 
-makeDesignFromJson(
-    document.getElementById('design-preview-container'),
-    JSON.parse(sessionStorage.getItem('designObject'))
-)
+const canvas = makeDesignFromJson(JSON.parse(sessionStorage.getItem('designObject')))
+
+document.getElementById('design-preview-container').appendChild(canvas)

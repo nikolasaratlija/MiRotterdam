@@ -4,9 +4,9 @@ fetch('api/designs')
     .then(res => res.json())
     .then(json => createCanvasOverview(json))
 
-function createCanvasOverview(designs) {
-    designs.forEach(design => {
-        const canvas = makeDesignFromJson(design)
+function createCanvasOverview(designsData) {
+    designsData.forEach(designData => {
+        const canvas = makeDesignFromJson(designData)
         document.getElementById('container').appendChild(canvas)
     })
 }

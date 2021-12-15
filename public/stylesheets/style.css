@@ -736,7 +736,7 @@ body.design-maker {
       background: #04AA6D;
       cursor: pointer; }
 
-.options {
+.bottom-menu {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
@@ -745,7 +745,7 @@ body.design-maker {
   -webkit-box-shadow: 5px 5px 15px 5px #000000;
   box-shadow: 5px 5px 15px 5px #000000;
   box-sizing: border-box; }
-  .options button {
+  .bottom-menu button {
     height: 100%;
     width: 25%;
     margin: 0 3%;
@@ -755,9 +755,9 @@ body.design-maker {
     border-radius: 50px;
     background-position: center;
     background-repeat: no-repeat; }
-    .options button:disabled i {
+    .bottom-menu button:disabled i {
       color: #6c757d; }
-    .options button i {
+    .bottom-menu button i {
       font-size: 2em;
       color: black; }
 

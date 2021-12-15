@@ -4,21 +4,23 @@ import {canvas} from "../canvas/Canvas.js";
 export function saveDesignAsJson() {
     let designObject = {
         location_id: 5,
-        // image: canvas.style.backgroundImage,
         elements: []
     }
 
     canvas.childNodes.forEach(el => {
+        const cssTransform = el.style.transform
+        const splitPosition = cssTransform.match(/\d+/g)
+
         const element = {
-            image: el.src.split('/')[5],
-            width: el.style.width,
-            position: el.style.transform
+            element_name: el.src.split('/')[5],
+            width: parseInt(el.style.width, 10),
+            position_x: splitPosition[1],
+            position_y: splitPosition[2]
         }
 
         designObject.elements.push(element)
     })
 
-    console.log(designObject)
-    sessionStorage.setItem('designObject', JSON.stringify(designObject))
+    return designObject
 }
 
