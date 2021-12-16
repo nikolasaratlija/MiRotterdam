@@ -755,10 +755,10 @@ body.design-maker {
     border-radius: 50px;
     background-position: center;
     background-repeat: no-repeat; }
-    .bottom-menu button:disabled i {
-      color: #6c757d; }
-    .bottom-menu button i {
-      font-size: 2em;
+    .bottom-menu button:disabled svg {
+      fill: #6c757d; }
+    .bottom-menu button svg {
+      width: 2.25em;
       color: black; }
 
 .canvas {
@@ -843,6 +843,10 @@ body.design-maker {
   align-items: center;
   background-color: #f8f9fa;
   border-radius: 0.25em; }
+
+footer {
+  border-top: 1px solid #6c757d;
+  text-align: center; }
 
 body.admin {
   display: flex; }
