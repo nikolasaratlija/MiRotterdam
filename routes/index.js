@@ -20,7 +20,7 @@ router.get('/ontwerpomgeving', (req, res) => {
     })
 })
 
-router.get('/verzenden', (req, res) => {
+router.get('/ontwerpomgeving/verzenden', (req, res) => {
     res.render('submit', {
         title: 'MiRotterdam Versturen'
     })
