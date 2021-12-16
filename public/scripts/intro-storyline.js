@@ -20,5 +20,5 @@ async function luisterBtn() {
 }
 
 document.getElementById('design-maker-button').addEventListener('click', () => {
-    window.location.href = '/ontwerpomgeving'
+    window.location.href = '/ontwerpen'
 })
