@@ -6,12 +6,12 @@ export const ElementsMenu = {
 }
 
 function loadElements(elementOnClick) {
-    fetch('api/elements')
+    fetch('/api/elements')
         .then(res => res.json())
         .then(files => files.forEach(file => {
             // creates HTML imag element
             let image = document.createElement('img')
-            image.src = 'assets/elements/' + file
+            image.src = '/assets/elements/' + file
 
             const filePrefix = file.split('-')[0]
 

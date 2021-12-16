@@ -1,7 +1,7 @@
 const submitButton = document.getElementById('submit-design-button')
 
 submitButton.addEventListener('click', () => {
-    fetch('api/designs',
+    fetch('/api/designs',
         {
             method: "post",
             headers: {'Content-Type': 'application/json'},
