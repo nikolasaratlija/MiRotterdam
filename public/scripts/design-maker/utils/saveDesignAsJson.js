@@ -1,9 +1,10 @@
 import {canvas} from "../canvas/Canvas.js";
+import {getLocationId} from "./getLocationId.js";
 
 // this function creates a JSON file that represents the canvas (elements, element positions and background)
 export function saveDesignAsJson() {
     let designObject = {
-        location_id: 5,
+        location_id: parseInt(getLocationId()),
         elements: []
     }
 

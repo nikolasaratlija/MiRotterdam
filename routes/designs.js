@@ -16,20 +16,28 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', ((req, res) => {
-    const locationId = req.body.location_id
     const elementsObj = req.body.elements
+    const locationId = req.body.location_id
 
-    const elementsArr = elementsObj.map(
-        elements => Object.values(elements).concat(locationId)) // turn object into a 2d array
-
-    const insertQuery = `INSERT INTO elements (image, width, position_x, position_y, location_id) VALUES ?`
-
-    conn.query(insertQuery, [elementsArr] ,(err, data) => {
-        if (err)
-            res.send(err)
-        else
-            res.send(data)
+    // inserts design into database
+    conn.query('INSERT INTO designs (location_id) VALUE (?)', [locationId], (err, data) => {
+        if (err) res.send(err)
+        else insertElements(data['insertId']) // response returns the id of new design
     })
+
+    // insert design elements into database
+    const insertElements = (design_id) => {
+        const elementsArr = elementsObj.map(
+            elements => Object.values(elements).concat(design_id)) // turn object into a 2d array
+
+        const insertQuery = `INSERT INTO elements (image, width, position_x, position_y, design_id)
+                             VALUES ?`
+
+        conn.query(insertQuery, [elementsArr], (err, data) => {
+            if (err) res.send(err)
+            else res.send(data)
+        })
+    }
 }))
 
 function reduceData(designs) {

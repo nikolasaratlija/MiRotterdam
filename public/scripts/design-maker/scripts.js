@@ -8,6 +8,7 @@ import {AttributeEditor} from "./attribute-editor/AttributeEditor.js"
 import {SizeSlider} from "./attribute-editor/ElementSizeSlider.js"
 
 import {BottomMenu} from "./buttons/BottomMenu.js";
+import {getLocationId} from "./utils/getLocationId.js";
 
 
 // Loads element-library with elements, and sets click events on each element to show them on canvas
