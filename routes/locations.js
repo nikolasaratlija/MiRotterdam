@@ -3,6 +3,8 @@ const router = express.Router();
 const conn = require('../database/connection')
 const path = require('path')
 
+const utils = require('./queryUtils.js')
+
 // GET all locations
 router.get('/', (req, res) => {
     conn.query('SELECT * FROM locations', (err, rows) => {
@@ -31,6 +33,22 @@ router.get('/:id', (req, res) => {
 router.get('/:id/image', (req, res) => {
     res.sendFile(path.join(__dirname, `../data/location_images/L-${req.params.id}.webp`))
 })
+
+// GET all designs of location
+router.get('/:id/designs', ((req, res) => {
+    conn.query(
+        `SELECT e.image AS element_name, e.width, e.position_x, e.position_y, e.design_id
+         FROM elements e
+                  INNER JOIN designs d ON d.id = e.design_id
+                  INNER JOIN locations l ON l.id = d.location_id
+         WHERE d.location_id = ?`, [parseInt(req.params.id)],
+        (err, rows) => {
+            if (err) res.send(err)
+            else if (rows.length === 0)
+                res.status(404).send('Error 404, not found')
+            else res.send(utils.groupByDesignId(rows))
+        })
+}))
 
 // POST location
 router.post('/', (req, res) => {
