@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
         ORDER BY d.location_id`,
         (err, rows) => {
             if (err) res.send(err)
-            else res.send(reduceData(rows))
+            else res.send(groupData(rows))
         })
 })
 
@@ -42,12 +42,13 @@ router.post('/', ((req, res) => {
     }
 }))
 
-function reduceData(designs) {
+// this function takes the sql rows and turns it into a JSON object,
+// all elements are grouped per design_id
+function groupData(designs) {
     let groupedDesigns = {}
 
-    // I have no clue why this works
     designs.forEach(({location_id, element_name, width, position_x, position_y, design_id}) => {
-        console.log(element_name)
+        // I have no clue why this works
         groupedDesigns[design_id] = groupedDesigns[design_id] || {design_id, location_id, elements: []}
 
         const element = {
