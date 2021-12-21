@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2021 at 08:32 AM
--- Server version: 10.6.5-MariaDB
--- PHP Version: 7.3.31
+-- Gegenereerd op: 21 dec 2021 om 11:21
+-- Serverversie: 10.6.5-MariaDB
+-- PHP-versie: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,12 +24,38 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `elements`
+-- Tabelstructuur voor tabel `designs`
+--
+
+CREATE TABLE `designs` (
+  `id` int(11) NOT NULL,
+  `location_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `designs`
+--
+
+INSERT INTO `designs` (`id`, `location_id`) VALUES
+(4, 5),
+(8, 7),
+(9, 7),
+(12, 16),
+(13, 16),
+(14, 16),
+(10, 17),
+(11, 17),
+(15, 18);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `elements`
 --
 
 CREATE TABLE `elements` (
   `id` int(11) NOT NULL,
-  `name` varchar(45) NOT NULL,
+  `image` varchar(45) NOT NULL,
   `width` int(11) NOT NULL,
   `position_x` int(11) NOT NULL,
   `position_y` int(11) NOT NULL,
@@ -37,18 +63,27 @@ CREATE TABLE `elements` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `elements`
+-- Gegevens worden geëxporteerd voor tabel `elements`
 --
 
-INSERT INTO `elements` (`id`, `name`, `width`, `position_x`, `position_y`, `design_id`) VALUES
-(1, 'g-Bloem1.png', 100, 58, 407, 5),
-(2, 'g-Bloem2.png', 100, 215, 255, 5),
-(3, 'g-Bloem1.png', 100, 215, 255, 7);
+INSERT INTO `elements` (`id`, `image`, `width`, `position_x`, `position_y`, `design_id`) VALUES
+(3, 'g-Bloem1.png', 100, 215, 255, 4),
+(11, 'g-Bloem3.png', 100, 81, 460, 4),
+(16, 'ss-Basketbal.png', 122, 34, 340, 8),
+(17, 'o-Schommel.png', 135, 215, 401, 8),
+(18, 'ss-Speeltoestel.png', 124, 41, 432, 9),
+(19, 'ss-Speelkasteel.png', 146, 197, 586, 9),
+(20, 'ss-Klimrek1.png', 100, 400, 400, 10),
+(21, 'g-Boom4.png', 100, 200, 200, 10),
+(22, 'o-Picknick.png', 100, 200, 200, 11),
+(23, 'o-Schommel.png', 100, 400, 400, 11),
+(24, 'g-Bloem1.png', 100, 215, 400, 15),
+(25, 'g-Bloem1.png', 100, 215, 255, 15);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `locations`
+-- Tabelstructuur voor tabel `locations`
 --
 
 CREATE TABLE `locations` (
@@ -58,56 +93,77 @@ CREATE TABLE `locations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `locations`
+-- Gegevens worden geëxporteerd voor tabel `locations`
 --
 
 INSERT INTO `locations` (`id`, `location`, `image`) VALUES
-(5, 'Beijerlandselaand', 'L-5.webp'),
-(7, 'Retiefstraat', 'L-6.webp'),
-(16, 'Beurs', NULL);
+(5, 'Beijerlandselaan', 'L-5'),
+(7, 'Retiefstraat', 'L-6'),
+(16, 'Coolsingel', NULL),
+(17, 'Hofplein', NULL),
+(18, 'Wilhelminaplein', NULL);
 
 --
--- Indexes for dumped tables
+-- Indexen voor geëxporteerde tabellen
 --
 
 --
--- Indexes for table `elements`
+-- Indexen voor tabel `designs`
+--
+ALTER TABLE `designs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `designs_ibfk_1` (`location_id`);
+
+--
+-- Indexen voor tabel `elements`
 --
 ALTER TABLE `elements`
   ADD PRIMARY KEY (`id`),
   ADD KEY `location_elements_fk` (`design_id`);
 
 --
--- Indexes for table `locations`
+-- Indexen voor tabel `locations`
 --
 ALTER TABLE `locations`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
 --
--- AUTO_INCREMENT for table `elements`
+-- AUTO_INCREMENT voor een tabel `designs`
+--
+ALTER TABLE `designs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT voor een tabel `elements`
 --
 ALTER TABLE `elements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT for table `locations`
+-- AUTO_INCREMENT voor een tabel `locations`
 --
 ALTER TABLE `locations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- Constraints for dumped tables
+-- Beperkingen voor geëxporteerde tabellen
 --
 
 --
--- Constraints for table `elements`
+-- Beperkingen voor tabel `designs`
+--
+ALTER TABLE `designs`
+  ADD CONSTRAINT `designs_ibfk_1` FOREIGN KEY (`location_id`) REFERENCES `locations` (`id`);
+
+--
+-- Beperkingen voor tabel `elements`
 --
 ALTER TABLE `elements`
-  ADD CONSTRAINT `location_elements_fk` FOREIGN KEY (`design_id`) REFERENCES `locations` (`id`);
+  ADD CONSTRAINT `element_design_fk` FOREIGN KEY (`design_id`) REFERENCES `designs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
