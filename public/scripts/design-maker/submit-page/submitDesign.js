@@ -12,7 +12,7 @@ submitButton.addEventListener('click', () => {
         {
             method: "post",
             headers: {'Content-Type': 'application/json'},
-            body: sessionStorage.getItem('designObject')
+            body: sessionStorage.designObject
         }
     )
         .then(res => {

@@ -10,9 +10,15 @@ import {SizeSlider} from "./attribute-editor/ElementSizeSlider.js"
 import {BottomMenu} from "./buttons/BottomMenu.js";
 import {getLocationId} from "./utils/getLocationId.js";
 
+import {setSessionVars} from "./session.js";
+
+// for easy of testing: sets new session variables if the query string parameter differ from the session variable
+if (!(sessionStorage.locationId === getLocationId()))
+   await setSessionVars()
 
 // Loads element-library with elements, and sets click events on each element to show them on canvas
 ElementsMenu.loadElements(element => {
+    // code that gets executed when user click on an element in the menu
     canvas.addElement(element)
     toggleShowElementsMenu()  // hide menu when an user adds element
 })

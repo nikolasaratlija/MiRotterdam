@@ -23,7 +23,7 @@ router.get('/:id', (req, res) => {
         else if (row.length === 0)
             res.status(404).send('Error 404, not found')
         else {
-            row[0].image = req.protocol + '://' + req.get('host') + req.originalUrl + '/image'
+            row[0].image = req.originalUrl + '/image'
             res.send(row)
         }
     })
