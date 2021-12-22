@@ -14,7 +14,7 @@ export function addElement(imageSource) {
     img.classList.add('element') // add proper styling
     img.style.width = imageWidth + 'px'
     img.style.transform = // place image in the middle of the canvas
-        `translate3d(${canvas.offsetWidth / 2 - imageWidth / 2}px, ${canvas.offsetHeight / 2 - imageWidth / 2}px, 0px)`
+        `translate3d(-${canvas.offsetWidth / 2 + imageWidth / 2}px, ${canvas.offsetHeight / 2 - imageWidth / 2}px, 0px)`
 
     canvas.appendChild(img)
 

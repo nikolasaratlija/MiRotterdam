@@ -1,3 +1,1 @@
-export function getSelectedElement() {
-    return document.querySelector('.selected')
-}
+export const getSelectedElement = () => document.querySelector('.selected')

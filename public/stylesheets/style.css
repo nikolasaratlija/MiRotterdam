@@ -787,7 +787,7 @@ body.design-maker {
     width: 85%;
     border-right: 1px solid rgba(0, 0, 0, 0.3);
     border-top: 5px solid rgba(0, 0, 0, 0.3);
-    background-color: rgba(144, 238, 144, 0.95);
+    background-color: lightgreen;
     height: 100%;
     padding: 20px;
     box-sizing: border-box;
