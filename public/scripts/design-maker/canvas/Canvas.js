@@ -1,5 +1,5 @@
 import {toggleEnabled as toggleDeleteButton} from "../buttons/DeleteElementButton.js";
-import {hideElementEditor, showElementEditor} from "../attribute-editor/AttributeEditor.js";
+import {hideElementEditor, setElement} from "../attribute-editor/AttributeEditor.js";
 
 export const canvas = document.getElementById('canvas')
 export const backgroundImage = document.getElementById('canvas-background-image')
@@ -37,7 +37,7 @@ export const selectElement = e => { // event for selecting element
 
     selectedElement.classList.add('selected')
     toggleDeleteButton(selectedElement)
-    showElementEditor(selectedElement)
+    setElement(selectedElement)
 }
 
 export const deSelectElement = () => { // event for unselecting element

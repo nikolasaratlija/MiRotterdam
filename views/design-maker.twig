@@ -5,13 +5,15 @@
         <h2>Aanpassen</h2>
 
         <div class="editor-attribute-choices">
-            <span id="choice-size" class="highlighted">Grootte</span>
-            <span id="choice-color">Kleur</span>
-            <span id="choice-mirror">Spiegelen</span>
+            <button disabled id="choice-size">Grootte</button>
+            <button disabled id="choice-color">Kleur</button>
+            <button disabled id="choice-mirror">Spiegelen</button>
         </div>
 
+        <p class="menu-hint" id="menu-hint">Selecteer een element om het aan te passen.</p>
+
         <div class="attribute-editor">
-            <div class="scale-slider-container shown" id="scale-slider-container">
+            <div class="scale-slider-container" id="scale-slider-container">
                 <label for="scale-slider"></label>
                 <input type="range" class="scale-slider" id="scale-slider">
             </div>

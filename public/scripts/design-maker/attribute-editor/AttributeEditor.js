@@ -2,24 +2,7 @@ import {updateSlider} from "./ElementSizeSlider.js";
 import {setChosenElement} from "./ColorChooser.js";
 import {mirrorElement} from "./mirrorElement.js";
 
-const elementEditorAnimation = gsap.timeline() // animation
-elementEditorAnimation.to('.element-editor', {duration: 0.2, top: 0})
-elementEditorAnimation.pause()
-
-export function showElementEditor(element) {
-    // TODO: refactor the way elements are selected, because it's currently inconsistent
-    // set element in element editor
-    updateSlider(element)
-    setChosenElement(element)
-
-    elementEditorAnimation.play() // play animation
-}
-
-export function hideElementEditor() {
-    elementEditorAnimation.reverse()
-}
-
-const choiceMirror = document.getElementById('choice-mirror')
+const menuHintText = document.getElementById('menu-hint')
 
 const buttonMenuPairs = [
     {
@@ -31,6 +14,33 @@ const buttonMenuPairs = [
         'menu': document.getElementById('color-choices-container')
     }
 ]
+
+const choiceMirror = document.getElementById('choice-mirror')
+
+export function setElement(element) {
+    // TODO: refactor the way elements are selected, because it's currently inconsistent
+    updateSlider(element)
+    setChosenElement(element)
+
+    menuHintText.classList.add('d-none') // hide menu tip
+
+    buttonMenuPairs[0].button.classList.add('highlighted')
+    buttonMenuPairs[0].menu.classList.add('shown')
+
+    buttonMenuPairs.forEach(pair => { // remove highlight and make disable buttons
+        pair.button.disabled = false
+    })
+}
+
+export function hideElementEditor() {
+    menuHintText.classList.remove('d-none') // show menu tip when no element is selected
+
+    buttonMenuPairs.forEach(pair => {
+        pair.button.disabled = true
+        pair.button.classList.remove('highlighted')
+        pair.menu.classList.remove('shown')
+    })
+}
 
 export function AttributeEditor() {
     buttonMenuPairs.forEach(pair => {

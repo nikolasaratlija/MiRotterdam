@@ -7,16 +7,23 @@
   display: flex;
   flex-direction: column;
 
+  .menu-hint {
+    margin: 2.5% 5%;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
   .editor-attribute-choices {
     border-top: 5px solid rgba(0, 0, 0, 0.3);
     display: flex;
 
-    span {
+    button {
       border: 2px solid rgba(0, 0, 0, 0.3);
       border-radius: 10px;
       padding: 5px;
       margin-top: 5px;
       margin-left: 5%;
+      background: none;
 
       &.highlighted {
         color: white;
