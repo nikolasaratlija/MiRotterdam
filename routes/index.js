@@ -13,14 +13,14 @@ router.get('/intro', (req, res) => {
     })
 })
 
-router.get('/ontwerpomgeving', (req, res) => {
+router.get('/ontwerpen', (req, res) => {
     res.render('design-maker', {
         title: 'MiRotterdam Ontwerpomgeving',
         bodyClass: 'design-maker'
     })
 })
 
-router.get('/verzenden', (req, res) => {
+router.get('/ontwerpen/verzenden', (req, res) => {
     res.render('submit', {
         title: 'MiRotterdam Versturen'
     })

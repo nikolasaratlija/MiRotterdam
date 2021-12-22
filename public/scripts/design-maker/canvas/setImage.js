@@ -1,16 +1,3 @@
 import {canvas} from "./Canvas.js";
 
-export function setImage() {
-    const defaultLocationId = 5
-    const locationId = getLocationId() || defaultLocationId // default location id of 5 for testing
-
-    // set background of canvas
-    canvas.style.backgroundImage
-        = `url('/api/locations/${locationId}/image')`
-}
-
-function getLocationId() {
-    const urlSearchParams = new URLSearchParams(window.location.search);
-    const params = Object.fromEntries(urlSearchParams.entries());
-    return params.location
-}
+export const setImage = () => canvas.style.backgroundImage = `url('/api/locations/${sessionStorage.locationId}/image')`

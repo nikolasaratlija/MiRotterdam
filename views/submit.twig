@@ -34,20 +34,32 @@
             </div>
 
             <div class="text-center">
-                <input id="submit-design-button" type="submit" class="btn-thema-next" value="Versturen"
-                       style="margin-top:20px;"></div>
+                <input id="submit-design-button" type="submit" class="submit-design-button" value="Versturen"
+                       data-toggle="modal" data-target="#confirmationModal">
+            </div>
         </div>
 
     </section>
 
-    <section id="endscreen" class="endscreen" style="display:none;" style="width:100px; height:100px;">
-        <h2> Bericht wordt nu verzonden.. </h2>
-        <h3> Na het versturen wordt de pagina doorgeleid </h3>
-        <h3> Zie de ontwerpen van de mensen voor je: </h3>
-        <p> afbeeldingen </p>
-    </section>
+    <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmationModalLabel">Verstuurd!</h5>
+                </div>
 
-    <script src="scripts/design-maker/submit-page/designPreview.js" type="module"></script>
-    <script src="scripts/design-maker/submit-page/submitDesign.js" type="module"></script>
+                <div class="modal-body">
+                    <p>Bedankt voor het versturen van jouw ontwerp!</p>
+
+                    <small>Binnen 5 seconden word je verstuurd naar de hoofdpagina...</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/scripts/design-maker/submit-page/scripts.js" type="module"></script>
+    <script src="/scripts/design-maker/submit-page/designPreview.js" type="module"></script>
+    <script src="/scripts/design-maker/submit-page/submitDesign.js" type="module"></script>
 
 {% endblock %}

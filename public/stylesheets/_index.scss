@@ -614,7 +614,7 @@ section {
   color: #009961;
 }
 
-.btn-thema-next {
+.submit-design-button {
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   font-size: 19px;
@@ -628,32 +628,12 @@ section {
   background: #009961;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
-  margin-top: 6px;
   border: 2px solid #009961;
 
   &:hover {
     background: #fff;
     color: #009961;
     text-decoration: none;
-  }
-}
-
-/*--------------------------------------------------------------
-# Design
---------------------------------------------------------------*/
-
-#design {
-  visibility: visible;
-  transition: 0.6s;
-  -webkit-transition: 0.6s;
-  height: 100%;
-  padding: 0;
-  overflow: hidden;
-
-  &.hidden {
-    visibility: hidden;
-    height: 0;
-    padding: 0;
   }
 }
 

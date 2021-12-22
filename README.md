@@ -35,7 +35,8 @@ Team:
 `'/intro'`
 
 ## Design Maker
-`'/ontwerpomgeving'`
+`'/ontwerpen'`
+`'/ontwerpen/verzenden'`
 
 ## Admin
 `'/admin`
