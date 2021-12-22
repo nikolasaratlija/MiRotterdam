@@ -14,19 +14,16 @@ export function addElement(imageSource) {
     img.classList.add('element') // add proper styling
     img.style.width = imageWidth + 'px'
     img.style.transform = // place image in the middle of the canvas
-        `translate3d(-${canvas.offsetWidth / 2 + imageWidth / 2}px, ${canvas.offsetHeight / 2 - imageWidth / 2}px, 0px)`
+        `translate3d(${canvas.offsetWidth / 2 - imageWidth / 2}px, ${canvas.offsetHeight / 2 - imageWidth / 2}px, 0px)`
 
     canvas.appendChild(img)
 
     // uses GSAP library to make the image draggable
-    const canvasElement = Draggable.create(`#canvas > img#${img.id}`, {
+    Draggable.create(`#canvas > img#${img.id}`, {
         type: 'x,y',
         bounds: '#canvas',
         onClick: selectElement
-    })[0].target
-
-    // force click event upon creation to select the element
-    // canvasElement.dispatchEvent(new Event('click'))
+    })
 }
 
 // events

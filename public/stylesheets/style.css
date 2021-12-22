@@ -624,8 +624,6 @@ body.design-maker {
     color: black; }
 
 .element-editor {
-  position: absolute;
-  top: 0;
   background-color: lightgreen;
   width: 100%;
   height: 25%;
@@ -746,9 +744,11 @@ body.design-maker {
       color: black; }
 
 .canvas {
-  width: 100%; }
-  .canvas img.canvas-background-image {
-    width: 100%; }
+  width: 100%;
+  height: 68%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
   .canvas img.element {
     padding: 10px;
     position: absolute; }

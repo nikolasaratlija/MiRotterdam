@@ -18,9 +18,6 @@
             </div>
 
             <div class="color-choices-container" id="color-choices-container">
-                <!-- This inline styling is used for a javascript function -->
-                <!-- This way, the CSS 'filter' property can be extracted from these button via the JS 'style' property,
-                            which would not be possible when using CSS classes -->
                 <button style="filter: hue-rotate(40deg)"></button>
                 <button style="filter: hue-rotate(90deg)"></button>
                 <button style="filter: hue-rotate(150deg)"></button>
@@ -79,9 +76,7 @@
         </div>
     </div>
 
-    <div id="canvas" class="canvas">
-        <img class="canvas-background-image" id="canvas-background-image" src="" alt="canvas-background-image">
-    </div>
+    <div id="canvas" class="canvas"></div>
 
     <div class="bottom-menu" id="bottom-menu">
         <button class="option-button elements-menu-button" id="elements-menu-button">
