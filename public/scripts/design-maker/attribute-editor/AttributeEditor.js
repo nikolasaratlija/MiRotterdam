@@ -1,6 +1,6 @@
 import {updateSlider} from "./ElementSizeSlider.js";
 import {setChosenElement} from "./ColorChooser.js";
-import {getSelectedElement} from "../utils/getSelectedElement.js";
+import {mirrorElement} from "./mirrorElement.js";
 
 const elementEditorAnimation = gsap.timeline() // animation
 elementEditorAnimation.to('.element-editor', {duration: 0.2, top: 0})
@@ -19,32 +19,38 @@ export function hideElementEditor() {
     elementEditorAnimation.reverse()
 }
 
-const editorChoices = document.querySelectorAll('.editor-attribute-choices') // attributes
-const colorEditorContainer = document.getElementById('color-choices-container') // color choice container
-const scaleSliderContainer = document.getElementById('scale-slider-container') // scale slider
+const choiceMirror = document.getElementById('choice-mirror')
+
+const buttonMenuPairs = [
+    {
+        'button': document.getElementById('choice-size'),
+        'menu': document.getElementById('scale-slider-container')
+    },
+    {
+        'button': document.getElementById('choice-color'),
+        'menu': document.getElementById('color-choices-container')
+    }
+]
 
 export function AttributeEditor() {
-    editorChoices.forEach(el => el.addEventListener('click', e => {
-        const chosenAttribute = e.target
+    buttonMenuPairs.forEach(pair => {
+        pair.button.addEventListener('click', () => {
+            removeButtonHighlight(pair.button)
+            showAttrContainer(pair.menu)
+            pair.button.classList.add('highlighted')
+        })
+    })
 
-        const highlightedAttrButton = document.querySelector('.editor-attribute-choices .highlighted')
-        if (highlightedAttrButton !== chosenAttribute) {
-            chosenAttribute.classList.add('highlighted')
-            highlightedAttrButton.classList.remove('highlighted')
-        }
+    choiceMirror.addEventListener('click', button => {
+        mirrorElement()
+    })
+}
 
-        switch (chosenAttribute.id) {
-            case 'choice-size':
-                showAttrContainer(scaleSliderContainer)
-                break;
-            case 'choice-color':
-                showAttrContainer(colorEditorContainer)
-                break;
-            case 'choice-mirror':
-                mirrorElement()
-                break;
-        }
-    }))
+function removeButtonHighlight(button) {
+    const highlightedButton = document.querySelector('.editor-attribute-choices .highlighted')
+
+    if (highlightedButton !== button)
+        highlightedButton.classList.remove('highlighted')
 }
 
 function showAttrContainer(container) {
@@ -54,8 +60,4 @@ function showAttrContainer(container) {
         document.querySelector('.attribute-editor > div.shown').classList.remove('shown')
 
     container.classList.add('shown')
-}
-
-function mirrorElement() {
-    gsap.set(getSelectedElement(), {scaleX: -1})
 }
