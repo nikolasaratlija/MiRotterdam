@@ -29,36 +29,34 @@
 .attribute-editor {
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  overflow: scroll;
   margin-top: 5px;
 
   .scale-slider-container {
-    width: 75%;
+    width: 100%;
     display: none;
-
-    label {
-      width: 100%
-    }
+    justify-content: center;
+    align-items: center;
 
     &.shown {
-      display: block;
+      display: flex;
     }
   }
 
+  > div {
+    height: 100%
+  }
+
   .color-choices-container {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    justify-items: center;
-    grid-gap: 10px;
+    overflow: auto;
     display: none;
   }
 
   .color-choices-container.shown {
-    display: grid;
+    display: flex;
   }
 
   .color-choices-container > button {
+    min-width: 75px;
     width: 75px;
     height: 75px;
     border: #202020 solid 1px;
@@ -67,6 +65,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-color: transparent;
+    margin: 0 5px;
   }
 
   .color-button {
@@ -106,8 +105,7 @@
 
   .scale-slider {
     -webkit-appearance: none;
-    width: 100%;
-    margin: 5% 0 auto;
+    width: 80%;
     height: 15px;
     border-radius: 5px;
     background: whitesmoke;
