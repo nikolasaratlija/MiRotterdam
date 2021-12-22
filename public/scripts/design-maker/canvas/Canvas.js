@@ -2,6 +2,7 @@ import {toggleEnabled as toggleDeleteButton} from "../buttons/DeleteElementButto
 import {hideElementEditor, showElementEditor} from "../attribute-editor/AttributeEditor.js";
 
 export const canvas = document.getElementById('canvas')
+export const backgroundImage = document.getElementById('canvas-background-image')
 export const imageWidth = 100 // default canvas image width
 
 // add element to canvas
@@ -9,6 +10,7 @@ export function addElement(element) {
     const img = element.cloneNode(true)
 
     img.id = 'obj' + Math.floor(Math.random() * 99) // assign random id to object
+    img.classList.add('element')
     img.style.width = imageWidth + 'px'
     // place image in the middle of the canvas
     img.style.transform =

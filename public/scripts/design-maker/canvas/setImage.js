@@ -1,3 +1,3 @@
-import {canvas} from "./Canvas.js";
+import {backgroundImage} from "./Canvas.js";
 
-export const setImage = () => canvas.style.backgroundImage = `url('/api/locations/${sessionStorage.locationId}/image')`
+export const setImage = () => backgroundImage.src = `/api/locations/${sessionStorage.locationId}/image`

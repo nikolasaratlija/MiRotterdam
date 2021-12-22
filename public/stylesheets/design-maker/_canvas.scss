@@ -1,12 +1,13 @@
-.canvas {
-  height: 93%;
-  width: 100%;
-  overflow: visible;
-  padding: 0;
-  background-size: cover;
-  background-position: center;
+@import "variables";
 
-  img {
+.canvas {
+  width: 100%;
+
+  img.canvas-background-image {
+    width: 100%;
+  }
+
+  img.element {
     padding: 10px;
     position: absolute;
 
