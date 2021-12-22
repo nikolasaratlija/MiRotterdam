@@ -1,11 +1,24 @@
 const express = require('express')
 const router = express.Router()
+const conn = require('../database/connection')
+
 
 router.get('/', (req, res) => {
     res.render('admin/login', {
         title: 'Admin Login',
         bodyClass: 'login'
     })
+})
+
+router.post('/', (req, res) => {
+    const username = req.body.username
+    const wachtwoord = req.body.wachtwoord
+    //
+    // conn.query("SELECT")
+
+    // inloggevevens kloppen ?
+    // stuur naar dashboard:
+    res.render('admin/locations-dashboard')
 })
 
 router.get('/locaties-dashboard', (req, res) => {

@@ -2,6 +2,41 @@
 
 {% block body %}
 
-    <h1>Login</h1>
+    <script>
+        function showPass() {
+            var x = document.getElementById("floatingPassword");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+
+    <!--Form gemaakt mbv bootstrap en een knop die verwijst naar loginfunctie-->
+    <div class="form-signin">
+        <form method="post" action="/admin/">
+            <img class="mb-4" src="/assets/img/MIR-Logo.jpg" alt="Logo" width="auto" height="60">
+            <h1 class="h3 mb-3 fw-normal">Log In</h1>
+
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" placeholder="admin" name="email" required>
+                <label for="floatingInput">E-mailadres</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="wachtwoord" required>
+                <label for="floatingPassword">Wachtwoord</label>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" onclick="showPass()" id="checkpass">
+                <label for="checkpass" class="col-form-label">Toon wachtwoord</label><br>
+            </div>
+
+            <button class="w-100 btn btn-lg btn-success" type="submit" name="LoginButton">Log In</button>
+
+            <p class="mt-5 mb-3 text-muted">MiRotterdam - 2021</p>
+        </form>
+    </div>
+
 
 {% endblock %}
