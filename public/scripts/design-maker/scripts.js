@@ -18,8 +18,8 @@ if (!(sessionStorage.locationId === getLocationId()))
 
 // Loads element-library with elements, and sets click events on each element to show them on canvas
 ElementsMenu.loadElements(element => {
-    // code that gets executed when user click on an element in the menu
-    canvas.addElement(element)
+    // callback function for clicking on an element in the library
+    canvas.addElement(element.src) // takes the src of the clicked image and creates a new element on the canvas
     toggleShowElementsMenu()  // hide menu when an user adds element
 })
 

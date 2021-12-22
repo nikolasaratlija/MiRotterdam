@@ -1,11 +1,13 @@
 import {updateSlider} from "./ElementSizeSlider.js";
 import {setChosenElement} from "./ColorChooser.js";
+import {getSelectedElement} from "../utils/getSelectedElement.js";
 
 const elementEditorAnimation = gsap.timeline() // animation
 elementEditorAnimation.to('.element-editor', {duration: 0.2, top: 0})
 elementEditorAnimation.pause()
 
 export function showElementEditor(element) {
+    // TODO: refactor the way elements are selected, because it's currently inconsistent
     // set element in element editor
     updateSlider(element)
     setChosenElement(element)
@@ -54,6 +56,6 @@ function showAttrContainer(container) {
     container.classList.add('shown')
 }
 
-function mirrorElement(element) {
-    console.log('mirror')
+function mirrorElement() {
+    gsap.set(getSelectedElement(), {scaleX: -1})
 }
