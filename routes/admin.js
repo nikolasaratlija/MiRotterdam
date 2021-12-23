@@ -31,7 +31,10 @@ router.post('/', (req, res) => {
 
     // inloggevevens kloppen ?
     // stuur naar dashboard:
-    res.render('admin/dashboard')
+    res.render('admin/dashboard', {
+        title: 'Dashboard',
+        bodyClass: 'admin'
+    })
 })
 
 router.get('/locaties-dashboard', (req, res) => {
