@@ -1,0 +1,48 @@
+{% extends 'base/layout.twig' %}
+
+{% block body %}
+
+    {% include 'admin/sidebar.twig' %}
+    <div style="margin-left:285px">
+    <!--Welkom + Gebruikersnaam waarmee ingelogd is-->
+    <h2>Welkom</h2>
+    <p>U bent nu op de adminpagina van het project MiRotterdam.<br>In het menu kunt u de aanpassingen doen.</p>
+
+    <div class="divcards">
+        <div class="card" style="width: 18rem;display: inline-block; border: solid black 1px;">
+            <a href="locatiesoverzicht.php"><img src="fotos/pin.png" class="card-img-top"></a>
+            <div class="card-body">
+                <h5 class="card-title">Locaties</h5>
+                <p class="card-text">Navigeer direct naar het locatiesoverzicht via de knop.</p>
+                <a href="locatiesoverzicht.php" class="btn btn-success">Locaties</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;display: inline-block;border: solid black 1px;">
+            <a href="elementenoverzicht.php"><img src="fotos/world.png" class="card-img-top"></a>
+            <div class="card-body">
+                <h5 class="card-title">Elementen</h5>
+                <p class="card-text">Navigeer direct naar het elementenoverzicht via de knop.</p>
+                <a href="elementenoverzicht.php" class="btn btn-success">Elementen</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;display: inline-block;border: solid black 1px;">
+            <a href="gebruikers.php"><img src="fotos/users.png" class="card-img-top"></a>
+            <div class="card-body">
+                <h5 class="card-title">Gebruikers</h5>
+                <p class="card-text">Navigeer direct naar het gebruikers overzicht via de knop.</p>
+                <a href="gebruikers.php" class="btn btn-success">Gebruikers</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Div voor het contactvlak onder aan de site-->
+    <div class="bottom" style = "margin-left: -8%;">
+        <br>
+        <img src="fotos/Gemeente-Logo.jpg" alt="" width="100" height="40" >
+        <p>Contact | Naam: Gemeente Rotterdam | Email: voorbeeld@email.com | Telefoon: 010 - 267 16 25</p>
+    </div>
+    </div>
+
+
+{% endblock %}

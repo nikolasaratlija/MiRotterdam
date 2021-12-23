@@ -468,7 +468,7 @@ section {
 .thema .icon-box:hover h4 a {
   color: #009961; }
 
-.btn-thema-next {
+.submit-design-button {
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   font-size: 19px;
@@ -482,27 +482,11 @@ section {
   background: #009961;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
-  margin-top: 6px;
   border: 2px solid #009961; }
-  .btn-thema-next:hover {
+  .submit-design-button:hover {
     background: #fff;
     color: #009961;
     text-decoration: none; }
-
-/*--------------------------------------------------------------
-# Design
---------------------------------------------------------------*/
-#design {
-  visibility: visible;
-  transition: 0.6s;
-  -webkit-transition: 0.6s;
-  height: 100%;
-  padding: 0;
-  overflow: hidden; }
-  #design.hidden {
-    visibility: hidden;
-    height: 0;
-    padding: 0; }
 
 /*--------------------------------------------------------------
 # Contact
@@ -755,10 +739,10 @@ body.design-maker {
     border-radius: 50px;
     background-position: center;
     background-repeat: no-repeat; }
-    .bottom-menu button:disabled i {
-      color: #6c757d; }
-    .bottom-menu button i {
-      font-size: 2em;
+    .bottom-menu button:disabled svg {
+      fill: #6c757d; }
+    .bottom-menu button svg {
+      width: 2.25em;
       color: black; }
 
 .canvas {
@@ -844,6 +828,10 @@ body.design-maker {
   background-color: #f8f9fa;
   border-radius: 0.25em; }
 
+footer {
+  border-top: 1px solid #6c757d;
+  text-align: center; }
+
 html {
   height: 100%; }
 
@@ -888,6 +876,21 @@ body.login {
     font-size: 3.5rem; } }
 
 body.admin {
-  display: flex; }
+  height: 100%;
+  background-image: url(../assets/img/achtergrond.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center; }
+
+.divcards {
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */
