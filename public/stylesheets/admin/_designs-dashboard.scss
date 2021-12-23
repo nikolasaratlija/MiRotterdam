@@ -1,0 +1,70 @@
+.ontwAchtergrond {
+    height: 100%;
+    background: url(../assets/img/achtergrond.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+// Styling voor de space per ontwerp + data (Twijfel over border)
+.ontw{
+    background-color: white;
+    border:2px solid black;
+    margin-right: 25px;
+    margin-bottom: 12.5px;
+    height: 250px;
+}
+
+
+// Styling voor de frame om een ontwerp heen
+.frame{
+    height: 214px;
+    width: auto;
+    border: 2px solid rgb(206, 203, 203);
+    // border: 2px solid #f8f9fa;
+    margin-top: 16px;
+}
+
+// Previous & Next button
+a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+// Veranderd styling Previous & Next button wanneer er gehoverd word
+a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+// Styling Previous button
+.previous {
+    background-color: #f1f1f1;
+    color: black;
+    // margin-top: 14%;
+    // margin-left: 35.25%;
+
+}
+  
+// Styling Next button
+.next {
+    // background-color: #04AA6D;
+    // color: white;
+    background-color: #f1f1f1;
+    color: black;
+  }
+
+// Styling om Previous & Next button rond te maken
+.round {
+    border-radius: 50%;
+    margin: 8px;
+}
+
+// Plaatst Previous & Next button onderaan de pagina
+.Pbuttons {
+    position: absolute;
+    bottom: 8px;
+}

@@ -3,15 +3,105 @@
 {% block body %}
 
     {% include 'admin/sidebar.twig' %}
+<<<<<<< HEAD
+    {% include 'database/connection.js' %}
+    <div class="container-fluid backgroundDes">
+=======
 
+<<<<<<< Updated upstream
     <div class="container">
+=======
+    <div class="container" style="margin-left:285px">
+>>>>>>> 732261b68fc5120a6d5e43aa424aecfb34f045fe
+>>>>>>> Stashed changes
 
         <h1>Ontwerpen Dashboard</h1>
 
         <div>
-            <p>Test text</p>
+            <p>Hieronder vind u een overzicht van alle ontwerpen.</p>
+        </div>
+
+        <div class="row col-12 mt-4">
+            {# <div class="col-md-5 col-12 ontw mr-md-4 mb-4 mr-0">  #}
+
+            <div class="row ml-0 col-5 ontw">
+                <div class="col-5">
+                    <img class="img-fluid frame" src="https://ferret-c.com/wp-content/uploads/2018/04/NL-Rotterdam-Beursplein.jpg">
+                    ?>
+                </div>
+                <div class="col-7">
+                    <div class="mt-3"><p class="mb-1">Ontwerp ID: 1</p><p class="mb-1">Locatie: Beurs</p><p>Thema: Veilig en schoon</p></div>
+                    <div class="mt-3"><button class="btn btn-success">Download ontwerp</button></div>
+                    <div class="mt-3"><button class="btn btn-danger">Verwijder ontwerp</button></div>
+                </div>
+            </div>
+
+            <div class="row ml-0 col-5 ontw">
+                <div class="col-5">
+                    <img class="img-fluid frame" src="https://media-cdn.tripadvisor.com/media/photo-s/13/2f/cd/b4/blaak-markt.jpg">
+                </div>
+                <div class="col-7">
+                    <div class="mt-3"><p class="mb-1">Ontwerp ID: 2</p><p class="mb-1">Locatie: Markthal</p><p>Thema: Groen</p></div>
+                    <div class="mt-3"><button class="btn btn-success">Download ontwerp</button></div>
+                    <div class="mt-3"><button class="btn btn-danger">Verwijder ontwerp</button></div>
+                </div>
+            </div>
+
+            <div class="row ml-0 col-5 ontw">
+                <div class="col-5">
+                    <img class="img-fluid frame" src="https://www.mustsee.today/wp-content/uploads/2018/10/Wijnhaven-2-1620x1080.jpg">
+                </div>
+                <div class="col-7">
+                    <div class="mt-3"><p class="mb-1">Ontwerp ID: 3</p><p class="mb-1">Locatie: Wijnhaven</p><p>Thema: Groen</p></div>
+                    <div class="mt-3"><button class="btn btn-success">Download ontwerp</button></div>
+                    <div class="mt-3"><button class="btn btn-danger">Verwijder ontwerp</button></div>
+                </div>
+            </div>
+
+            <div class="row ml-0 col-5 ontw">
+                <div class="col-5">
+                    <img class="img-fluid frame" src="https://images0.persgroep.net/rcs/xhBvC80Ofh5fs1Bpt_Ns2_2cWqo/diocontent/60231192/_fitwidth/694/?appId=21791a8992982cd8da851550a453bd7f&quality=0.8">
+                </div>
+                <div class="col-7">
+                    <div class="mt-3"><p class="mb-1">Ontwerp ID: 4</p><p class="mb-1">Locatie: Noordereiland</p><p>Thema: Sport en spel</p></div>
+                    <div class="mt-3"><button class="btn btn-success">Download ontwerp</button></div>
+                    <div class="mt-3"><button class="btn btn-danger">Verwijder ontwerp</button></div>
+                </div>
+            </div>
+
+            <div class="row ml-0 col-5 ontw">
+                <div class="col-5">
+                    <img class="img-fluid frame" src="https://images0.persgroep.net/rcs/xhBvC80Ofh5fs1Bpt_Ns2_2cWqo/diocontent/60231192/_fitwidth/694/?appId=21791a8992982cd8da851550a453bd7f&quality=0.8">
+                </div>
+                <div class="col-7">
+                    <div class="mt-3"><p class="mb-1">Ontwerp ID: 4</p><p class="mb-1">Locatie: Noordereiland</p><p>Thema: Sport en spel</p></div>
+                    <div class="mt-3"><button class="btn btn-success">Download ontwerp</button></div>
+                    <div class="mt-3"><button class="btn btn-danger">Verwijder ontwerp</button></div>
+                </div>
+            </div>
+            
+            <div class="row ml-0 col-5 ontw">
+                <div class="col-5">
+                    <img class="img-fluid frame" src="https://images0.persgroep.net/rcs/xhBvC80Ofh5fs1Bpt_Ns2_2cWqo/diocontent/60231192/_fitwidth/694/?appId=21791a8992982cd8da851550a453bd7f&quality=0.8">
+                </div>
+                <div class="col-7">
+                    <div class="mt-3"><p class="mb-1">Ontwerp ID: 4</p><p class="mb-1">Locatie: Noordereiland</p><p>Thema: Sport en spel</p></div>
+                    <div class="mt-3"><button class="btn btn-success">Download ontwerp</button></div>
+                    <div class="mt-3"><button class="btn btn-danger">Verwijder ontwerp</button></div>
+                </div>
+            </div>
+
+        </div>
+
+        {# Twijfel tussen buttons #}
+        <div class="d-flex justify-content-center row ml-0 col-10 Pbuttons">
+            {# <a href="#" class="previous mr-3">&laquo; Vorige</a>
+            <a href="#" class="next">Volgende &raquo;</a> #}
+
+            <a href="#" class="previous round">&#8249;</a>
+            <a href="#" class="next round">&#8250;</a>
         </div>
 
     </div>
-
+    
 {% endblock %}
