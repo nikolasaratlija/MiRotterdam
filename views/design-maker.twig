@@ -5,23 +5,21 @@
         <h2>Aanpassen</h2>
 
         <div class="editor-attribute-choices">
-            <span id="choice-size" class="highlighted">Grootte</span>
-            <span id="choice-color">Kleur</span>
-            <span id="choice-mirror">Spiegelen</span>
+            <button disabled id="choice-size">Grootte</button>
+            <button disabled id="choice-color">Kleur</button>
+            <button disabled id="choice-mirror">Spiegelen</button>
         </div>
 
+        <p class="menu-hint" id="menu-hint">Selecteer een element om het aan te passen.</p>
+
         <div class="attribute-editor">
-            <div class="scale-slider-container shown" id="scale-slider-container">
-                <label for="scale-slider">
-                    <input type="range" class="scale-slider" id="scale-slider">
-                </label>
+            <div class="scale-slider-container" id="scale-slider-container">
+                <label for="scale-slider"></label>
+                <input type="range" class="scale-slider" id="scale-slider">
             </div>
 
             <div class="color-choices-container" id="color-choices-container">
-                <!-- This inline styling is used for a javascript function -->
-                <!-- This way, the CSS 'filter' property can be extracted from these button via the JS 'style' property,
-                            which would not be possible when using CSS classes -->
-                <button style="filter: hue-rotate(40deg)"></button>
+                <button style="filter: hue-rotate(0deg)"></button>
                 <button style="filter: hue-rotate(90deg)"></button>
                 <button style="filter: hue-rotate(150deg)"></button>
                 <button style="filter: hue-rotate(270deg)"></button>
@@ -37,7 +35,7 @@
 
             <div class="theme-container spel-sport">
                 <div class="theme-menu-dropdown collapse" id="menu-spelsport"></div>
-                <button class="btn btn-light dropdown-toggle" data-toggle="collapse" data-target="#menu-spelsport"
+                <button class="btn btn-light dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#menu-spelsport"
                         aria-expanded="false">
                     Spel & Sport
                 </button>
@@ -45,7 +43,7 @@
 
             <div class="theme-container groen">
                 <div class="theme-menu-dropdown collapse" id="menu-groen"></div>
-                <button class="btn btn-light dropdown-toggle" data-toggle="collapse" data-target="#menu-groen"
+                <button class="btn btn-light dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#menu-groen"
                         aria-expanded="false">
                     Groen
                 </button>
@@ -53,7 +51,8 @@
 
             <div class="theme-container ontspanning">
                 <div class="theme-menu-dropdown collapse" id="menu-ontspanning"></div>
-                <button class="btn btn-light dropdown-toggle" data-toggle="collapse" data-target="#menu-ontspanning"
+                <button class="btn btn-light dropdown-toggle" data-bs-toggle="collapse"
+                        data-bs-target="#menu-ontspanning"
                         aria-expanded="false">
                     Ontspanning
                 </button>
@@ -61,7 +60,7 @@
 
             <div class="theme-container veilig">
                 <div class="theme-menu-dropdown collapse" id="menu-veilig"></div>
-                <button class="btn btn-light dropdown-toggle" data-toggle="collapse" data-target="#menu-veilig"
+                <button class="btn btn-light dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#menu-veilig"
                         aria-expanded="false">
                     Veilig
                 </button>
@@ -91,7 +90,8 @@
         <button class="option-button delete-button" id="delete-button" disabled>
             <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-trash" viewBox="0 0 16 16">
                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                <path fill-rule="evenodd"
+                      d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
             </svg>
         </button>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 21 dec 2021 om 11:21
+-- Gegenereerd op: 23 dec 2021 om 00:20
 -- Serverversie: 10.6.5-MariaDB
 -- PHP-versie: 7.3.31
 
@@ -43,6 +43,7 @@ INSERT INTO `designs` (`id`, `location_id`) VALUES
 (12, 16),
 (13, 16),
 (14, 16),
+(19, 16),
 (10, 17),
 (11, 17),
 (15, 18);
@@ -78,7 +79,8 @@ INSERT INTO `elements` (`id`, `image`, `width`, `position_x`, `position_y`, `des
 (22, 'o-Picknick.png', 100, 200, 200, 11),
 (23, 'o-Schommel.png', 100, 400, 400, 11),
 (24, 'g-Bloem1.png', 100, 215, 400, 15),
-(25, 'g-Bloem1.png', 100, 215, 255, 15);
+(25, 'g-Bloem1.png', 100, 215, 255, 15),
+(27, 'o-Picknick.png', 154, 47, 478, 19);
 
 -- --------------------------------------------------------
 
@@ -102,6 +104,27 @@ INSERT INTO `locations` (`id`, `location`, `image`) VALUES
 (16, 'Coolsingel', NULL),
 (17, 'Hofplein', NULL),
 (18, 'Wilhelminaplein', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `login`
+--
+
+CREATE TABLE `login` (
+  `Gebruikersnaam` varchar(30) NOT NULL,
+  `Wachtwoord` varchar(30) NOT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `login`
+--
+
+INSERT INTO `login` (`Gebruikersnaam`, `Wachtwoord`, `email`, `id`) VALUES
+('Bram', '123', '1009906@hr.nl', 1),
+('Elisa', '123456', 'test@gmail.com', 5);
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -128,6 +151,13 @@ ALTER TABLE `locations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexen voor tabel `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `Gebruikersnaam` (`Gebruikersnaam`);
+
+--
 -- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
@@ -135,19 +165,25 @@ ALTER TABLE `locations`
 -- AUTO_INCREMENT voor een tabel `designs`
 --
 ALTER TABLE `designs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT voor een tabel `elements`
 --
 ALTER TABLE `elements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT voor een tabel `locations`
 --
 ALTER TABLE `locations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT voor een tabel `login`
+--
+ALTER TABLE `login`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Beperkingen voor geëxporteerde tabellen

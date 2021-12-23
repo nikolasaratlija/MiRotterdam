@@ -614,7 +614,7 @@ section {
 body.design-maker {
   background-color: #303030;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   flex-direction: column; }
   body.design-maker h2 {
@@ -624,50 +624,51 @@ body.design-maker {
     color: black; }
 
 .element-editor {
-  position: absolute;
-  background-color: rgba(144, 238, 144, 0.85);
+  background-color: lightgreen;
   width: 100%;
   height: 25%;
-  top: -25%;
   box-sizing: border-box;
   border-bottom: 5px solid rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column; }
+  .element-editor .menu-hint {
+    margin: 2.5% 5%;
+    font-size: 1.25rem;
+    font-weight: bold; }
   .element-editor .editor-attribute-choices {
     border-top: 5px solid rgba(0, 0, 0, 0.3);
     display: flex; }
-    .element-editor .editor-attribute-choices span {
+    .element-editor .editor-attribute-choices button {
       border: 2px solid rgba(0, 0, 0, 0.3);
       border-radius: 10px;
       padding: 5px;
       margin-top: 5px;
-      margin-left: 5%; }
-      .element-editor .editor-attribute-choices span.highlighted {
+      margin-left: 5%;
+      background: none; }
+      .element-editor .editor-attribute-choices button.highlighted {
         color: white;
         background-color: rgba(0, 0, 0, 0.3); }
 
 .attribute-editor {
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  overflow: scroll;
   margin-top: 5px; }
   .attribute-editor .scale-slider-container {
-    width: 75%;
-    display: none; }
-    .attribute-editor .scale-slider-container label {
-      width: 100%; }
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center; }
     .attribute-editor .scale-slider-container.shown {
-      display: block; }
+      display: flex; }
+  .attribute-editor > div {
+    height: 100%; }
   .attribute-editor .color-choices-container {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    justify-items: center;
-    grid-gap: 10px;
+    overflow: auto;
     display: none; }
   .attribute-editor .color-choices-container.shown {
-    display: grid; }
+    display: flex; }
   .attribute-editor .color-choices-container > button {
+    min-width: 75px;
     width: 75px;
     height: 75px;
     border: #202020 solid 1px;
@@ -675,7 +676,8 @@ body.design-maker {
     background-size: 90%;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: transparent; }
+    background-color: transparent;
+    margin: 0 5px; }
   .attribute-editor .color-button {
     border: 1px solid rgba(0, 0, 0, 0.3);
     width: 30px;
@@ -697,8 +699,7 @@ body.design-maker {
       background-color: #FFC800; }
   .attribute-editor .scale-slider {
     -webkit-appearance: none;
-    width: 100%;
-    margin: 5% 0 auto;
+    width: 80%;
     height: 15px;
     border-radius: 5px;
     background: whitesmoke;
@@ -746,16 +747,15 @@ body.design-maker {
       color: black; }
 
 .canvas {
-  height: 93%;
   width: 100%;
-  overflow: visible;
-  padding: 0;
+  height: 68%;
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: center; }
-  .canvas img {
+  .canvas img.element {
     padding: 10px;
     position: absolute; }
-    .canvas img.selected {
+    .canvas img.element.selected {
       border: 5px solid rgba(135, 206, 250, 0.9);
       padding: 5px;
       border-radius: 20px; }
@@ -790,7 +790,7 @@ body.design-maker {
     width: 85%;
     border-right: 1px solid rgba(0, 0, 0, 0.3);
     border-top: 5px solid rgba(0, 0, 0, 0.3);
-    background-color: rgba(144, 238, 144, 0.95);
+    background-color: lightgreen;
     height: 100%;
     padding: 20px;
     box-sizing: border-box;

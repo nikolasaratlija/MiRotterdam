@@ -1,24 +1,29 @@
 .element-editor {
-  position: absolute;
-  background-color: rgba(144, 238, 144, 0.85);
+  background-color: rgb(144, 238, 144);
   width: 100%;
   height: 25%;
-  top: -25%;
   box-sizing: border-box;
   border-bottom: 5px solid rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
 
+  .menu-hint {
+    margin: 2.5% 5%;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
   .editor-attribute-choices {
     border-top: 5px solid rgba(0, 0, 0, 0.3);
     display: flex;
 
-    span {
+    button {
       border: 2px solid rgba(0, 0, 0, 0.3);
       border-radius: 10px;
       padding: 5px;
       margin-top: 5px;
       margin-left: 5%;
+      background: none;
 
       &.highlighted {
         color: white;
@@ -31,36 +36,34 @@
 .attribute-editor {
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  overflow: scroll;
   margin-top: 5px;
 
   .scale-slider-container {
-    width: 75%;
+    width: 100%;
     display: none;
-
-    label {
-      width: 100%
-    }
+    justify-content: center;
+    align-items: center;
 
     &.shown {
-      display: block;
+      display: flex;
     }
   }
 
+  > div {
+    height: 100%
+  }
+
   .color-choices-container {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    justify-items: center;
-    grid-gap: 10px;
+    overflow: auto;
     display: none;
   }
 
   .color-choices-container.shown {
-    display: grid;
+    display: flex;
   }
 
   .color-choices-container > button {
+    min-width: 75px;
     width: 75px;
     height: 75px;
     border: #202020 solid 1px;
@@ -69,6 +72,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-color: transparent;
+    margin: 0 5px;
   }
 
   .color-button {
@@ -108,8 +112,7 @@
 
   .scale-slider {
     -webkit-appearance: none;
-    width: 100%;
-    margin: 5% 0 auto;
+    width: 80%;
     height: 15px;
     border-radius: 5px;
     background: whitesmoke;
