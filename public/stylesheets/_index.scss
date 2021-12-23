@@ -553,6 +553,23 @@ section {
   }
 }
 
+
+.swiper{
+  height: 720px;
+}
+
+.swiper-slide{
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+  color: black;
+}
+
+
+
 #verhaalimg {
   width: 100%;
   height: 270px;
