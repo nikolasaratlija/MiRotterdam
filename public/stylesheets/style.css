@@ -876,6 +876,21 @@ body.login {
     font-size: 3.5rem; } }
 
 body.admin {
-  display: flex; }
+  height: 100%;
+  background-image: url(../assets/img/achtergrond.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center; }
+
+.divcards {
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */

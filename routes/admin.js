@@ -10,6 +10,19 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/dashboard', (req, res) => {
+    res.render('admin/dashboard', {
+        title: 'Dashboard',
+        bodyClass: 'admin'
+    })
+})
+router.get('/gebruikers', (req, res) => {
+    res.render('admin/users-dashboard', {
+        title: 'Dashboard',
+        bodyClass: 'admin'
+    })
+})
+
 router.post('/', (req, res) => {
     const username = req.body.username
     const wachtwoord = req.body.wachtwoord
@@ -18,7 +31,10 @@ router.post('/', (req, res) => {
 
     // inloggevevens kloppen ?
     // stuur naar dashboard:
-    res.render('admin/locations-dashboard')
+    res.render('admin/dashboard', {
+        title: 'Dashboard',
+        bodyClass: 'admin'
+    })
 })
 
 router.get('/locaties-dashboard', (req, res) => {

@@ -1,44 +1,50 @@
 <script>
     //Functie om uit te loggen.
     function callLogout(){
-        window.open("logout.php","_self");
+        window.open("/admin","_self");
     }
 </script>
 
 <!--Hieronder staat de navbar code, links bevindt zich het logo van het project.-->
 <nav class="d-flex flex-column flex-shrink-0 p-3 bg-light h-100" style="width: 280px;position: fixed; z-index: 1000;">
-    <a href="admin.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+    <a href="/admin/dashboard" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
         <span class="fs-4">Admin</span>
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li>
-            <a href="admin.php" class="nav-link link-dark">
+            <a href="/admin/dashboard" class="nav-link link-dark">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
                 Home
             </a>
         </li>
         <li>
-            <a href="locatiesoverzicht.php" class="nav-link link-dark">
+            <a href="/admin/ontwerpen-overzicht" class="nav-link link-dark">
+                <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+                Ontwerpen
+            </a>
+        </li>
+        <li>
+            <a href="/admin/locaties-dashboard" class="nav-link link-dark">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
                 Locaties
             </a>
         </li>
         <li>
-            <a href="elementenoverzicht.php" class="nav-link link-dark">
+            <a href="/admin/elementen-dashboard" class="nav-link link-dark">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
                 Elementen
             </a>
         </li>
         <li>
-            <a href="gebruikers.php" class="nav-link link-dark">
+            <a href="/admin/gebruikers" class="nav-link link-dark">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
                 Gebruikers
             </a>
         </li>
         <li>
-            <a class="nav-link link-dark" href="#" data-bs-toggle="loguitModal" data-bs-target="#loguitModal" >
+            <a class="nav-link link-dark" href="login.twig" data-bs-toggle="modal" data-bs-target="#loguitModal" >
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
                 Uitloggen
             </a>

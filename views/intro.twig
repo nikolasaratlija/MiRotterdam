@@ -11,17 +11,70 @@
                     <h2>Locatie: <i id="location-name"></i></h2>
                     <h2>Begin met ontwerpen via de knop hieronder!</h2>
                     <button id="playbtn" onclick="showAbout()" class="play-btn mb-4"></button>
+
                 </div>
             </div>
         </section>
     </div>
 
-    <section id="about" class="about" style="display: none">
+    <div id="about" class="about" style="display: none">
         <div class="container">
             <div class="section-title"><h2>Inspireer jezelf!</h2></div>
             <div class="row content">
+                <div class="swiper">
+                    <h2>Inspireer jezelf!<img src="MIR.png" align="right" width="45" height="66"></h2>
 
-                <div id="kijkendiv" class="verhaallijn">
+                    <hr align="left" style="width: 30%; height: 5px; background: #295c24">
+                    <br>
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide"
+                             style="background-image:url(Kijken.jpg);
+                             background-repeat: no-repeat;
+                             background-position: center;
+                             background-size: 400px 400px">
+                             <h2>Kijk om je heen</h2></div>
+
+                        <div class="swiper-slide"
+                             style="background-image:url(Luister.jpg);
+                             background-repeat: no-repeat;
+                             background-position: center;
+                             background-size: 300px 300px">
+                             <h2>Luister naar je omgeving</h2></div>
+
+                        <div class="swiper-slide"
+                             style="background-image:url(Inspiratie.jpg);
+                             background-repeat: no-repeat;
+                             background-position: center;
+                             background-size: 400px 285px">
+                             <h2>Geïnspireerd?</h2></div>
+
+                        <div class="swiper-slide">
+                            <button id="design-maker-button" class="submit-design-button">Begin nu met ontwerpen!</button>
+
+                        </div>
+
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+                <!--<div id="kijkendiv" class="verhaallijn">
                     <h2>Kijk om je heen </h2>
                     <div id="verhaalimg" class="kijken"></div>
                     <button onclick="kijkenBtn()" class="btn-learn-more">Volgende</button>
@@ -44,7 +97,30 @@
 
             </div>
         </div>
-    </section>
+    </section>-->
 
     <script type="module" src="scripts/intro-page.js"></script>
+
+    <script>
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+
+
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+            // And if we need scrollbar
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+        });
+    </script>
 {% endblock %}
