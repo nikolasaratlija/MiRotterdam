@@ -4,14 +4,61 @@
 
     {% include 'admin/sidebar.twig' %}
 
-    <div class="container" style="margin-left:285px">
+    <div style="margin-left:285px">
+        <h2>Overzicht van de elementen</h2>
 
-        <h1>Elementen Dashboard</h1>
-        <div id="cardGallery" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <p>Klik op de knop om een element toe te voegen.</p>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#elementenModal">Element toevoegen</button><br>
+        <p>Hier vindt u een overzicht van de elementen:</p>
 
+        <!-- Modal -->
+        <div class="modal fade" id="elementenModal" tabindex="-1" role="dialog" aria-labelledby="elementenModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Element toevoegen</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" enctype="multipart/form-data">
+                            <p>Hieronder kunt u een element toevoegen.<br></p>
+
+                            <div class="form-group">
+                                <label for="naam" class="col-form-label" >Element naam: </label><br>
+                                <input type="text" name="naam" placeholder="Boom" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="thema" class="col-form-label" >Thema:</label><br>
+                                <select class="form-select" name="SelectThema" required="true">
+                                    <option value="">Kies een thema...</option>
+                                    <option value="Groen">Groen</option>
+                                    <option value="Sport & Spel" >Sport & Spel</option>
+                                    <option value="Ontspanning" >Ontspanning</option>
+                                    <option value="Veilig & Schoon" >Veilig & Schoon</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="fileToUpload" class="col-form-label" >Kies een afbeelding:</label><br>
+                                <input type="file" name="fileToUpload" id="fileToUpload" class="form-control" required><br><br>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="Toevoegen" name="submit" class="form-control" style="background-color: #198754;color: white;" ><br>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sluiten</button>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </div>
+
 
 
 {% endblock %}
