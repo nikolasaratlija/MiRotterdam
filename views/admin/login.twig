@@ -28,8 +28,9 @@
     </div>
 
     <script>
+        //Functie die zorgt dat de type van het inputveld veranderd.
         function showPass() {
-            var x = document.getElementById("floatingPassword");
+            var x = document.getElementById("wachtwoord");
             if (x.type === "password") {
                 x.type = "text";
             } else {
@@ -37,6 +38,7 @@
             }
         }
 
+        //Heeft door ofdat de knop aangeklikt wordt, pakt de waardes van de input en schrijft die naar JSON.
         document.getElementById('login-button').addEventListener('click', () => {
             const data = {
                 'wachtwoord': document.getElementById('wachtwoord').value,

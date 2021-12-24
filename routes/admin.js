@@ -24,17 +24,18 @@ router.get('/gebruikers', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    //Variabelen die uit de form meegegeven worden.
+    //Variabelen die uit de input meegegeven worden.
     const userEmail = req.body.email
     const userPass = req.body.wachtwoord
 
-    //SQL query voor het opvragen van de data, gezocht op ingevulde email.
+    //SQL query voor het opvragen van de data, gezocht op ingevulde email en wachtwoord.
     const sql = "SELECT email, Wachtwoord FROM login WHERE email = ? AND Wachtwoord = ?"
     conn.query(sql, [userEmail, userPass], function (err, result) {
         if (err) {
             console.log(err)
         }
 
+        //Bij geen resultaat dan komt data op false dit linkt terug naar login.twig
         if (result.length === 0)
             res.send(JSON.stringify({'data': false}))
         else {

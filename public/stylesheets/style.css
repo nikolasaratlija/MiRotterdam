@@ -879,7 +879,7 @@ body.admin {
   height: 100%;
   background-image: url(../assets/img/achtergrond.jpg);
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-size: cover; }
 
 .bottom {
@@ -888,9 +888,11 @@ body.admin {
   width: 100%;
   background-color: black;
   color: white;
-  text-align: center; }
+  text-align: center;
+  margin-left: -8%; }
 
 .divcards {
-  text-align: center; }
+  text-align: center;
+  margin-top: 100px; }
 
 /*# sourceMappingURL=style.css.map */
