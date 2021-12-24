@@ -24,17 +24,24 @@ router.get('/gebruikers', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    const username = req.body.username
-    const wachtwoord = req.body.wachtwoord
-    //
-    // conn.query("SELECT")
+    //Variabelen die uit de input meegegeven worden.
+    const userEmail = req.body.email
+    const userPass = req.body.wachtwoord
 
-    // inloggevevens kloppen ?
-    // stuur naar dashboard:
-    res.render('admin/dashboard', {
-        title: 'Dashboard',
-        bodyClass: 'admin'
-    })
+    //SQL query voor het opvragen van de data, gezocht op ingevulde email en wachtwoord.
+    const sql = "SELECT email, Wachtwoord FROM login WHERE email = ? AND Wachtwoord = ?"
+    conn.query(sql, [userEmail, userPass], function (err, result) {
+        if (err) {
+            console.log(err)
+        }
+
+        //Bij geen resultaat dan komt data op false dit linkt terug naar login.twig
+        if (result.length === 0)
+            res.send(JSON.stringify({'data': false}))
+        else {
+            res.send(JSON.stringify({'data': true}))
+        }
+    });
 })
 
 router.get('/locaties-dashboard', (req, res) => {
