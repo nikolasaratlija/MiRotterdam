@@ -1,7 +1,11 @@
 import {setSessionVars} from "./design-maker/session.js";
 
-// sets variables in session.storage, particularly the location id and name
-await setSessionVars()
+document.getElementById('playbtn').addEventListener('click', () => {
+    document.getElementById('herobox').classList.add('d-none') // hides hero box
+    document.getElementById('about').classList.remove('d-none') // shows slider
+})
+
+await setSessionVars() // sets variables in session.storage, particularly the location id and name
 
 document.getElementById('location-name').innerText = sessionStorage.locationName
 

@@ -561,11 +561,23 @@ section {
 .swiper-slide{
   background-size: cover;
   display: flex;
-  justify-content: center;
-  font-family: sans-serif;
-  font-weight: 600;
-  font-size: 25px;
+  flex-direction: column;
   color: black;
+  align-items: center;
+
+  img {
+    width: 100%;
+    margin: 15% 0;
+  }
+
+  button {
+    width: 75%;
+  }
+
+  h2 {
+    text-align: center;
+    font-family: Lato, sans-serif;
+  }
 }
 
 
