@@ -14,5 +14,9 @@
       padding: 5px;
       border-radius: 20px;
     }
+
+    &.mirrored {
+      transform: scaleX(-1);
+    }
   }
 }

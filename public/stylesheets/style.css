@@ -777,6 +777,8 @@ body.design-maker {
       border: 5px solid rgba(135, 206, 250, 0.9);
       padding: 5px;
       border-radius: 20px; }
+    .canvas img.element.mirrored {
+      transform: scaleX(-1); }
 
 .elements-menu-container {
   position: absolute;

@@ -4,14 +4,22 @@ import {mirrorElement} from "./mirrorElement.js";
 
 const menuHintText = document.getElementById('menu-hint')
 
+// all buttons
+const buttons = {
+    size: document.getElementById('choice-size'),
+    mirror: document.getElementById('choice-mirror'),
+    color: document.getElementById('choice-color')
+}
+
+// array of all buttons and its respective menu
 const buttonMenuPairs = [
     {
-        'button': document.getElementById('choice-size'),
-        'menu': document.getElementById('scale-slider-container')
+        button: buttons.size,
+        menu: document.getElementById('scale-slider-container')
     },
     {
-        'button': document.getElementById('choice-color'),
-        'menu': document.getElementById('color-choices-container')
+        button: buttons.color,
+        menu: document.getElementById('color-choices-container')
     }
 ]
 
@@ -27,19 +35,21 @@ export function setElement(element) {
     buttonMenuPairs[0].button.classList.add('highlighted')
     buttonMenuPairs[0].menu.classList.add('shown')
 
-    buttonMenuPairs.forEach(pair => { // remove highlight and make disable buttons
-        pair.button.disabled = false
-    })
+    Object.values(buttons).forEach(button => button.disabled = false)  // make buttons clickable
 }
 
 export function hideElementEditor() {
     menuHintText.classList.remove('d-none') // show menu tip when no element is selected
 
-    buttonMenuPairs.forEach(pair => {
-        pair.button.disabled = true
-        pair.button.classList.remove('highlighted')
-        pair.menu.classList.remove('shown')
-    })
+    Object.values(buttons).forEach(button => button.disabled = true) // make buttons disabled
+
+    // remove highlighted class from highlighted button
+    document.querySelector('.editor-attribute-choices button.highlighted')
+        .classList.remove('highlighted')
+
+    // hide menu
+    document.querySelector('.attribute-editor div.shown')
+        .classList.remove('shown')
 }
 
 export function AttributeEditor() {

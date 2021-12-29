@@ -1,5 +1,13 @@
 import {getSelectedElement} from "../utils/getSelectedElement.js";
 
 export function mirrorElement() {
-    gsap.set(getSelectedElement(), {scaleX: -1})
+    const element = getSelectedElement()
+
+    if (element.classList.contains('mirrored')) {
+        gsap.set(element, {scaleX: 1}) // unmirrors image
+        element.classList.remove('mirrored') // remove mirrored tag
+    } else {
+        gsap.set(element, {scaleX: -1})
+        element.classList.add('mirrored') // tag element as mirrored
+    }
 }
