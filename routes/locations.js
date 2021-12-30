@@ -52,12 +52,26 @@ router.get('/:id/designs', ((req, res) => {
 
 // POST location
 router.post('/', (req, res) => {
-    conn.query(`INSERT INTO locations VALUE (?, ?, ?)`, [null, req.body.location, req.body.image || null], (err, data) => {
-        if (err)
-            res.send(err)
-        else
-            res.send(data)
-    })
+    //Het werkt nu wel via de form hierin komen dus dan de SQL uitvoeren en afbeelding naar folder.
+
+    const naamInput = req.body.naam
+    // const imageInput = req.body.fileToUpload
+    const imageInput = req.files.fileToUpload
+
+    console.log(imageInput)
+
+    // conn.query(`INSERT INTO locations VALUE (?, ?, ?)`, [null, naamInput, null], (err, data) => {
+    //     if (err)
+    //         res.send(err)
+    //     else {
+    //         res.render('admin/locations-dashboard', {
+    //             title: 'Locaties Dashboard',
+    //             bodyClass: 'admin'
+    //         })
+    //     }
+    // })
+// Navigeren naar de pagina
+
 })
 
 // DELETE location
