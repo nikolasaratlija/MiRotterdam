@@ -13,7 +13,23 @@
     <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#locatieModal">Locatie toevoegen</button><br>
 
     <div id="locatiesDiv">
-        <p>Hier vindt u een overzicht van de locaties:</p>
+        <div id="cardGallery" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
+        
+    <div id="popup">
+            <img src="" alt="" id="selectedImage">
+            <div id="popup-box">
+                <div class="card w-100">
+                    <div class="card-body">
+                    <h5 class="card-title">Locatie ID: 1</h5>
+                    <h5 class="card-title">Naam: Beurs</h5>
+                    <hr>
+                    <p class="card-text">Bestandsnaam: beurs.png</p>
+                    <br><br><br><br><br><br><br><br><br><br>
+                    <a href="#" class="btn btn-primary">Edit</a>
+                    <a href="#" class="btn btn-danger">Verwijder</a>
+                    </div>
+                </div>
+            </div>
     </div>
 
     <!-- Modal -->
