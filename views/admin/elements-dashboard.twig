@@ -12,6 +12,17 @@
         <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#elementenModal">Element toevoegen</button><br>
         <p>Hier vindt u een overzicht van de elementen:</p>
 
+         <div id="cardGallery" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
+        
+        <!-- Popup -->
+
+        <div id="popup">
+            <img src="" alt="" id="selectedImage" color="white" height="300px" width="auto">
+            <div id="popup-box">
+                
+            </div>
+        </div>
+
         <!-- Modal -->
         <div class="modal fade" id="elementenModal" tabindex="-1" role="dialog" aria-labelledby="elementenModal" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -59,6 +70,106 @@
         </div>
     </div>
 
+<script>
 
+    fetch('/api/elements')
+    .then(res => res.json())
+    .then(json => getLocation(json))
+
+function getLocation(json){
+console.log(typeof(json))
+ json.forEach(element => {
+
+    cardBuilder(`/assets/elements/${element}`);
+});
+
+}
+
+const cardGallery = document.getElementById('cardGallery');
+const popup = document.getElementById('popup');
+const selectedImage = document.getElementById('selectedImage');
+const popupBox = document.getElementById('popup-box');
+
+
+//card builder
+function cardBuilder(imgSource){
+    
+//create column
+const column = document.createElement('div');
+column.classList.add('col');
+
+//create card
+const card = document.createElement('div');
+card.classList.add('card');
+card.classList.add('shadow-sm');
+
+//create image properties
+const image = document.createElement('img');
+image.classList.add('card-img-top');
+image.width = '50%';
+image.height = '255';
+image.src = `${imgSource}`;
+image.style.cursor = 'pointer';
+
+//create popup function
+image.addEventListener('click', () => {
+    popup.style.transform = `translateY(0)`
+    selectedImage.src = image.src;
+})
+
+//create popup disappear function
+popup.addEventListener('click', () =>{
+    popup.style.transform = `translateY(-100%)`;
+    selectedImage.src = ''
+    selectedImage.alt = ''
+})
+
+
+
+//create card body
+const cardBody = document.createElement('div');
+cardBody.classList.add('card-body');
+
+const locationText = document.createElement('p');
+locationText.classList.add('fw-bold');
+//locationText.textContent = `Locatie: ${locationName}`;
+
+//create buttons on card
+const buttonBar = document.createElement('div');
+buttonBar.classList.add('d-flex');
+buttonBar.classList.add('justify-content-between');
+buttonBar.classList.add('align-items-center');
+
+//group the buttons
+const buttonGroup = document.createElement('div');
+buttonGroup.classList.add('btn-group');
+
+//create the card divs with parent and child components
+cardGallery.appendChild(column)
+column.appendChild(card)
+card.appendChild(image)
+card.appendChild(cardBody)
+cardBody.appendChild(locationText)
+cardBody.appendChild(buttonBar)
+buttonBar.appendChild(buttonGroup)
+buttonGroup.appendChild(CreateButton('Verwijder', 'btn-danger'))
+
+
+}
+
+//create button
+function CreateButton(text, className){
+    const cardButton = document.createElement('button');
+    cardButton.type = 'button';
+    cardButton.classList.add('btn');
+    cardButton.classList.add('btn-sm');
+    cardButton.classList.add(className);
+    cardButton.textContent = text;
+    cardButton.style.margin = '5px'
+    return cardButton;
+}
+
+
+</script>
 
 {% endblock %}
