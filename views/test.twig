@@ -2,13 +2,24 @@
 
 {% block body %}
     <div class="container h-100" id="container">
-{#        <canvas id="myChart" width="400" height="400"></canvas>#}
+        <br>
+        <h2>Aantal designs per locatie</h2>
+        <canvas id="location-data" width="400" height="400"></canvas>
+
+        <br>
+        <h2>Meest gebruikte elementen</h2>
+        <canvas id="element-data" width="400" height="400"></canvas>
+
+        <br>
+        <h2>Thema statistieken</h2>
+        <canvas id="thema-data" width="400" height="400"></canvas>
+        <br>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"
             integrity="sha512-tMabqarPtykgDtdtSqCL3uLVM0gS1ZkUAVhRFu1vSEFgvB73niFQWJuvviDyBGBH22Lcau4rHB5p2K2T0Xvr6Q=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-{#    <script type="module" src="/scripts/admin/charting/globalInfo.js"></script>#}
-     <script type="module" src="scripts/admin/designs-overview/DesignsOverview.js"></script>
+    <script type="module" src="/scripts/admin/charting/globalInfo.js"></script>
+{#     <script type="module" src="scripts/admin/designs-overview/DesignsOverview.js"></script>#}
 {% endblock %}
