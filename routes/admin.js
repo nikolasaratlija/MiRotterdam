@@ -16,9 +16,17 @@ router.get('/dashboard', (req, res) => {
         bodyClass: 'admin'
     })
 })
+
 router.get('/gebruikers', (req, res) => {
     res.render('admin/users-dashboard', {
         title: 'Dashboard',
+        bodyClass: 'admin'
+    })
+})
+
+router.get('/analytics', (req, res) => {
+    res.render('admin/analytics', {
+        title: 'Analytics',
         bodyClass: 'admin'
     })
 })

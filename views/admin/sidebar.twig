@@ -6,7 +6,7 @@
 </script>
 
 <!--Hieronder staat de navbar code, links bevindt zich het logo van het project.-->
-<nav class="d-flex flex-column flex-shrink-0 p-3 bg-light h-100" style="width: 280px;position: fixed; z-index: 1000;">
+<nav class="d-flex flex-column flex-shrink-0 p-3 bg-light h-100" style="width: 280px; z-index: 1000;">
     <a href="/admin/dashboard" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
         <span class="fs-4">Admin</span>
@@ -41,6 +41,12 @@
             <a href="/admin/gebruikers" class="nav-link link-dark">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
                 Gebruikers
+            </a>
+        </li>
+        <li>
+            <a class="nav-link link-dark" href="/admin/analytics" data-bs-toggle="modal" data-bs-target="#loguitModal" >
+                <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+                Analytics
             </a>
         </li>
         <li>
