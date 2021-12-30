@@ -31,14 +31,14 @@ app.use(sassMiddleware({
     sourceMap: true
 }))
 
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(express.static(path.join(__dirname, 'public')))
+
 app.use(fileUpload({
     safeFileNames: true,
     preserveExtension: true
 }))
-
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(express.static(path.join(__dirname, 'public')))
 
 // Routers
 app.use('/', indexRouter)
