@@ -76,7 +76,6 @@ card.appendChild(cardBody)
 cardBody.appendChild(locationText)
 cardBody.appendChild(buttonBar)
 buttonBar.appendChild(buttonGroup)
-buttonGroup.appendChild(CreateButton('Edit', 'btn-primary'))
 buttonGroup.appendChild(CreateButton('Download QR', 'btn-success'))
 buttonGroup.appendChild(CreateButton('Verwijder', 'btn-danger'))
 
