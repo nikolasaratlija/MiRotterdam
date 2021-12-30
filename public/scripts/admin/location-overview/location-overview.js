@@ -1,24 +1,96 @@
-fetch('/api/locations') //haalt de locatie data op
-    .then(result => result.json()) //Data converteren naar JSON
-    .then(json => toonOpDashboard(json)) //Toont JSON in html pagina div
+fetch('/api/locations')
+    .then(res => res.json())
+    .then(json => getLocation(json))
+
+function getLocation(json){
+console.log(typeof(json))
+ json.forEach(element => {
+    cardBuilder(`/api/locations/${element.id}/image`, element.location);
+});
+
+}
+
+const cardGallery = document.getElementById('cardGallery');
+const popup = document.getElementById('popup');
+const selectedImage = document.getElementById('selectedImage');
+const popupBox = document.getElementById('popup-box');
 
 
-//Functie om alle locaties te tonen op het dashboard
-function toonOpDashboard(locaties){
-    let locatiesHTML = ""   //variabel waar alle html in komt
-    console.log("Inside toondashboard functie");
+//card builder
+function cardBuilder(imgSource, locationName){
+    
+//create column
+const column = document.createElement('div');
+column.classList.add('col');
 
-    locaties.forEach(locatie => { //loop over alle locaties
-        console.log(locatie)
-        //Maakt een nieuwe html element aan met locatie data
-        locatiesHTML += `
-            <div class="locatie-card">
-            <p>Locatie</p>
-                <img src="${locatie.image}" alt="">
-                <p>Locatie: ${locatie.location}</p>
-            </div>`
-    })
+//create card
+const card = document.createElement('div');
+card.classList.add('card');
+card.classList.add('shadow-sm');
 
-    //Zet alle data in de html div dmv
-    document.getElementById('locatiesDiv').innerHTML += locatiesHTML
+//create image properties
+const image = document.createElement('img');
+image.classList.add('card-img-top');
+image.width = '50%';
+image.height = '255';
+image.src = `${imgSource}`;
+image.style.cursor = 'pointer';
+
+//create popup function
+image.addEventListener('click', () => {
+    popup.style.transform = `translateY(0)`
+    selectedImage.src = image.src;
+})
+
+//create popup disappear function
+popup.addEventListener('click', () =>{
+    popup.style.transform = `translateY(-100%)`;
+    selectedImage.src = ''
+    selectedImage.alt = ''
+})
+
+
+//create card body
+const cardBody = document.createElement('div');
+cardBody.classList.add('card-body');
+
+const locationText = document.createElement('p');
+locationText.classList.add('fw-bold');
+locationText.textContent = `Locatie: ${locationName}`;
+
+//create buttons on card
+const buttonBar = document.createElement('div');
+buttonBar.classList.add('d-flex');
+buttonBar.classList.add('justify-content-between');
+buttonBar.classList.add('align-items-center');
+
+//group the buttons
+const buttonGroup = document.createElement('div');
+buttonGroup.classList.add('btn-group');
+
+//create the card divs with parent and child components
+cardGallery.appendChild(column)
+column.appendChild(card)
+card.appendChild(image)
+card.appendChild(cardBody)
+cardBody.appendChild(locationText)
+cardBody.appendChild(buttonBar)
+buttonBar.appendChild(buttonGroup)
+buttonGroup.appendChild(CreateButton('Edit', 'btn-primary'))
+buttonGroup.appendChild(CreateButton('Download QR', 'btn-success'))
+buttonGroup.appendChild(CreateButton('Verwijder', 'btn-danger'))
+
+
+}
+
+//create button
+function CreateButton(text, className){
+    const cardButton = document.createElement('button');
+    cardButton.type = 'button';
+    cardButton.classList.add('btn');
+    cardButton.classList.add('btn-sm');
+    cardButton.classList.add(className);
+    cardButton.textContent = text;
+    cardButton.style.margin = '5px'
+    return cardButton;
 }
