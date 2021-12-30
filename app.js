@@ -13,6 +13,7 @@ const locationsRouter = require('./routes/locations')
 const elementsRouter = require('./routes/elements')
 const adminRouter = require('./routes/admin')
 const designsRouter = require('./routes/designs')
+const usersRouter = require('./routes/users')
 
 const app = express()
 
@@ -45,6 +46,7 @@ app.use('/', indexRouter)
 app.use('/api/locations', locationsRouter)
 app.use('/api/elements', elementsRouter)
 app.use('/api/designs', designsRouter)
+app.use('/api/users', usersRouter)
 
 app.use('/admin', adminRouter)
 

@@ -18,13 +18,13 @@ router.get('/dashboard', (req, res) => {
 })
 
 router.get('/gebruikers', (req, res) => {
-    var sql='SELECT * FROM login';
-    conn.query(sql, function (err, data, fields) {
-        console.log("inside db query")
-        if (err) throw err;
-        //res.render('admin/users-dashboard', { title: 'User List', userData: data});
-        //res.send({ title: 'User List', userData: data})
-    });
+    // var sql='SELECT * FROM login';
+    // conn.query(sql, function (err, data, fields) {
+    //     console.log("inside db query")
+    //     if (err) throw err;
+    //     //res.render('admin/users-dashboard', { title: 'User List', userData: data});
+    //     //res.send({ title: 'User List', userData: data})
+    // });
 
     res.render('admin/users-dashboard', {
         title: 'Dashboard',
