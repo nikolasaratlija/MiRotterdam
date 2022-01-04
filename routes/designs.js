@@ -6,12 +6,18 @@ const utils = require("./queryUtils.js");
 
 // get all designs, includes the location id and elements
 router.get('/', (req, res) => {
-    conn.query(
-        `SELECT e.image AS element_name, e.width, e.position_x, e.position_y, e.design_id, d.location_id
-         FROM elements e
-                  INNER JOIN designs d ON d.id = e.design_id
-                  INNER JOIN locations l ON l.id = d.location_id
-         ORDER BY d.location_id`,
+    conn.query(`
+                SELECT e.image    AS element_name,
+                       e.width,
+                       e.position_x,
+                       e.position_y,
+                       e.design_id,
+                       d.location_id,
+                       l.location AS location_name
+                FROM elements e
+                         INNER JOIN designs d ON d.id = e.design_id
+                         INNER JOIN locations l ON l.id = d.location_id
+                ORDER BY e.design_id`,
         (err, rows) => {
             if (err) res.send(err)
             else res.send(utils.groupByDesignId(rows))
@@ -19,12 +25,19 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:id', ((req, res) => {
-    conn.query(
-        `SELECT e.image AS element_name, e.width, e.position_x, e.position_y, e.design_id, d.location_id
-         FROM elements e
-                  INNER JOIN designs d ON d.id = e.design_id
-                  INNER JOIN locations l ON l.id = d.location_id
-         WHERE e.design_id = ?`, [parseInt(req.params.id)],
+    conn.query(`
+                SELECT e.image    AS element_name,
+                       e.width,
+                       e.position_x,
+                       e.position_y,
+                       e.design_id,
+                       d.location_id,
+                       l.location AS location_name
+                FROM elements e
+                         INNER JOIN designs d ON d.id = e.design_id
+                         INNER JOIN locations l ON l.id = d.location_id
+                WHERE e.design_id = ?`,
+        [parseInt(req.params.id)],
         (err, rows) => {
             if (err) res.send(err)
             else if (rows.length === 0)
