@@ -10,6 +10,7 @@ export function makeDesignFromJson(design) {
         img.src = `/assets/elements/${el['element_name']}`
         img.style.width = el['width'] + 'px'
         img.style.transform = `translate3d(${el['position_x']}px, ${el['position_y']}px, 0)`
+        img.classList.add('element')
         canvas.appendChild(img)
     })
 

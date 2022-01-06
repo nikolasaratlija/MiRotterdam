@@ -4,11 +4,15 @@
 
     {% include 'admin/sidebar.twig' %}
 
-    <div class="container">
-        <h2>Ingestuurde  ontwerpen</h2>
+    <div class="container" id="container">
+        <h2>Ingestuurde ontwerpen</h2>
         <p>Hier vindt u een overzicht van de ingestuurde ontwerpen:</p>
 
+        <div class="design-container" id="design-container">
 
+        </div>
     </div>
+
+    <script type="module" src="/scripts/admin/designs-overview/DesignsOverview.js"></script>
 
 {% endblock %}

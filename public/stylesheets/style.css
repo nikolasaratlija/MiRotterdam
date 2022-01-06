@@ -912,6 +912,14 @@ body.admin {
   text-align: center;
   margin-top: 100px; }
 
+.design-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 50px; }
+  .design-container .canvas {
+    width: 100%;
+    height: 700px; }
+
 /* Popup property */
 #popup {
   position: fixed;
