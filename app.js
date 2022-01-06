@@ -6,6 +6,8 @@ const logger = require('morgan')
 const sassMiddleware = require('node-sass-middleware')
 const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload')
+const session = require('express-session')
+const crypto = require('crypto')
 
 // Routers
 const indexRouter = require('./routes/index')
@@ -32,6 +34,15 @@ app.use(sassMiddleware({
     sourceMap: true
 }))
 
+// session
+app.use(session({
+    cookieName: 'session',
+    secret: crypto.randomBytes(20).toString("hex"),
+    duration: 30 * 60 * 1000,
+    activeDuration: 5 * 60 * 1000
+}))
+
+// body parser
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static(path.join(__dirname, 'public')))
