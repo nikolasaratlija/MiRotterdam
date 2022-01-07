@@ -920,6 +920,15 @@ body.admin {
     width: 100%;
     height: 700px; }
 
+.card-img-wrapper {
+  max-height: 400px;
+  overflow: hidden;
+  display: flex;
+  align-items: center; }
+  .card-img-wrapper img {
+    width: 100%;
+    height: 100%; }
+
 /* Popup property */
 #popup {
   position: fixed;
