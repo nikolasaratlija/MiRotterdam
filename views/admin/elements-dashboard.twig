@@ -80,7 +80,7 @@ function getLocation(json){
 console.log(typeof(json))
  json.forEach(element => {
 
-    cardBuilder(`/assets/elements/${element}`);
+    cardBuilder(`/assets/elements/${element}`, element);
 });
 
 }
@@ -92,7 +92,7 @@ const popupBox = document.getElementById('popup-box');
 
 
 //card builder
-function cardBuilder(imgSource){
+function cardBuilder(imgSource, elementNameSrc){
     
 //create column
 const column = document.createElement('div');
@@ -136,9 +136,14 @@ popup.addEventListener('click', () =>{
 const cardBody = document.createElement('div');
 cardBody.classList.add('card-body');
 
-const locationText = document.createElement('p');
-locationText.classList.add('fw-bold');
-//locationText.textContent = `Locatie: ${locationName}`;
+const elementName = document.createElement('p');
+elementName.classList.add('fw-bold');
+elementName.textContent = `Element: ${elementNameSrc}`;
+
+const elementThema = document.createElement('p');
+elementThema.classList.add('fw-bold');
+elementThema.textContent = `Thema: TestThema`;
+
 
 //create buttons on card
 const buttonBar = document.createElement('div');
@@ -156,7 +161,8 @@ column.appendChild(card)
 card.appendChild(imageWrapper)
 imageWrapper.appendChild(image)
 card.appendChild(cardBody)
-cardBody.appendChild(locationText)
+cardBody.appendChild(elementName)
+cardBody.appendChild(elementThema)
 cardBody.appendChild(buttonBar)
 buttonBar.appendChild(buttonGroup)
 buttonGroup.appendChild(CreateButton('Verwijder', 'btn-danger'))
