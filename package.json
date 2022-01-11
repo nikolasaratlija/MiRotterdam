@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon -e js,twig,css ./bin/www",
+    "dev": "nodemon ./bin/www",
     "start": "node ./bin/www",
     "test": "jest"
   },
@@ -26,5 +26,11 @@
   },
   "engines": {
     "node": "14.x"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.7",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.8"
   }
 }
