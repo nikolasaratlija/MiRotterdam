@@ -12,7 +12,7 @@ import {getLocationId} from "./utils/getLocationId.js";
 
 import {setSessionVars} from "./session.js";
 
-// for easy of testing: sets new session variables if the query string parameter differ from the session variable
+// for ease of testing: sets new session variables if the query string parameter differ from the session variable
 if (!(sessionStorage.locationId === getLocationId()))
    await setSessionVars()
 
