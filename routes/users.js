@@ -35,18 +35,22 @@ router.post('/', (req, res) => {
     })
 })
 
-// DELETE location
+// DELETE user
 router.delete('/:id', (req, res) => {
     //Query schrijven voor het verwijderen van een user.
-    conn.query('DELETE FROM login WHERE id=?', [parseInt(req.params.id)], (err, data) => {
+    console.log(req.params.id)
+    console.log('Inside the delete function with query')
+
+    conn.query('DELETE FROM login WHERE id=?', [parseInt(req.params.id)], (err, result) => {
         if (err)
             res.send(err)
-        else
-            //Verwijderen uit database is gelukt, terug naar gebruikerspagina navigeren.
-            res.render('admin/users-dashboard', {
-                title: 'Dashboard',
-                bodyClass: 'admin'
-            })
+        //Mislukt om gebruiker te verwijderen
+        if (result.length === 0)
+            res.send(JSON.stringify({'data': false}))
+        else {
+            //JSON data op true (gebruiker is verwijderd).
+            res.send(JSON.stringify({'data': true}))
+        }
     })
 })
 
