@@ -15,40 +15,30 @@ router.get('/logout', (req, res) => {
 })
 
 router.get('/dashboard', (req, res) => {
-    if (req.session.username === undefined){
-        res.redirect('/admin')
-    }
-    else{
-        res.render('admin/dashboard', {
-            title: 'Dashboard',
-            bodyClass: 'admin',
-            name : req.session.username
-        })
-    }
+
+    res.render('admin/dashboard', {
+        title: 'Dashboard',
+        bodyClass: 'admin',
+        name: req.session.username
+    })
+
 })
 
 router.get('/gebruikers', (req, res) => {
-    if (req.session.username === undefined){
-        res.redirect('/admin')
-    }
-    else{
-        res.render('admin/users-dashboard', {
-            title: 'Gebruikers',
-            bodyClass: 'admin'
-        })
-    }
+
+    res.render('admin/users-dashboard', {
+        title: 'Gebruikers',
+        bodyClass: 'admin'
+    })
+
 })
 
 router.get('/analytics', (req, res) => {
-    if (req.session.username === undefined){
-        res.redirect('/admin')
-    }
-    else {
-        res.render('admin/analytics', {
-            title: 'Statistieken',
-            bodyClass: 'admin'
-        })
-    }
+
+    res.render('admin/analytics', {
+        title: 'Statistieken',
+        bodyClass: 'admin'
+    })
 })
 
 router.post('/', (req, res) => {
@@ -76,39 +66,30 @@ router.post('/', (req, res) => {
 })
 
 router.get('/locaties-dashboard', (req, res) => {
-    if (req.session.username === undefined){
-        res.redirect('/admin')
-    }
-    else{
-        res.render('admin/locations-dashboard', {
-            title: 'Locaties Dashboard',
-            bodyClass: 'admin'
-        })
-    }
+
+    res.render('admin/locations-dashboard', {
+        title: 'Locaties Dashboard',
+        bodyClass: 'admin'
+    })
+
 })
 
 router.get('/elementen-dashboard', (req, res) => {
-    if (req.session.username === undefined){
-        res.redirect('/admin')
-    }
-    else{
-        res.render('admin/elements-dashboard', {
-            title: 'Elementen Dashboard',
-            bodyClass: 'admin'
-        })
-    }
+
+    res.render('admin/elements-dashboard', {
+        title: 'Elementen Dashboard',
+        bodyClass: 'admin'
+    })
+
 })
 
 router.get('/ontwerpen-overzicht', ((req, res) => {
-    if (req.session.username === undefined){
-        res.redirect('/admin')
-    }
-    else{
-        res.render('admin/designs-dashboard', {
-            title: 'Ontwerpen Dashboard',
-            bodyClass: 'admin'
-        })
-    }
+
+    res.render('admin/designs-dashboard', {
+        title: 'Ontwerpen Dashboard',
+        bodyClass: 'admin'
+    })
+
 }))
 
 module.exports = router
