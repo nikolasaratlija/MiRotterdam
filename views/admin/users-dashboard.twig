@@ -9,7 +9,10 @@
 
         <p>Klik op de knop om een gebruiker toe te voegen.</p>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#gebruikerModal">Gebruiker toevoegen</button><br>
+        <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#gebruikerModal">
+            Gebruiker toevoegen
+        </button>
+        <br>
 
         <p>Hier vindt u een overzicht van de gebruikers:</p>
 
@@ -18,7 +21,8 @@
         <div id="gebruikersDiv"></div>
 
         <!-- Modals -->
-        <div class="modal fade" id="gebruikerModal" tabindex="-1" role="dialog" aria-labelledby="gebruikerModal" aria-hidden="true">
+        <div class="modal fade" id="gebruikerModal" tabindex="-1" role="dialog" aria-labelledby="gebruikerModal"
+             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -27,26 +31,27 @@
                     </div>
                     <div class="modal-body">
 
-                        <form method="post" enctype="multipart/form-data" action="/api/users">
-                            <p>Hieronder kunt u een gebruiker toevoegen.<br></p>
-                            <div class="form-group">
-                                <label for="naam" class="col-form-label" >Gebruikersnaam: </label>
-                                <input type="text" name="naam" id="naam" placeholder="Elisa" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="col-form-label" >Email: </label><br>
-                                <input type="text" name="email" placeholder="voorbeeld@gmail.com" class="form-control" id="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="wachtwoord1" class="col-form-label" >Wachtwoord: </label><br>
-                                <input type="password" id="wachtwoord1" name="wachtwoord1" placeholder="wachtwoord" class="form-control" required>
-                                <input type="checkbox" onclick="showPass('wachtwoord1')" id="checkpass">
-                                <label for="checkpass" class="col-form-label">Toon wachtwoord</label><br>
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" value="Toevoegen" name="addUser" id="addUser" class="form-control" style="background-color: #198754;color: white;"><br>
-                            </div>
-                        </form>
+                        <p>Hieronder kunt u een gebruiker toevoegen.<br></p>
+                        <div class="form-group">
+                            <label for="naam" class="col-form-label">Gebruikersnaam: </label>
+                            <input type="text" name="naam" id="naam" placeholder="Elisa" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-form-label">Email: </label><br>
+                            <input type="text" name="email" placeholder="voorbeeld@gmail.com" class="form-control"
+                                   id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="wachtwoord1" class="col-form-label">Wachtwoord: </label><br>
+                            <input type="password" id="wachtwoord1" name="wachtwoord1" placeholder="wachtwoord"
+                                   class="form-control" required>
+                            <input type="checkbox" onclick="showPass('wachtwoord1')" id="checkpass">
+                            <label for="checkpass" class="col-form-label">Toon wachtwoord</label><br>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Toevoegen" name="addUser" id="addUser" class="form-control"
+                                   style="background-color: #198754;color: white;"><br>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sluiten</button>
@@ -84,7 +89,7 @@
             .then(result => result.json()) //Data converteren naar JSON
             .then(json => toonOpDashboard(json)) //Toont JSON in html pagina div
 
-        function deleteUser (userID){
+        function deleteUser(userID) {
             console.log("Delete func")
             console.log(userID)
 
@@ -93,17 +98,16 @@
             })
                 .then(data => data.json())
                 .then(json => {
-                    if (json.data === false){
+                    if (json.data === false) {
                         document.getElementById('fout').classList.remove('d-none')
-                    }
-                    else {
+                    } else {
                         window.location.href = '/admin/gebruikers'
                     }
                 })
         }
 
         //Functie om alle gebruikers te tonen op het dashboard
-        function toonOpDashboard(gebruikers){
+        function toonOpDashboard(gebruikers) {
             let locatiesHTML = "<table class='table' ><tr><th scope='col'>ID:</th><th scope='col'>Gebruikersnaam:</th><th scope='col'>Email:</th><th scope='col'>Wachtwoord:</th><th scope='col'>Verwijderen:</th></tr>"   //variabel waar alle html in komt
 
             gebruikers.forEach(gebruiker => { //loop over alle locaties
