@@ -39,8 +39,13 @@ app.use(session({
     secret: crypto.randomBytes(20).toString("hex"),
     duration: 30 * 60 * 1000,
     activeDuration: 5 * 60 * 1000,
-    cookie: { secure: false }
+    cookie: { maxAge: 24*60*60*1000, secure:false },
+    resave: false,
+    saveUninitialized: false,
+    proxy: true
 }))
+
+
 
 // body parser
 app.use(bodyParser.json())

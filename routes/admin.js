@@ -15,30 +15,40 @@ router.get('/logout', (req, res) => {
 })
 
 router.get('/dashboard', (req, res) => {
-
-    res.render('admin/dashboard', {
-        title: 'Dashboard',
-        bodyClass: 'admin',
-        name: req.session.username
-    })
-
+    if(!req.session.loggedIn){
+        res.redirect('/admin')
+    }
+    else{
+        res.render('admin/dashboard', {
+            title: 'Dashboard',
+            bodyClass: 'admin',
+            name: req.session.username
+        })
+    }
 })
 
 router.get('/gebruikers', (req, res) => {
-
-    res.render('admin/users-dashboard', {
-        title: 'Gebruikers',
-        bodyClass: 'admin'
-    })
-
+    if(!req.session.loggedIn){
+        res.redirect('/admin')
+    }
+    else {
+        res.render('admin/users-dashboard', {
+            title: 'Gebruikers',
+            bodyClass: 'admin'
+        })
+    }
 })
 
 router.get('/analytics', (req, res) => {
-
-    res.render('admin/analytics', {
-        title: 'Statistieken',
-        bodyClass: 'admin'
-    })
+    if(!req.session.loggedIn){
+        res.redirect('/admin')
+    }
+    else {
+        res.render('admin/analytics', {
+            title: 'Statistieken',
+            bodyClass: 'admin'
+        })
+    }
 })
 
 router.post('/', (req, res) => {
@@ -54,11 +64,15 @@ router.post('/', (req, res) => {
         }
 
         //Bij geen resultaat dan komt data op false dit linkt terug naar login.twig
-        if (result.length === 0)
+        if (result.length === 0) {
             res.send(JSON.stringify({'data': false}))
+            req.session.loggedIn = false
+        }
         else {
             //Session variabel waar de gebruikersnaam in bijgehouden wordt.
             req.session.username = result[0].Gebruikersnaam
+            req.session.loggedIn = true
+            req.session.save()
             //JSON data op true (gebruiker is ingelogd).
             res.send(JSON.stringify({'data': true}))
         }
@@ -66,30 +80,39 @@ router.post('/', (req, res) => {
 })
 
 router.get('/locaties-dashboard', (req, res) => {
-
-    res.render('admin/locations-dashboard', {
-        title: 'Locaties Dashboard',
-        bodyClass: 'admin'
-    })
-
+    if(!req.session.loggedIn){
+        res.redirect('/admin')
+    }
+    else {
+        res.render('admin/locations-dashboard', {
+            title: 'Locaties Dashboard',
+            bodyClass: 'admin'
+        })
+    }
 })
 
 router.get('/elementen-dashboard', (req, res) => {
-
-    res.render('admin/elements-dashboard', {
-        title: 'Elementen Dashboard',
-        bodyClass: 'admin'
-    })
-
+    if(!req.session.loggedIn){
+        res.redirect('/admin')
+    }
+    else {
+        res.render('admin/elements-dashboard', {
+            title: 'Elementen Dashboard',
+            bodyClass: 'admin'
+        })
+    }
 })
 
 router.get('/ontwerpen-overzicht', ((req, res) => {
-
-    res.render('admin/designs-dashboard', {
-        title: 'Ontwerpen Dashboard',
-        bodyClass: 'admin'
-    })
-
+    if(!req.session.loggedIn){
+        res.redirect('/admin')
+    }
+    else {
+        res.render('admin/designs-dashboard', {
+            title: 'Ontwerpen Dashboard',
+            bodyClass: 'admin'
+        })
+    }
 }))
 
 module.exports = router
