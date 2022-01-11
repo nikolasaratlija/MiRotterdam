@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
                 ORDER BY e.design_id`,
         (err, rows) => {
             if (err) res.send(err)
-            else res.send(rows)
+            else res.send(utils.groupByDesignId(rows))
         })
 })
 
