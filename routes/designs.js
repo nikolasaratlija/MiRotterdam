@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const conn = require('../database/connection')
 
-const utils = require("./queryUtils.js");
+const utils = require("../scripts/queryUtils.js");
 
 // get all designs, includes the location id and elements
 router.get('/', (req, res) => {
@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
                 ORDER BY e.design_id`,
         (err, rows) => {
             if (err) res.send(err)
-            else res.send(utils.groupByDesignId(rows))
+            else res.send(rows)
         })
 })
 

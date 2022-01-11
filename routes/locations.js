@@ -3,7 +3,7 @@ const router = express.Router();
 const conn = require('../database/connection')
 const path = require('path')
 
-const utils = require('./queryUtils.js')
+const utils = require('../scripts/queryUtils.js')
 
 // GET all locations
 router.get('/', (req, res) => {
