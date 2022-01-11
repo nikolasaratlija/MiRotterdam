@@ -13,6 +13,8 @@
 
         <p>Hier vindt u een overzicht van de gebruikers:</p>
 
+        <p class="d-none text-danger" id="fout">Fout, de gebruiker is niet verwijderd!</p>
+
         <div id="gebruikersDiv"></div>
 
         <!-- Modals -->
@@ -82,9 +84,22 @@
             .then(result => result.json()) //Data converteren naar JSON
             .then(json => toonOpDashboard(json)) //Toont JSON in html pagina div
 
-        function deleteUser ($userID){
-            console.log("Delete user clicked")
-            console.log($userID)
+        function deleteUser (userID){
+            console.log("Delete func")
+            console.log(userID)
+
+            fetch(`/api/users/${userID}`, {
+                method: "delete"
+            })
+                .then(data => data.json())
+                .then(json => {
+                    if (json.data === false){
+                        document.getElementById('fout').classList.remove('d-none')
+                    }
+                    else {
+                        window.location.href = '/admin/gebruikers'
+                    }
+                })
         }
 
         //Functie om alle gebruikers te tonen op het dashboard
