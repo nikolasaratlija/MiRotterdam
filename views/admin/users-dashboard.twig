@@ -27,7 +27,7 @@
                     </div>
                     <div class="modal-body">
 
-                        <form method="post" enctype="multipart/form-data" action="/api/users">
+                        <form method="post">
                             <p>Hieronder kunt u een gebruiker toevoegen.<br></p>
                             <div class="form-group">
                                 <label for="naam" class="col-form-label" >Gebruikersnaam: </label>
@@ -85,8 +85,6 @@
             .then(json => toonOpDashboard(json)) //Toont JSON in html pagina div
 
         function deleteUser (userID){
-            console.log("Delete func")
-            console.log(userID)
 
             fetch(`/api/users/${userID}`, {
                 method: "delete"
