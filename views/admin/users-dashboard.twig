@@ -31,6 +31,7 @@
                     </div>
                     <div class="modal-body">
 
+
                         <p>Hieronder kunt u een gebruiker toevoegen.<br></p>
                         <div class="form-group">
                             <label for="naam" class="col-form-label">Gebruikersnaam: </label>
@@ -52,6 +53,7 @@
                             <input type="submit" value="Toevoegen" name="addUser" id="addUser" class="form-control"
                                    style="background-color: #198754;color: white;"><br>
                         </div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sluiten</button>
@@ -89,10 +91,7 @@
             .then(result => result.json()) //Data converteren naar JSON
             .then(json => toonOpDashboard(json)) //Toont JSON in html pagina div
 
-        function deleteUser(userID) {
-            console.log("Delete func")
-            console.log(userID)
-
+        function deleteUser (userID){
             fetch(`/api/users/${userID}`, {
                 method: "delete"
             })
