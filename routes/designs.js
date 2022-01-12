@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const conn = require('../database/connection')
 
-const utils = require("./queryUtils.js");
+const utils = require("../scripts/queryUtils.js");
 
 // get all designs, includes the location id and elements
 router.get('/', (req, res) => {

@@ -11,7 +11,9 @@ module.exports = {
                 location_name: elementData[0].location_name,
                 elements: elementData.map(element => Element(element))
             })
-        ),
+        )
+        .value()
+    ,
 
     // returns an array of each location containing every design that has been made in that location
     // each design also contains every element
@@ -29,8 +31,11 @@ module.exports = {
                             elements: elementData.map(element => Element(element))
                         })
                     )
+                    .value()
             })
-        ),
+        )
+        .value()
+    ,
 
     // temp
     selectAllElements: (conn, callback) =>

@@ -5,7 +5,6 @@ const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const sassMiddleware = require('node-sass-middleware')
 const bodyParser = require('body-parser')
-const fileUpload = require('express-fileupload')
 const session = require('express-session')
 const crypto = require('crypto')
 
@@ -52,11 +51,6 @@ app.use(session({
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static(path.join(__dirname, 'public')))
-
-app.use(fileUpload({
-    safeFileNames: true,
-    preserveExtension: true
-}))
 
 // Routers
 app.use('/', indexRouter)
