@@ -71,19 +71,23 @@
     </div>
 
 <script>
-
+{# 
     fetch('/api/elements')
     .then(res => res.json())
-    .then(json => getLocation(json))
+    .then(json => getLocation(json)) #}
 
 function getLocation(json){
 console.log(typeof(json))
  json.forEach(element => {
 
-    cardBuilder(`/assets/elements/${element}`, element);
+    cardBuilder(`/assets/elements/${element.image}`, element.naam, element.thema);
 });
 
 }
+
+fetch('/api/elements/allelements')
+.then(res => res.json())
+.then(json => getLocation(json))
 
 const cardGallery = document.getElementById('cardGallery');
 const popup = document.getElementById('popup');
@@ -92,7 +96,7 @@ const popupBox = document.getElementById('popup-box');
 
 
 //card builder
-function cardBuilder(imgSource, elementNameSrc){
+function cardBuilder(imgSource, elementNameSrc, elementThemaSrc){
     
 //create column
 const column = document.createElement('div');
@@ -136,7 +140,7 @@ elementName.textContent = `Element: ${elementNameSrc}`;
 
 const elementThema = document.createElement('p');
 elementThema.classList.add('fw-bold');
-elementThema.textContent = `Thema: TestThema`;
+elementThema.textContent = `Thema: ${elementThemaSrc}`;
 
 
 //create buttons on card
@@ -157,8 +161,8 @@ card.appendChild(cardBody)
 cardBody.appendChild(elementName)
 cardBody.appendChild(elementThema)
 cardBody.appendChild(buttonBar)
-buttonBar.appendChild(buttonGroup)
-buttonGroup.appendChild(CreateButton('Verwijder', 'btn-danger'))
+//buttonBar.appendChild(buttonGroup)
+//buttonGroup.appendChild(CreateButton('Verwijder', 'btn-danger'))
 
 
 }

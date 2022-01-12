@@ -75,16 +75,16 @@ card.appendChild(image)
 card.appendChild(cardBody)
 cardBody.appendChild(locationText)
 cardBody.appendChild(buttonBar)
-buttonBar.appendChild(buttonGroup)
-buttonGroup.appendChild(CreateButton('Download QR', 'btn-success'))
-buttonGroup.appendChild(CreateButton('Verwijder', 'btn-danger'))
+// buttonBar.appendChild(buttonGroup)
+// buttonGroup.appendChild(CreateDeleteButton('Verwijder', 'btn-danger'))
 
 
 }
 
 //create button
-function CreateButton(text, className){
+function CreateDeleteButton(text, className){
     const cardButton = document.createElement('button');
+    cardButton.addEventListener("click", DeleteObject)
     cardButton.type = 'button';
     cardButton.classList.add('btn');
     cardButton.classList.add('btn-sm');
@@ -92,4 +92,23 @@ function CreateButton(text, className){
     cardButton.textContent = text;
     cardButton.style.margin = '5px'
     return cardButton;
+}
+
+function DeleteObject(){
+    console.log("I am clicked!")
+
+    fetch(`/api/locations/22`, {
+        method: "delete"
+    })
+
+
+    /*
+
+    verwijder uit database
+    stap 1 id krijgen van de gekozen element/locatie
+    stap 2 fetch(`/api/locations/${userID}`, {
+    method: "delete"
+})
+    
+    */
 }
