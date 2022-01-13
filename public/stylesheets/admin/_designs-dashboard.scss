@@ -1,0 +1,14 @@
+.design-container {
+  margin-top: 1vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 50px;
+
+  .canvas {
+    width: 100%;
+    height: 700px;
+  }
+}
+
+
+

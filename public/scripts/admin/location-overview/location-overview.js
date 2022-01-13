@@ -28,9 +28,14 @@ const card = document.createElement('div');
 card.classList.add('card');
 card.classList.add('shadow-sm');
 
+// image wrapper
+const imageWrapper = document.createElement('div');
+imageWrapper.classList.add('card-img-top');
+imageWrapper.classList.add('card-img-wrapper');
+
 //create image properties
 const image = document.createElement('img');
-image.classList.add('card-img-top');
+// image.classList.add('card-img-top');
 image.width = '50%';
 image.height = '255';
 image.src = `${imgSource}`;
@@ -71,12 +76,13 @@ buttonGroup.classList.add('btn-group');
 //create the card divs with parent and child components
 cardGallery.appendChild(column)
 column.appendChild(card)
-card.appendChild(image)
+card.appendChild(imageWrapper)
+imageWrapper.appendChild(image)
 card.appendChild(cardBody)
 cardBody.appendChild(locationText)
 cardBody.appendChild(buttonBar)
-// buttonBar.appendChild(buttonGroup)
-// buttonGroup.appendChild(CreateDeleteButton('Verwijder', 'btn-danger'))
+buttonBar.appendChild(buttonGroup)
+buttonGroup.appendChild(CreateDeleteButton('Verwijder', 'btn-danger'))
 
 
 }

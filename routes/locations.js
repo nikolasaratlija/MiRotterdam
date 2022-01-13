@@ -3,7 +3,7 @@ const router = express.Router();
 const conn = require('../database/connection')
 const path = require('path')
 
-const utils = require('./queryUtils.js')
+const utils = require('../scripts/queryUtils.js')
 
 // GET all locations
 router.get('/', (req, res) => {
@@ -15,7 +15,27 @@ router.get('/', (req, res) => {
     })
 })
 
-// GET location
+// GET all designs grouped by each location
+router.get('/designs', (req, res) => {
+    conn.query(`
+                SELECT e.image    AS element_name,
+                       e.width,
+                       e.position_x,
+                       e.position_y,
+                       e.design_id,
+                       d.location_id,
+                       l.location as location_name
+                FROM elements e
+                         INNER JOIN designs d ON d.id = e.design_id
+                         INNER JOIN locations l ON l.id = d.location_id
+                ORDER BY d.location_id`,
+        (err, rows) => {
+            if (err) res.send(err)
+            else res.send(utils.groupByLocationId(rows))
+        })
+})
+
+// GET location by id
 router.get('/:id', (req, res) => {
     conn.query('SELECT * FROM locations WHERE id=?', [parseInt(req.params.id)], (err, row) => {
         if (err)
@@ -29,13 +49,13 @@ router.get('/:id', (req, res) => {
     })
 })
 
-// GET image of location
+// GET image of specified location
 router.get('/:id/image', (req, res) => {
     res.sendFile(path.join(__dirname, `../data/location_images/L-${req.params.id}.webp`))
 })
 
-// GET all designs of location
-router.get('/:id/designs', ((req, res) => {
+// GET all designs of specified location
+router.get('/:id/designs', (req, res) => {
     conn.query(
         `SELECT e.image AS element_name, e.width, e.position_x, e.position_y, e.design_id
          FROM elements e
@@ -48,7 +68,7 @@ router.get('/:id/designs', ((req, res) => {
                 res.status(404).send('Error 404, not found')
             else res.send(utils.groupByDesignId(rows))
         })
-}))
+})
 
 // POST location
 router.post('/', (req, res) => {

@@ -5,7 +5,8 @@ const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const sassMiddleware = require('node-sass-middleware')
 const bodyParser = require('body-parser')
-const fileUpload = require('express-fileupload')
+const session = require('express-session')
+const crypto = require('crypto')
 
 // Routers
 const indexRouter = require('./routes/index')
@@ -13,6 +14,7 @@ const locationsRouter = require('./routes/locations')
 const elementsRouter = require('./routes/elements')
 const adminRouter = require('./routes/admin')
 const designsRouter = require('./routes/designs')
+const usersRouter = require('./routes/users')
 
 const app = express()
 
@@ -31,20 +33,31 @@ app.use(sassMiddleware({
     sourceMap: true
 }))
 
+// session
+app.use(session({
+    cookieName: 'session',
+    secret: crypto.randomBytes(20).toString("hex"),
+    duration: 30 * 60 * 1000,
+    activeDuration: 5 * 60 * 1000,
+    cookie: { maxAge: 24*60*60*1000, secure:false },
+    resave: false,
+    saveUninitialized: false,
+    proxy: true
+}))
+
+
+
+// body parser
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static(path.join(__dirname, 'public')))
-
-app.use(fileUpload({
-    safeFileNames: true,
-    preserveExtension: true
-}))
 
 // Routers
 app.use('/', indexRouter)
 app.use('/api/locations', locationsRouter)
 app.use('/api/elements', elementsRouter)
 app.use('/api/designs', designsRouter)
+app.use('/api/users', usersRouter)
 
 app.use('/admin', adminRouter)
 

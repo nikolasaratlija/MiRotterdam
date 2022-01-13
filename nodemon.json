@@ -1,0 +1,4 @@
+{
+  "ext" : "js,twig,css",
+  "exec": "babel-node"
+}

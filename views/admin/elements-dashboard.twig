@@ -7,9 +7,9 @@
     <div class="container">
         <h2>Overzicht van de elementen</h2>
 
-        <p>Klik op de knop om een element toe te voegen.</p>
+        <!--<p>Klik op de knop om een element toe te voegen.</p>-->
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#elementenModal">Element toevoegen</button><br>
+        <!--<button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#elementenModal">Element toevoegen</button><br>-->
         <p>Hier vindt u een overzicht van de elementen:</p>
 
          <div id="cardGallery" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
@@ -107,9 +107,15 @@ const card = document.createElement('div');
 card.classList.add('card');
 card.classList.add('shadow-sm');
 
+// image wrapper
+const imageWrapper = document.createElement('div');
+imageWrapper.classList.add('card-img-top');
+imageWrapper.classList.add('card-img-wrapper');
+imageWrapper.classList.add('sm');
+
 //create image properties
 const image = document.createElement('img');
-image.classList.add('card-img-top');
+// image.classList.add('card-img-top');
 image.width = '50%';
 image.height = '255';
 image.src = `${imgSource}`;
@@ -156,7 +162,8 @@ buttonGroup.classList.add('btn-group');
 //create the card divs with parent and child components
 cardGallery.appendChild(column)
 column.appendChild(card)
-card.appendChild(image)
+card.appendChild(imageWrapper)
+imageWrapper.appendChild(image)
 card.appendChild(cardBody)
 cardBody.appendChild(elementName)
 cardBody.appendChild(elementThema)
