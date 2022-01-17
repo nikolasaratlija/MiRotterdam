@@ -83,7 +83,14 @@
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify(data)
                 }
-            )
+            ).then(data => data.json())
+                .then(json => {
+                    if (json.data === false) {
+                        alert("Gebruiker is niet toegevoegd!")
+                    } else {
+                        window.location.href = '/admin/gebruikers'
+                    }
+                })
         })
 
 
