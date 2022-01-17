@@ -632,11 +632,10 @@ section {
 body.design-maker {
   background-color: #303030;
   display: flex;
-  justify-content: end;
   align-items: center;
   flex-direction: column; }
   body.design-maker h2 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-family: Lato, sans-serif;
     margin: 0.5em 0 0.5em 5%;
     color: black; }
@@ -644,6 +643,7 @@ body.design-maker {
 .element-editor {
   background-color: lightgreen;
   width: 100%;
+  min-height: 200px;
   height: 25%;
   box-sizing: border-box;
   border-bottom: 5px solid rgba(0, 0, 0, 0.3);
@@ -682,19 +682,19 @@ body.design-maker {
     height: 100%; }
   .attribute-editor .color-choices-container {
     overflow: auto;
-    display: none; }
+    display: none;
+    margin-bottom: 5px; }
   .attribute-editor .color-choices-container.shown {
     display: flex; }
   .attribute-editor .color-choices-container > button {
     min-width: 75px;
-    width: 75px;
     height: 75px;
-    border: #202020 solid 1px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 10px;
-    background-size: 90%;
     background-repeat: no-repeat;
     background-position: center;
     background-color: transparent;
+    background-size: contain;
     margin: 0 5px; }
   .attribute-editor .color-button {
     border: 1px solid rgba(0, 0, 0, 0.3);
@@ -743,7 +743,7 @@ body.design-maker {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
-  height: 7%;
+  min-height: 50px;
   background-color: #65a765;
   -webkit-box-shadow: 5px 5px 15px 5px #000000;
   box-shadow: 5px 5px 15px 5px #000000;
@@ -766,7 +766,7 @@ body.design-maker {
 
 .canvas {
   width: 100%;
-  height: 68%;
+  height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center; }
