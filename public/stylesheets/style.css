@@ -562,14 +562,11 @@ section {
 
 .design-preview {
   width: 100%;
-  height: 800px !important;
-  background-size: cover;
-  background-repeat: no-repeat;
-  /*box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);*/
-  border-radius: 8px; }
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 1px; }
 
 .contactlabel {
-  padding-top: 20px; }
+  margin: 20px 0; }
   .contactlabel label {
     margin-bottom: .5rem; }
 
@@ -955,5 +952,26 @@ body.admin {
   padding: 50px; }
   #popup #popup-box {
     margin-left: 20px; }
+
+.loading-circle {
+  display: none;
+  border: 16px solid #f3f3f3;
+  /* Light grey */
+  border-top: 16px solid #3498db;
+  /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 50%; }
+  .loading-circle.show {
+    display: block; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
 
 /*# sourceMappingURL=style.css.map */
