@@ -14,15 +14,4 @@ router.get('/', (req, res) => {
     
 })
 
-router.get('/allelements', (req, res) => {
-    conn.query('SELECT * FROM elements', (err, rows) => {
-        if (err)
-            res.send(err)
-        else
-            res.send(rows)
-
-    
-    })
-})
-
 module.exports = router
