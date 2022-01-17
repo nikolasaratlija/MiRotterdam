@@ -24,13 +24,14 @@ router.post('/', (req, res) => {
     conn.query(`INSERT INTO login (Gebruikersnaam, email, Wachtwoord) VALUE (?,?,?)`, [naam, email, wachtwoord], (err, data) => {
         if (err)
             //Error als het niet gelukt is om naar de database te schrijven.
-            res.send(err)
+            res.send(JSON.stringify({'data': false}))
         else {
             //Schrijven naar database is gelukt, terug naar gebruikerspagina navigeren.
-            res.render('admin/users-dashboard', {
-                title: 'Dashboard',
-                bodyClass: 'admin'
-            })
+            // res.render('admin/users-dashboard', {
+            //     title: 'Dashboard',
+            //     bodyClass: 'admin'
+            // })
+            res.send(JSON.stringify({'data': true}))
         }
     })
 })
