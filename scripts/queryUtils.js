@@ -9,6 +9,7 @@ module.exports = {
                 design_id: parseInt(key),
                 location_id: elementData[0].location_id,
                 location_name: elementData[0].location_name,
+                date: elementData[0].date,
                 elements: elementData.map(element => Element(element))
             })
         )
@@ -49,8 +50,5 @@ module.exports = {
 
 // represents a type for an element
 const Element = element => ({
-    element_name: element.element_name,
-    position_x: element.position_x,
-    position_y: element.position_y,
-    width: element.width
+    element_name: element.element_name
 })

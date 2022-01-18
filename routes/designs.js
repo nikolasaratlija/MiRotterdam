@@ -1,18 +1,17 @@
 const express = require('express')
 const router = express.Router()
 const conn = require('../database/connection')
+const fs = require('fs')
 
 const utils = require("../scripts/queryUtils.js");
 
 // get all designs, includes the location id and elements
 router.get('/', (req, res) => {
     conn.query(`
-                SELECT e.image    AS element_name,
-                       e.width,
-                       e.position_x,
-                       e.position_y,
+                SELECT e.image AS element_name,
                        e.design_id,
                        d.location_id,
+                       DATE_FORMAT(d.date, '%Y-%m-%d') AS date,
                        l.location AS location_name
                 FROM elements e
                          INNER JOIN designs d ON d.id = e.design_id
@@ -24,12 +23,27 @@ router.get('/', (req, res) => {
         })
 })
 
+router.get('/:id/canvas_image', ((req, res) => {
+    conn.query(`
+                SELECT image
+                from designs
+                WHERE id = ?`
+        , [parseInt(req.params.id)],
+        (err, imageBufferInfo) => {
+            if (err) res.send(err)
+            else if (imageBufferInfo.length === 0)
+                res.status(404).send('Error 404, not found')
+            else {
+                const buffer = new Buffer(imageBufferInfo[0].image) // creates a buffer object
+                const bufferBase64 = buffer.toString('base64') // converts buffer into base64 object
+                res.send(bufferBase64)
+            }
+        })
+}))
+
 router.get('/:id', ((req, res) => {
     conn.query(`
                 SELECT e.image    AS element_name,
-                       e.width,
-                       e.position_x,
-                       e.position_y,
                        e.design_id,
                        d.location_id,
                        l.location AS location_name
