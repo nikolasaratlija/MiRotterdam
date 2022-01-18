@@ -10,8 +10,7 @@ function createCanvasOverview(designsData) {
         fetch(`/api/designs/${designData.design_id}/canvas_image`)
             .then(data => data.text())
             .then(base64 => {
-                const imgBase64String = 'data:image/jpg;base64, ' + base64 // prepends base64 prefix for html img src
-                const design = DesignCard(designData, imgBase64String) // creates a card containing the canvas and additional information
+                const design = DesignCard(designData, base64) // creates a card containing the canvas and additional information
                 document.getElementById('design-container').appendChild(design)
             })
     })

@@ -29,19 +29,17 @@ router.get('/:id/canvas_image', ((req, res) => {
                 from designs
                 WHERE id = ?`
         , [parseInt(req.params.id)],
-        (err, imageBufferInfo) => {
+        (err, imageBase64) => {
             if (err) res.send(err)
-            else if (imageBufferInfo.length === 0)
+            else if (imageBase64.length === 0)
                 res.status(404).send('Error 404, not found')
             else {
-                const buffer = new Buffer(imageBufferInfo[0].image) // creates a buffer object
-                const bufferBase64 = buffer.toString('base64') // converts buffer into base64 object
-                res.send(bufferBase64)
+                res.send(imageBase64[0].image)
             }
         })
 }))
 
-router.get('/:id', ((req, res) => {
+router.get('/:id', (req, res) => {
     conn.query(`
                 SELECT e.image    AS element_name,
                        e.design_id,
@@ -58,24 +56,23 @@ router.get('/:id', ((req, res) => {
                 res.status(404).send('Error 404, not found')
             else res.send(rows)
         })
-}))
+})
 
-router.post('/', ((req, res) => {
-    const elementsObj = req.body.elements
+router.post('/', (req, res) => {
+    const elements = req.body.elements
     const locationId = req.body.location_id
 
     // inserts design into database
-    conn.query('INSERT INTO designs (location_id) VALUE (?)', [locationId], (err, data) => {
+    conn.query('INSERT INTO designs (location_id, image) VALUE (?, ?)', [locationId, 'name'], (err, data) => {
         if (err) res.send(err)
         else insertElements(data['insertId']) // response returns the id of new design
     })
 
     // insert design elements into database
     const insertElements = (design_id) => {
-        const elementsArr = elementsObj.map(
-            elements => Object.values(elements).concat(design_id)) // turn object into a 2d array
+        const elementsArr = elements.map(element => [element, design_id])
 
-        const insertQuery = `INSERT INTO elements (image, width, position_x, position_y, design_id)
+        const insertQuery = `INSERT INTO elements (image, design_id)
                              VALUES ?`
 
         conn.query(insertQuery, [elementsArr], (err, data) => {
@@ -83,6 +80,6 @@ router.post('/', ((req, res) => {
             else res.send(data)
         })
     }
-}))
+})
 
 module.exports = router

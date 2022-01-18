@@ -1,3 +1,5 @@
+import {getLocationId} from "../utils/getLocationId.js";
+
 const submitButton = document.getElementById('submit-design-button')
 
 const confirmationModal = new bootstrap.Modal(
@@ -8,18 +10,26 @@ const confirmationModal = new bootstrap.Modal(
     })
 
 submitButton.addEventListener('click', () => {
+    const locationId = parseInt(sessionStorage.getItem('locationId'))
+    const elements = JSON.parse(sessionStorage.getItem('canvasElements'))
+
+    const body = {
+        location_id: locationId,
+        elements: elements,
+    }
+
     fetch('/api/designs',
         {
             method: "post",
             headers: {'Content-Type': 'application/json'},
-            body: sessionStorage.designObject
+            body: JSON.stringify(body)
         }
     )
-        .then(res => {
-            confirmationModal.show()
-
-            setTimeout(() => {
-                window.location.replace('/')
-            }, 5000)
-        })
+        // .then(res => {
+        //     confirmationModal.show()
+        //
+        //     setTimeout(() => {
+        //         window.location.replace('/')
+        //     }, 5000)
+        // })
 })

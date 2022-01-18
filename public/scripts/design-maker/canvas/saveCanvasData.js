@@ -1,5 +1,6 @@
 import {canvas, deSelectElement} from "./Canvas.js";
 import {saveDesignAsJson} from "../utils/saveDesignAsJson.js";
+import {getLocationId} from "../utils/getLocationId.js";
 
 export default async function saveCanvasData() {
     deSelectElement() // makes sure to hide all menus and deselect element before screenshotting
@@ -7,9 +8,10 @@ export default async function saveCanvasData() {
     sessionStorage.clear() // makes sure to clear session before setting items
 
     // saves canvas as a data object
-    const designObject = saveDesignAsJson() // creates a JSON object from the canvas
-    const designObjectJson = JSON.stringify(designObject)
-    sessionStorage.setItem('designObject', designObjectJson) // sets a cookie where the JSON is kept
+    const canvasElements = saveDesignAsJson() // creates a JSON object from the canvas
+    sessionStorage.setItem('canvasElements', JSON.stringify(canvasElements)) // sets a cookie where the JSON is kept
+
+    sessionStorage.setItem('locationId', getLocationId())
 
     // show loader, because html2canvas can take a few seconds
     document.getElementById('loading-circle').classList.add('show')
