@@ -1,5 +1,5 @@
 import {DesignsPerLocationChart} from "./DesignsPerLocationChart.js";
-import {ElementOccurrencesChart} from "./ElementOccurrencesChart.js";
+// import {ElementOccurrencesChart} from "./ElementOccurrencesChart.js";
 import {ThemeDistributionChart} from "./ThemeDistrubutionChart.js";
 import * as utils from "./utils.js";
 
@@ -12,7 +12,7 @@ import * as utils from "./utils.js";
 
     ThemeDistributionChart()
 
-    const elementOccurrences = utils.elementOccurrencesPerLocation(locationsData)
-    ElementOccurrencesChart(elementOccurrences)
+    // const elementOccurrences = utils.elementOccurrencesPerLocation(locationsData)
+    // ElementOccurrencesChart(elementOccurrences)
 
 })()
