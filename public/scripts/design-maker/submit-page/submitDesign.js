@@ -12,12 +12,13 @@ submitButton.addEventListener('click', () => {
         {
             method: "post",
             headers: {'Content-Type': 'application/json'},
-            body: sessionStorage.designObject
+            body: sessionStorage.designObject // design data object
         }
     )
         .then(res => {
-            confirmationModal.show()
+            confirmationModal.show() // show popup
 
+            // redirect to homepage in 5 seconds
             setTimeout(() => {
                 window.location.replace('/')
             }, 5000)
