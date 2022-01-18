@@ -914,8 +914,9 @@ body.admin {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 50px; }
-  .design-container .card img {
-    width: 100%; }
+  .design-container .canvas {
+    width: 100%;
+    height: 700px; }
 
 .card-img-wrapper {
   max-height: 400px;
