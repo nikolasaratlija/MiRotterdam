@@ -7,6 +7,7 @@ const sassMiddleware = require('node-sass-middleware')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const crypto = require('crypto')
+const multer = require('multer')
 
 // Routers
 const indexRouter = require('./routes/index')
@@ -45,12 +46,12 @@ app.use(session({
     proxy: true
 }))
 
-
-
 // body parser
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static(path.join(__dirname, 'public')))
+
+app.use(multer({dest:'./data/design_canvas_images/'}).single('file'))
 
 // Routers
 app.use('/', indexRouter)

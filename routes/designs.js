@@ -2,17 +2,18 @@ const express = require('express')
 const router = express.Router()
 const conn = require('../database/connection')
 const fs = require('fs')
+const path = require('path')
 
 const utils = require("../scripts/queryUtils.js");
 
 // get all designs, includes the location id and elements
 router.get('/', (req, res) => {
     conn.query(`
-                SELECT e.image AS element_name,
+                SELECT e.image                         AS element_name,
                        e.design_id,
                        d.location_id,
                        DATE_FORMAT(d.date, '%Y-%m-%d') AS date,
-                       l.location AS location_name
+                       l.location                      AS location_name
                 FROM elements e
                          INNER JOIN designs d ON d.id = e.design_id
                          INNER JOIN locations l ON l.id = d.location_id
@@ -59,11 +60,18 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    const elements = req.body.elements
+    const elements = JSON.parse(req.body.elements)
     const locationId = req.body.location_id
 
+    const fileName = req.file.filename
+    const newFileName = fileName + '.jpg'
+
+    fs.renameSync(
+        path.resolve(__dirname, '../data/design_canvas_images/' + fileName),
+        path.resolve(__dirname, '../data/design_canvas_images/' + newFileName))
+
     // inserts design into database
-    conn.query('INSERT INTO designs (location_id, image) VALUE (?, ?)', [locationId, 'name'], (err, data) => {
+    conn.query('INSERT INTO designs (location_id, image) VALUE (?, ?)', [locationId, newFileName], (err, data) => {
         if (err) res.send(err)
         else insertElements(data['insertId']) // response returns the id of new design
     })

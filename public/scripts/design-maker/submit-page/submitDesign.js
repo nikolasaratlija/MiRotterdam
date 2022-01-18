@@ -1,5 +1,3 @@
-import {getLocationId} from "../utils/getLocationId.js";
-
 const submitButton = document.getElementById('submit-design-button')
 
 const confirmationModal = new bootstrap.Modal(
