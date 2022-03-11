@@ -5,7 +5,7 @@ document.getElementById('playbtn').addEventListener('click', () => {
     document.getElementById('about').classList.remove('d-none') // shows slider
 })
 
-await setSessionVars() // sets variables in session.storage, particularly the location id and name
+setSessionVars() // sets variables in session.storage, particularly the location id and name
 
 document.getElementById('location-name').innerText = sessionStorage.locationName
 
