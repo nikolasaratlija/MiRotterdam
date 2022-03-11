@@ -8,9 +8,9 @@ import {AttributeEditor} from "./attribute-editor/AttributeEditor.js"
 import {SizeSlider} from "./attribute-editor/ElementSizeSlider.js"
 
 import {BottomMenu} from "./buttons/BottomMenu.js";
-import {getLocationId} from "./utils/getLocationId.js";
+import {getLocationId} from "./utils/getLocationInfo.js";
 
-import {setSessionVars} from "./session.js";
+import {saveLocationNameInSession} from "./session.js";
 
 // UNCOMMENT WHEN TESTING/DEVELOPING: sets new session variables if the location id in the query string is different from what is stored in cookies
 // if (!(sessionStorage.locationId === getLocationId()))

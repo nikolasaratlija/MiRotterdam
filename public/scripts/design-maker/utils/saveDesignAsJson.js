@@ -1,5 +1,5 @@
 import {canvas} from "../canvas/Canvas.js";
-import {getLocationId} from "./getLocationId.js";
+import {getLocationId} from "./getLocationInfo.js";
 
 // this function creates a JSON file that represents the canvas (elements, element positions and background)
 export function saveDesignAsJson() {
