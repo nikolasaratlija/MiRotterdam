@@ -9,7 +9,7 @@ document.getElementById('playbtn').addEventListener('click', () => {
 (async () => {
     const locationName = await getLocationName()
 
-    saveLocationNameInSession(locationName) // sets variables in session.storage, particularly the location id and name
+    saveLocationNameInSession(locationName) // saves name of current location in session variables
 
     document.getElementById('location-name').innerText = locationName // set locationname field on the first screen
 
