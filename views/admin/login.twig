@@ -2,7 +2,7 @@
 
 {% block body %}
 
-    <!--Form gemaakt mbv bootstrap en een knop die verwijst naar loginfunctie-->
+    <!--HTML form for loggin in-->
     <div class="form-signin" style="text-align: center;">
             <img class="mb-4" src="/assets/img/MIR-Logo.jpg" alt="Logo" width="auto" height="60">
             <h1 class="h3 mb-3 fw-normal">Log In</h1>
@@ -28,34 +28,39 @@
     </div>
 
     <script>
-        //Functie die zorgt dat de type van het inputveld veranderd.
+        //Function to show a password by given element id in this case wachtwoord.
         function showPass() {
-            var x = document.getElementById("wachtwoord");
-            if (x.type === "password") {
+            var x = document.getElementById("wachtwoord"); //Get the element by id.
+            if (x.type === "password") { //Check the type of element. If password then change to text to show.
                 x.type = "text";
-            } else {
+            } else { //If the type is text then change it back to password.
                 x.type = "password";
             }
         }
 
-        //Heeft door ofdat de knop aangeklikt wordt, pakt de waardes van de input en schrijft die naar JSON.
+        ////Eventlistener for button in the modal, registers a click on the button.
         document.getElementById('login-button').addEventListener('click', () => {
+            //Creates JSON data with the data filled in, in the form.
             const data = {
                 'wachtwoord': document.getElementById('wachtwoord').value,
                 'email': document.getElementById('email').value
             }
 
+            //Fetch function with post method to the api, this is to check if the user is in the database.
+            //JSON data is given in the body.
             fetch('/admin', {
                 method: "post",
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(data)
             })
-                .then(data => data.json())
+                .then(data => data.json()) //Convert the retrieved data to JSON format.
                 .then(json => {
                     if (json.data === false){
-                        document.getElementById('fout').classList.remove('d-none')
+                        //Retrieved data is false, so the user is not in the database.
+                        document.getElementById('fout').classList.remove('d-none') //Removes the class d-none to show error message on the page.
                     }
                     else {
+                        //User is in the database, navigate user to the home page of admin.
                         window.location.href = '/admin/dashboard'
                     }
                 })
