@@ -1,6 +1,7 @@
 .element-editor {
   background-color: rgb(144, 238, 144);
   width: 100%;
+  min-height: 200px;
   height: 25%;
   box-sizing: border-box;
   border-bottom: 5px solid rgba(0, 0, 0, 0.3);
@@ -56,6 +57,7 @@
   .color-choices-container {
     overflow: auto;
     display: none;
+    margin-bottom: 5px;
   }
 
   .color-choices-container.shown {
@@ -64,14 +66,13 @@
 
   .color-choices-container > button {
     min-width: 75px;
-    width: 75px;
     height: 75px;
-    border: #202020 solid 1px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 10px;
-    background-size: 90%;
     background-repeat: no-repeat;
     background-position: center;
     background-color: transparent;
+    background-size: contain;
     margin: 0 5px;
   }
 

@@ -4,10 +4,11 @@
 
     {% include 'admin/sidebar.twig' %}
     <div class="container">
-    <!--Welkom + Gebruikersnaam waarmee ingelogd is-->
+    <!--Welkom + Username of person who logged in-->
         <h2>Welkom <span>{{ name }}</span></h2>
     <p>U bent nu op de adminpagina van het project MiRotterdam.<br>In het menu kunt u de aanpassingen doen.</p>
 
+        <!--Div with cards init for fast navigation to pages-->
     <div class="divcards">
         <div class="card" style="width: 18rem;display: inline-block; border: solid black 1px;">
             <a href="/admin/locaties-dashboard"><img src="/assets/img/pin.png" class="card-img-top"></a>
@@ -36,7 +37,7 @@
     </div>
 
 
-    <!--Div voor het contactvlak onder aan de site-->
+    <!--Div for contact at the bottom of the page-->
     <footer class="bottom">
         <br>
         <img src="/assets/img/Gemeente-Logo.jpg" alt="" width="100" height="40" >

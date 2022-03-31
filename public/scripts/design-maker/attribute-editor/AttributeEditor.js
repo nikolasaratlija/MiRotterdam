@@ -1,6 +1,7 @@
 import {updateSlider} from "./ElementSizeSlider.js";
 import {setChosenElement} from "./ColorChooser.js";
 import {mirrorElement} from "./mirrorElement.js";
+import {getSelectedElement} from "../utils/getSelectedElement.js";
 
 const menuHintText = document.getElementById('menu-hint')
 
@@ -55,6 +56,9 @@ export function hideElementEditor() {
 export function AttributeEditor() {
     buttonMenuPairs.forEach(pair => {
         pair.button.addEventListener('click', () => {
+            // ignores click if there's no selected element
+            if (!getSelectedElement()) return
+
             removeButtonHighlight(pair.button)
             showAttrContainer(pair.menu)
             pair.button.classList.add('highlighted')

@@ -20,7 +20,7 @@
 
         <div id="gebruikersDiv"></div>
 
-        <!-- Modals -->
+        <!-- Modal for adding a user -->
         <div class="modal fade" id="gebruikerModal" tabindex="-1" role="dialog" aria-labelledby="gebruikerModal"
              aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -66,65 +66,79 @@
 
     <script>
 
-        //Zorgt ervoor dat wanneer de knop aangeklikt is de inhoud uitgevoerd wordt.
+        //Eventlistener for button in the modal, registers a click on the button.
         document.getElementById('addUser').addEventListener('click', () => {
 
-            //JSON data aanmaken met de gegevens uit de form.
+            //Creates JSON data with the data filled in, in the form.
             const data = {
                 'naam': document.getElementById('naam').value,
                 'email': document.getElementById('email').value,
                 'wachtwoord1': document.getElementById('wachtwoord1').value
             }
 
-            //Fetch functie hiermee worden de gegevens uit data gegeven aan user.js en dan de post method
+            //Fetch function with post method to the api, this is to add a user to database.
+            //JSON data is given in the body.
             fetch('/api/users',
                 {
                     method: "post",
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify(data)
                 }
-            )
+            ).then(data => data.json()) //Convert the retrieved data to JSON format.
+                .then(json => {
+                    if (json.data === false) {
+                        //Data is false, user is not added to database, give alert.
+                        alert("Gebruiker is niet toegevoegd!")
+                    } else {
+                        //User is added to database, refreshes the page.
+                        window.location.href = '/admin/gebruikers'
+                    }
+                })
         })
 
+        //Fetch function to show all users on the page.
+        fetch('/api/users') //Fetch retrieves the users data from api.
+            .then(result => result.json()) //Convert the retrieved data to JSON format.
+            .then(json => toonOpDashboard(json)) //Call function to show the JSON data on the page.
 
-        fetch('/api/users') //haalt de gebruikers data op
-            .then(result => result.json()) //Data converteren naar JSON
-            .then(json => toonOpDashboard(json)) //Toont JSON in html pagina div
-
+        //Function to delete a user from database.
         function deleteUser (userID){
             fetch(`/api/users/${userID}`, {
                 method: "delete"
-            })
-                .then(data => data.json())
+            }) //Call the delete method form api, with userid in the URL.
+                .then(data => data.json()) //Convert the retrieved data to JSON format.
                 .then(json => {
                     if (json.data === false) {
-                        document.getElementById('fout').classList.remove('d-none')
+                        //User is not deleted, Show the error message on the page.
+                        document.getElementById('fout').classList.remove('d-none') //Removes the class d-none to show message on page.
                     } else {
+                        //User is deleted, refreshes the page.
                         window.location.href = '/admin/gebruikers'
                     }
                 })
         }
 
-        //Functie om alle gebruikers te tonen op het dashboard
+        //Function to show all the user on the page in a HTML table.
         function toonOpDashboard(gebruikers) {
-            let locatiesHTML = "<table class='table' ><tr><th scope='col'>ID:</th><th scope='col'>Gebruikersnaam:</th><th scope='col'>Email:</th><th scope='col'>Wachtwoord:</th><th scope='col'>Verwijderen:</th></tr>"   //variabel waar alle html in komt
+            let locatiesHTML = "<table class='table' ><tr><th scope='col'>ID:</th><th scope='col'>Gebruikersnaam:</th><th scope='col'>Email:</th><th scope='col'>Wachtwoord:</th><th scope='col'>Verwijderen:</th></tr>"   //variabel to put all the html in.
 
-            gebruikers.forEach(gebruiker => { //loop over alle locaties
-                //Maakt een nieuwe html element aan met gebruikers data in een table
+            gebruikers.forEach(gebruiker => { //loop over all users.
+                //Creates a new HTML element table with all user data.
                 locatiesHTML += `
                 <tr><td>${gebruiker.id}</td><td>${gebruiker.Gebruikersnaam}</td><td>${gebruiker.email}</td><td>${gebruiker.Wachtwoord}</td><td><a class='btn btn-md btn-danger' type="submit" onclick="deleteUser(${gebruiker.id})" id="verwijderBtn">Verwijderen</a></td></tr>
             `
             })
 
-            //Zet alle data in de html div dmv
+            //Adds the created table to a div on the page by id.
             document.getElementById('gebruikersDiv').innerHTML += locatiesHTML
         }
 
+        //Function to show a password by given element id.
         function showPass($id) {
-            var x = document.getElementById($id);
-            if (x.type === "password") {
+            var x = document.getElementById($id); //Get the element by id.
+            if (x.type === "password") { //Check the type of element. If password then change to text to show.
                 x.type = "text";
-            } else {
+            } else { //If the type is text then change it back to password.
                 x.type = "password";
             }
         }

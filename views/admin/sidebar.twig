@@ -1,11 +1,12 @@
 <script>
-    //Functie om uit te loggen.
+    //Function to logout.
     function callLogout(){
+        //Opens the logout route. To logout.
         window.open("/admin/logout","_self");
     }
 </script>
 
-<!--Hieronder staat de navbar code, links bevindt zich het logo van het project.-->
+<!--The HTML code for the navbar-->
 <nav class="d-flex flex-column flex-shrink-0 p-3 bg-light h-100" style="width: 280px; z-index: 1000;">
     <a href="/admin/dashboard" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
@@ -58,7 +59,7 @@
     </ul>
 </nav>
 
-<!-- Modal voor het uitloggen Popupvenster -->
+<!-- Modal to logout, it pops up on the screen when it is triggerd. -->
 <div class="modal fade" id="loguitModal" tabindex="-1" role="dialog" aria-labelledby="loguitModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">

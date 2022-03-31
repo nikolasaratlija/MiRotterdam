@@ -85,8 +85,8 @@ imageWrapper.appendChild(image)
 card.appendChild(cardBody)
 cardBody.appendChild(locationText)
 cardBody.appendChild(buttonBar)
-buttonBar.appendChild(buttonGroup)
-buttonGroup.appendChild(CreateDeleteButton('Verwijder', 'btn-danger'))
+// buttonBar.appendChild(buttonGroup)
+// buttonGroup.appendChild(CreateDeleteButton('Verwijder', 'btn-danger'))
 
 
 }

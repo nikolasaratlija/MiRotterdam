@@ -4,52 +4,50 @@ const conn = require('../database/connection')
 
 // GET all users
 router.get('/', (req, res) => {
-    //Query om alle gegevens op te halen uit de database table login.
+    //SQL query to retrieve all data in login table.
     conn.query('SELECT * FROM login', (err, rows) => {
         if (err)
-            res.send(err)
+            res.send(err) //Error occured.
         else
-            res.send(rows)
+            res.send(rows) //Data is found send it back.
     })
 })
 
 // POST new user
 router.post('/', (req, res) => {
-    //Variabelen defineren uit de form.
+    //Variabels from the add user form.
     const naam = req.body.naam
     const email = req.body.email
     const wachtwoord = req.body.wachtwoord1
 
-    //Query schrijven om de informatie naar de database te schrijven.
+    //SQL query to add user to database.
     conn.query(`INSERT INTO login (Gebruikersnaam, email, Wachtwoord) VALUE (?,?,?)`, [naam, email, wachtwoord], (err, data) => {
         if (err)
-            //Error als het niet gelukt is om naar de database te schrijven.
-            res.send(err)
+            //Error occured when writing to database.
+            res.send(JSON.stringify({'data': false})) //Send JSON data is false back.
         else {
-            //Schrijven naar database is gelukt, terug naar gebruikerspagina navigeren.
-            res.render('admin/users-dashboard', {
-                title: 'Dashboard',
-                bodyClass: 'admin'
-            })
+            //User is added to database.
+            res.send(JSON.stringify({'data': true})) //Send JSON data is true back.
         }
     })
 })
 
 // DELETE user
 router.delete('/:id', (req, res) => {
-    //Query schrijven voor het verwijderen van een user.
+    //Log to see what the id is, and in wich function we are.
     console.log(req.params.id)
     console.log('Inside the delete function with query')
 
+    //SQL query to delete a user given by id.
     conn.query('DELETE FROM login WHERE id=?', [parseInt(req.params.id)], (err, result) => {
         if (err)
-            res.send(err)
-        //Mislukt om gebruiker te verwijderen
+            res.send(err) //Error occured while deleting user.
         if (result.length === 0)
-            res.send(JSON.stringify({'data': false}))
+            //User is not deleted.
+            res.send(JSON.stringify({'data': false})) //Send JSON data false back.
         else {
-            //JSON data op true (gebruiker is verwijderd).
-            res.send(JSON.stringify({'data': true}))
+            //User is deleted.
+            res.send(JSON.stringify({'data': true})) //Send JSON data true back.
         }
     })
 })

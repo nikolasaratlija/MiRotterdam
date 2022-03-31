@@ -7,24 +7,24 @@
     <div class="container">
         <h2>Overzicht van de elementen</h2>
 
-       
-        <!-- Button trigger modal -->
-        <!--<button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#elementenModal">Element toevoegen</button><br>-->
+
         <p>Hier vindt u een overzicht van de elementen:</p>
 
-         <div id="cardGallery" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
-        
-        <!-- Popup -->
+        <!-- Div for to put all the elements in by script -->
+        <div id="cardGallery" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
+
+        <!-- Popup for the clicked element -->
 
         <div id="popup">
             <img src="" alt="" id="selectedImage" color="white" height="300px" width="auto">
             <div id="popup-box">
-                
+
             </div>
         </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="elementenModal" tabindex="-1" role="dialog" aria-labelledby="elementenModal" aria-hidden="true">
+        <!-- Modal for adding an element -->
+        <div class="modal fade" id="elementenModal" tabindex="-1" role="dialog" aria-labelledby="elementenModal"
+             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -36,28 +36,30 @@
                             <p>Hieronder kunt u een element toevoegen.<br></p>
 
                             <div class="form-group">
-                                <label for="naam" class="col-form-label" >Element naam: </label><br>
+                                <label for="naam" class="col-form-label">Element naam: </label><br>
                                 <input type="text" name="naam" placeholder="Boom" class="form-control" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="thema" class="col-form-label" >Thema:</label><br>
+                                <label for="thema" class="col-form-label">Thema:</label><br>
                                 <select class="form-select" name="SelectThema" required="true">
                                     <option value="">Kies een thema...</option>
                                     <option value="Groen">Groen</option>
-                                    <option value="Sport & Spel" >Sport & Spel</option>
-                                    <option value="Ontspanning" >Ontspanning</option>
-                                    <option value="Veilig & Schoon" >Veilig & Schoon</option>
+                                    <option value="Sport & Spel">Sport & Spel</option>
+                                    <option value="Ontspanning">Ontspanning</option>
+                                    <option value="Veilig & Schoon">Veilig & Schoon</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label for="fileToUpload" class="col-form-label" >Kies een afbeelding:</label><br>
-                                <input type="file" name="fileToUpload" id="fileToUpload" class="form-control" required><br><br>
+                                <label for="fileToUpload" class="col-form-label">Kies een afbeelding:</label><br>
+                                <input type="file" name="fileToUpload" id="fileToUpload" class="form-control"
+                                       required><br><br>
                             </div>
 
                             <div class="form-group">
-                                <input type="submit" value="Toevoegen" name="submit" class="form-control" style="background-color: #198754;color: white;" ><br>
+                                <input type="submit" value="Toevoegen" name="submit" class="form-control"
+                                       style="background-color: #198754;color: white;"><br>
                             </div>
                         </form>
 
@@ -70,121 +72,146 @@
         </div>
     </div>
 
-<script>
 
-//function for passing the elements json data in getElement function
-function getElement(json){
-console.log(typeof(json))
- json.forEach(element => {
+    <script>
+        {#
+        fetch('/api/elements')
+        .then(res => res.json())
+        .then(json => getLocation(json)) #}
 
-    cardBuilder(`/assets/elements/${element.image}`, element.naam, element.thema); //passing elements data in cardBuilder function for each element
-});
+        function createImageCards(json) {
+            json.forEach(elementName => {
+                let theme;
 
-}
+                const filePrefix = elementName.split('-')[0]
 
-//fetching elements data and passing it to a json
-fetch('/api/elements/allelements')
-.then(res => res.json())
-.then(json => getElement(json))
+                switch (filePrefix) {
+                    case 'g':   // Thema Groen
+                        theme = 'Groen'
+                        break
+                    case 'ss':  // Thema Spel & Sport
+                        theme = 'Spel & Sport'
+                        break
+                    case 'v':   // Thema Veilig
+                        theme = 'Veilig'
+                        break
+                    case 'o':   // Thema Ontspanning
+                        theme = 'Ontspanning'
+                        break
+                    default:    // No/Unrecognized prefix
+                        console.error(`Prefix of '${filePrefix}' in file-name '${elementName}' not recognized.`)
+                        break
+                }
 
-const cardGallery = document.getElementById('cardGallery');
-const popup = document.getElementById('popup');
-const selectedImage = document.getElementById('selectedImage');
-const popupBox = document.getElementById('popup-box');
-
-
-//card builder
-function cardBuilder(imgSource, elementNameSrc, elementThemaSrc){
-    
-//create column
-const column = document.createElement('div');
-column.classList.add('col');
-
-//create card
-const card = document.createElement('div');
-card.classList.add('card');
-card.classList.add('shadow-sm');
-
-// image wrapper
-const imageWrapper = document.createElement('div');
-imageWrapper.classList.add('card-img-top');
-imageWrapper.classList.add('card-img-wrapper');
-imageWrapper.classList.add('sm');
-
-//create image properties
-const image = document.createElement('img');
-
-image.width = '50%';
-image.height = '255';
-image.src = `${imgSource}`;
-image.style.cursor = 'pointer';
-
-//create popup function
-image.addEventListener('click', () => {
-    popup.style.transform = `translateY(0)`
-    selectedImage.src = image.src;
-})
-
-//create popup disappear function
-popup.addEventListener('click', () =>{
-    popup.style.transform = `translateY(-100%)`;
-    selectedImage.src = ''
-    selectedImage.alt = ''
-})
+                cardBuilder(`/assets/elements/${elementName}`, elementName, theme);
+            });
+        }
+        
+        //fetching elements data and passing it to a json
+        fetch('/api/elements/')
+            .then(res => res.json())
+            .then(json => createImageCards(json))
+        
+        //declare variables for creating the card view
+        const cardGallery = document.getElementById('cardGallery');
+        const popup = document.getElementById('popup');
+        const selectedImage = document.getElementById('selectedImage');
+        const popupBox = document.getElementById('popup-box');
 
 
+        //card builder
+        function cardBuilder(imgSource, elementNameSrc, elementThemaSrc){
 
-//create card body
-const cardBody = document.createElement('div');
-cardBody.classList.add('card-body');
-//create an element name section
-const elementName = document.createElement('p');
-elementName.classList.add('fw-bold');
-elementName.textContent = `Element: ${elementNameSrc}`;
-//create an element theme section
-const elementThema = document.createElement('p');
-elementThema.classList.add('fw-bold');
-elementThema.textContent = `Thema: ${elementThemaSrc}`;
+        //create column
+        const column = document.createElement('div');
+        column.classList.add('col');
 
+        //create card
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.classList.add('shadow-sm');
 
-//create buttons on card
-const buttonBar = document.createElement('div');
-buttonBar.classList.add('d-flex');
-buttonBar.classList.add('justify-content-between');
-buttonBar.classList.add('align-items-center');
+        // image wrapper
+        const imageWrapper = document.createElement('div');
+        imageWrapper.classList.add('card-img-top');
+        imageWrapper.classList.add('card-img-wrapper');
+        imageWrapper.classList.add('sm');
 
-//group the buttons
-const buttonGroup = document.createElement('div');
-buttonGroup.classList.add('btn-group');
+        //create image properties
+        const image = document.createElement('img');
 
-//create the card divs with parent and child components
-cardGallery.appendChild(column)
-column.appendChild(card)
-card.appendChild(imageWrapper)
-imageWrapper.appendChild(image)
-card.appendChild(cardBody)
-cardBody.appendChild(elementName)
-cardBody.appendChild(elementThema)
-cardBody.appendChild(buttonBar)
+        image.width = '50%';
+        image.height = '255';
+        image.src = `${imgSource}`;
+        image.style.cursor = 'pointer';
+
+        //create popup function
+        image.addEventListener('click', () => {
+            popup.style.transform = `translateY(0)`
+            selectedImage.src = image.src;
+        })
+
+        //create popup disappear function
+        popup.addEventListener('click', () =>{
+            popup.style.transform = `translateY(-100%)`;
+            selectedImage.src = ''
+            selectedImage.alt = ''
+        })
 
 
 
-}
-
-//function for creating a button
-function CreateButton(text, className){
-    const cardButton = document.createElement('button');
-    cardButton.type = 'button';
-    //adding bootstrap classes to the button
-    cardButton.classList.add('btn'); 
-    cardButton.classList.add('btn-sm');
-    cardButton.classList.add(className);
-    cardButton.textContent = text;
-    cardButton.style.margin = '5px'
-    return cardButton;
-}
+        //create card body
+        const cardBody = document.createElement('div');
+        cardBody.classList.add('card-body');
+        //create an element name section
+        const elementName = document.createElement('p');
+        elementName.classList.add('fw-bold');
+        elementName.textContent = `Element: ${elementNameSrc}`;
+        //create an element theme section
+        const elementThema = document.createElement('p');
+        elementThema.classList.add('fw-bold');
+        elementThema.textContent = `Thema: ${elementThemaSrc}`;
 
 
-</script>
+        //create buttons on card
+        const buttonBar = document.createElement('div');
+        buttonBar.classList.add('d-flex');
+        buttonBar.classList.add('justify-content-between');
+        buttonBar.classList.add('align-items-center');
+
+        //group the buttons
+        const buttonGroup = document.createElement('div');
+        buttonGroup.classList.add('btn-group');
+
+        //create the card divs with parent and child components
+        cardGallery.appendChild(column)
+        column.appendChild(card)
+        card.appendChild(imageWrapper)
+        imageWrapper.appendChild(image)
+        card.appendChild(cardBody)
+        cardBody.appendChild(elementName)
+        cardBody.appendChild(elementThema)
+        cardBody.appendChild(buttonBar)
+
+
+
+        }
+
+        //function for creating a button
+        function CreateButton(text, className){
+            const cardButton = document.createElement('button');
+            cardButton.type = 'button';
+            //adding bootstrap classes to the button
+            cardButton.classList.add('btn'); 
+            cardButton.classList.add('btn-sm');
+            cardButton.classList.add(className);
+            cardButton.textContent = text;
+            cardButton.style.margin = '5px'
+            return cardButton;
+        }
+
+
+    </script>
+
 
 {% endblock %}

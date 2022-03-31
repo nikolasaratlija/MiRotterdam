@@ -24,8 +24,8 @@ function DesignCard(canvas, designData) {
 
             <div class="card-body">
                 <h5 class="card-title">Locatie: ${designData.location_name}</h5>
-                <p class="card-text">Datum</p>
-                <a href="#" class="btn btn-primary">Meer Informatie</a>
+<!--                <p class="card-text">Datum</p>-->
+<!--                <a href="#" class="btn btn-primary">Meer Informatie</a>-->
             </div>
         </div>`
 
