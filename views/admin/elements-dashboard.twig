@@ -72,6 +72,7 @@
         </div>
     </div>
 
+
     <script>
         {#
         fetch('/api/elements')
@@ -105,11 +106,13 @@
                 cardBuilder(`/assets/elements/${elementName}`, elementName, theme);
             });
         }
-
+        
+        //fetching elements data and passing it to a json
         fetch('/api/elements/')
             .then(res => res.json())
             .then(json => createImageCards(json))
-
+        
+        //declare variables for creating the card view
         const cardGallery = document.getElementById('cardGallery');
         const popup = document.getElementById('popup');
         const selectedImage = document.getElementById('selectedImage');
@@ -117,86 +120,89 @@
 
 
         //card builder
-        function cardBuilder(imgSource, elementNameSrc, elementThemaSrc) {
+        function cardBuilder(imgSource, elementNameSrc, elementThemaSrc){
 
-            //create column
-            const column = document.createElement('div');
-            column.classList.add('col');
+        //create column
+        const column = document.createElement('div');
+        column.classList.add('col');
 
-            //create card
-            const card = document.createElement('div');
-            card.classList.add('card');
-            card.classList.add('shadow-sm');
+        //create card
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.classList.add('shadow-sm');
 
-            // image wrapper
-            const imageWrapper = document.createElement('div');
-            imageWrapper.classList.add('card-img-top');
-            imageWrapper.classList.add('card-img-wrapper');
-            imageWrapper.classList.add('sm');
+        // image wrapper
+        const imageWrapper = document.createElement('div');
+        imageWrapper.classList.add('card-img-top');
+        imageWrapper.classList.add('card-img-wrapper');
+        imageWrapper.classList.add('sm');
 
-            //create image properties
-            const image = document.createElement('img');
-            // image.classList.add('card-img-top');
-            image.width = '50%';
-            image.height = '255';
-            image.src = `${imgSource}`;
-            image.style.cursor = 'pointer';
+        //create image properties
+        const image = document.createElement('img');
 
-            //create popup function
-            image.addEventListener('click', () => {
-                popup.style.transform = `translateY(0)`
-                selectedImage.src = image.src;
-            })
+        image.width = '50%';
+        image.height = '255';
+        image.src = `${imgSource}`;
+        image.style.cursor = 'pointer';
 
-            //create popup disappear function
-            popup.addEventListener('click', () => {
-                popup.style.transform = `translateY(-100%)`;
-                selectedImage.src = ''
-                selectedImage.alt = ''
-            })
+        //create popup function
+        image.addEventListener('click', () => {
+            popup.style.transform = `translateY(0)`
+            selectedImage.src = image.src;
+        })
 
-
-            //create card body
-            const cardBody = document.createElement('div');
-            cardBody.classList.add('card-body');
-
-            const elementName = document.createElement('p');
-            elementName.classList.add('fw-bold');
-            elementName.textContent = `Element: ${elementNameSrc}`;
-
-            const elementThema = document.createElement('p');
-            elementThema.classList.add('fw-bold');
-            elementThema.textContent = `Thema: ${elementThemaSrc}`;
+        //create popup disappear function
+        popup.addEventListener('click', () =>{
+            popup.style.transform = `translateY(-100%)`;
+            selectedImage.src = ''
+            selectedImage.alt = ''
+        })
 
 
-            //create buttons on card
-            const buttonBar = document.createElement('div');
-            buttonBar.classList.add('d-flex');
-            buttonBar.classList.add('justify-content-between');
-            buttonBar.classList.add('align-items-center');
 
-            //group the buttons
-            const buttonGroup = document.createElement('div');
-            buttonGroup.classList.add('btn-group');
+        //create card body
+        const cardBody = document.createElement('div');
+        cardBody.classList.add('card-body');
+        //create an element name section
+        const elementName = document.createElement('p');
+        elementName.classList.add('fw-bold');
+        elementName.textContent = `Element: ${elementNameSrc}`;
+        //create an element theme section
+        const elementThema = document.createElement('p');
+        elementThema.classList.add('fw-bold');
+        elementThema.textContent = `Thema: ${elementThemaSrc}`;
 
-            //create the card divs with parent and child components
-            cardGallery.appendChild(column)
-            column.appendChild(card)
-            card.appendChild(imageWrapper)
-            imageWrapper.appendChild(image)
-            card.appendChild(cardBody)
-            cardBody.appendChild(elementName)
-            cardBody.appendChild(elementThema)
-            cardBody.appendChild(buttonBar)
-            // buttonBar.appendChild(buttonGroup)
-            // buttonGroup.appendChild(CreateButton('Verwijder', 'btn-danger'))
+
+        //create buttons on card
+        const buttonBar = document.createElement('div');
+        buttonBar.classList.add('d-flex');
+        buttonBar.classList.add('justify-content-between');
+        buttonBar.classList.add('align-items-center');
+
+        //group the buttons
+        const buttonGroup = document.createElement('div');
+        buttonGroup.classList.add('btn-group');
+
+        //create the card divs with parent and child components
+        cardGallery.appendChild(column)
+        column.appendChild(card)
+        card.appendChild(imageWrapper)
+        imageWrapper.appendChild(image)
+        card.appendChild(cardBody)
+        cardBody.appendChild(elementName)
+        cardBody.appendChild(elementThema)
+        cardBody.appendChild(buttonBar)
+
+
+
         }
 
-        //create button
-        function CreateButton(text, className) {
+        //function for creating a button
+        function CreateButton(text, className){
             const cardButton = document.createElement('button');
             cardButton.type = 'button';
-            cardButton.classList.add('btn');
+            //adding bootstrap classes to the button
+            cardButton.classList.add('btn'); 
             cardButton.classList.add('btn-sm');
             cardButton.classList.add(className);
             cardButton.textContent = text;
@@ -206,5 +212,6 @@
 
 
     </script>
+
 
 {% endblock %}
