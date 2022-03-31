@@ -1,15 +1,18 @@
+//fetching json data of the locations
 fetch('/api/locations')
     .then(res => res.json())
     .then(json => getLocation(json))
 
+//pass the json data in the getLocation parameter    
 function getLocation(json){
 console.log(typeof(json))
  json.forEach(element => {
-    cardBuilder(`/api/locations/${element.id}/image`, element.location);
+    cardBuilder(`/api/locations/${element.id}/image`, element.location); //apply the cardbuilder function for every location in the json data
 });
 
 }
 
+//declare variables for creating the card view
 const cardGallery = document.getElementById('cardGallery');
 const popup = document.getElementById('popup');
 const selectedImage = document.getElementById('selectedImage');
@@ -59,6 +62,7 @@ popup.addEventListener('click', () =>{
 const cardBody = document.createElement('div');
 cardBody.classList.add('card-body');
 
+//creating the location text
 const locationText = document.createElement('p');
 locationText.classList.add('fw-bold');
 locationText.textContent = `Locatie: ${locationName}`;
@@ -87,34 +91,23 @@ buttonGroup.appendChild(CreateDeleteButton('Verwijder', 'btn-danger'))
 
 }
 
-//create button
+//create Delete button
 function CreateDeleteButton(text, className){
-    const cardButton = document.createElement('button');
-    cardButton.addEventListener("click", DeleteObject)
+    const cardButton = document.createElement('button'); //applying button element to the variable cardButton
+    cardButton.addEventListener("click", DeleteObject) //the event listner calls the DeleteObject function on click
     cardButton.type = 'button';
-    cardButton.classList.add('btn');
-    cardButton.classList.add('btn-sm');
+    cardButton.classList.add('btn'); //add bootstrap class btn
+    cardButton.classList.add('btn-sm'); //add bootstrap class btn-sm
     cardButton.classList.add(className);
     cardButton.textContent = text;
     cardButton.style.margin = '5px'
     return cardButton;
 }
 
+//function for deleting the clicked object
 function DeleteObject(){
-    console.log("I am clicked!")
-
-    fetch(`/api/locations/22`, {
+    fetch(`/api/locations/22`, { 
         method: "delete"
     })
 
-
-    /*
-
-    verwijder uit database
-    stap 1 id krijgen van de gekozen element/locatie
-    stap 2 fetch(`/api/locations/${userID}`, {
-    method: "delete"
-})
-    
-    */
 }

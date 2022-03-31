@@ -7,7 +7,7 @@
     <div class="container">
         <h2>Overzicht van de elementen</h2>
 
-        <!--<p>Klik op de knop om een element toe te voegen.</p>-->
+       
         <!-- Button trigger modal -->
         <!--<button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#elementenModal">Element toevoegen</button><br>-->
         <p>Hier vindt u een overzicht van de elementen:</p>
@@ -71,23 +71,21 @@
     </div>
 
 <script>
-{# 
-    fetch('/api/elements')
-    .then(res => res.json())
-    .then(json => getLocation(json)) #}
 
-function getLocation(json){
+//function for passing the elements json data in getElement function
+function getElement(json){
 console.log(typeof(json))
  json.forEach(element => {
 
-    cardBuilder(`/assets/elements/${element.image}`, element.naam, element.thema);
+    cardBuilder(`/assets/elements/${element.image}`, element.naam, element.thema); //passing elements data in cardBuilder function for each element
 });
 
 }
 
+//fetching elements data and passing it to a json
 fetch('/api/elements/allelements')
 .then(res => res.json())
-.then(json => getLocation(json))
+.then(json => getElement(json))
 
 const cardGallery = document.getElementById('cardGallery');
 const popup = document.getElementById('popup');
@@ -115,7 +113,7 @@ imageWrapper.classList.add('sm');
 
 //create image properties
 const image = document.createElement('img');
-// image.classList.add('card-img-top');
+
 image.width = '50%';
 image.height = '255';
 image.src = `${imgSource}`;
@@ -139,11 +137,11 @@ popup.addEventListener('click', () =>{
 //create card body
 const cardBody = document.createElement('div');
 cardBody.classList.add('card-body');
-
+//create an element name section
 const elementName = document.createElement('p');
 elementName.classList.add('fw-bold');
 elementName.textContent = `Element: ${elementNameSrc}`;
-
+//create an element theme section
 const elementThema = document.createElement('p');
 elementThema.classList.add('fw-bold');
 elementThema.textContent = `Thema: ${elementThemaSrc}`;
@@ -168,17 +166,17 @@ card.appendChild(cardBody)
 cardBody.appendChild(elementName)
 cardBody.appendChild(elementThema)
 cardBody.appendChild(buttonBar)
-//buttonBar.appendChild(buttonGroup)
-//buttonGroup.appendChild(CreateButton('Verwijder', 'btn-danger'))
+
 
 
 }
 
-//create button
+//function for creating a button
 function CreateButton(text, className){
     const cardButton = document.createElement('button');
     cardButton.type = 'button';
-    cardButton.classList.add('btn');
+    //adding bootstrap classes to the button
+    cardButton.classList.add('btn'); 
     cardButton.classList.add('btn-sm');
     cardButton.classList.add(className);
     cardButton.textContent = text;
